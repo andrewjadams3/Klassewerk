@@ -5,4 +5,6 @@ class Classroom < ActiveRecord::Base
   has_many :students, through: :enrollments
   belongs_to :teacher
   belongs_to :grading_period
+
+  validates :title, :grading_period, :teacher, presence: true
 end
