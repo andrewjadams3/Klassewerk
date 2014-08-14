@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140814161607) do
     t.string   "security_question"
     t.string   "security_answer"
     t.string   "password_digest"
+    t.string   "email"
     t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
