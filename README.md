@@ -47,8 +47,11 @@ Templating: Emblem.js/Handlebars.js
 
 Optional features tech: paper.js, d3, jQuery mobile
 
+##Contributing and Licensing: 
+
+
+The MIT License (MIT)
+Copyright (c) 2014 Classwork
 
 
 
-
-<tt>rake doc:app</tt>.
