@@ -13,8 +13,8 @@ RSpec.describe GradingPeriod, :type => :model do
     it 'should belong have a DateTime for both .start_date and .end_date' do
       @grading_period = GradingPeriod.new(:start_date => DateTime.new(2012, 8, 1, 22, 35, 0), :end_date => DateTime.new(2014, 8, 1, 22, 35, 0))
       @grading_period.save
-      expect(@grading_period.start_date).to be_a(DateTime)
-      expect(@grading_period.end_date).to be_a(DateTime)
+      expect(@grading_period.start_date).to be_a(ActiveSupport::TimeWithZone)
+      expect(@grading_period.end_date).to be_a(ActiveSupport::TimeWithZone)
    end
   end
 end

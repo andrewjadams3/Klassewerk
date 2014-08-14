@@ -11,9 +11,9 @@ require 'rails_helper'
 RSpec.describe Worksheet, :type => :model do
    describe "associations" do
     it 'should store .answer_key and .input_fields as json objects' do
-      @worksheet = Worksheet.create(:input_fields => ("cordinates for input fields").to_json, :answer_key => (Response.new).to_json)
-      expect(@worksheet.input_fields).to be(json)
-      expect(@worksheet.answer_key).to be(json)
+      @worksheet = Worksheet.new(:input_fields => {input_fields: "blah"}.to_json, :answer_key => Response.new.to_json)
+      expect(@worksheet.input_fields).to be_a(Hash)
+      expect(@worksheet.answer_key).to be_a(Hash)
     end
   end
 end
