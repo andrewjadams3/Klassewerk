@@ -5,6 +5,8 @@ class Teacher < ActiveRecord::Base
 
   validates :first_name, :last_name, :username, :security_question, :security_answer,:password_digest, :email, presence: true
 
+  has_secure_password
+  
 end
 
 
