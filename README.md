@@ -28,14 +28,23 @@ Elementary and middle-school level teachers/students who want to convert their p
 
 ##Technologies: 
 Backend: Rails, background jobs for PDF processing? Sidekiq
+
 Frontend: jQueryUI, Foundation, Ember?
+
 Deploy: Heroku hosting
+
 File Processing: Uploading PDF?, CarrierWave?, Upload Docs?, (Look into API for conversion)
+
 Database/Storage: PostgreSQL, Amazon DB (for images)
+
 CI Testing: Codeship
+
 Test coverage: simplecov
+
 Testing: RSpec, Jasmine, Capybara
+
 Templating: Emblem.js/Handlebars.js
+
 Optional features tech: paper.js, d3, jQuery mobile
 
 
