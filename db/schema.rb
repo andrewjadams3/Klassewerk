@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20140814161607) do
   end
 
   create_table "classrooms", force: true do |t|
-    t.integer  "course_id"
     t.integer  "teacher_id"
     t.string   "title"
     t.integer  "grading_period_id"
