@@ -7,4 +7,5 @@ class Student < ActiveRecord::Base
   validates :first_name, :last_name, :username, :security_question, :security_answer,:password_digest,  presence: true
 
   has_secure_password
+  
 end
