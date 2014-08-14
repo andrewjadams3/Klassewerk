@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require jquery
 //= require handlebars
 //= require ember
@@ -23,3 +24,5 @@
 App = Ember.Application.create();
 
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
