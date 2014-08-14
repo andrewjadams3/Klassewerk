@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   namespace :temp do
     get '/upload' => 'upload#index'
   end
+
+  get '*path', to: 'home#index'
 end
