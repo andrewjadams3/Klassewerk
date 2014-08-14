@@ -36,6 +36,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use S3 for storing PNGs.
+gem 'aws-sdk'
+gem 'mini_magick'
+
 # Ember!
 gem 'ember-rails'
 gem 'ember-source'
