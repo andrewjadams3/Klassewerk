@@ -2,29 +2,14 @@
 
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== App Background:
 
-Things you may want to cover:
+Schools are moving toward using iPads, and other technologies to provide students with paperless assignments. Teachers who already have set curriculums, often on paper / word docs, etc, need to have a way to scan his/her documents, in order to make assigments interactive and accessible for his/her students. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Students can fill in form and submit. Fill in text areas/drawing areas.
 
 
-Please feel free to use a different markup language if you do not plan to run
+
+
+
 <tt>rake doc:app</tt>.
