@@ -6,7 +6,6 @@ class UploadController < ApplicationController
 
 
   def upload
-    puts "!!!!!!!!!!"
     image = convert_pdf(params['file'].tempfile.path)
     upload_to_s3(image)
     redirect_to '/temp/upload'
@@ -15,18 +14,14 @@ class UploadController < ApplicationController
   def convert_pdf(file)
     image = MiniMagick::Image.open(file)
 
-    puts "!!!!!!"
-
     image.combine_options do |mogrify|
       mogrify.alpha 'remove'
       mogrify.append
     end
 
-    puts "!!!"
-
     image.format('png')
     filename = random_filename
-    image.write(filename + '.png')
+    image.write('tmp/' + filename + '.png')
     return filename + '.png'
   end
 
@@ -38,7 +33,7 @@ class UploadController < ApplicationController
     bucket = s3.buckets['classwork']
 
     Worksheet.create(url: filename)
-    bucket.objects[filename].write(:file => filename)
+    bucket.objects[filename].write(:file => 'tmp/' + filename)
   end
 
   def random_filename
