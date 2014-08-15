@@ -6,7 +6,11 @@ class Api::V1::TeachersController < ApplicationController
   end
 
   def show
-    respond_with teacher
+    if(current_teacher)
+      render current_teacher
+    else
+      render {error: "You must be logged in"}, status: 401
+    end
   end
 
   def create
