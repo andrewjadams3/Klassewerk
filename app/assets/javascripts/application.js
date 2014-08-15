@@ -21,8 +21,10 @@
 //= require ./app
 
 // for more details see: http://emberjs.com/guides/application/
-App = Ember.Application.create();
+
 
 //= require_tree .
+
+App = Ember.Application.create({ rootElement: '#ember-app' });
 
 $(function(){ $(document).foundation(); });
