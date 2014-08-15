@@ -70,6 +70,8 @@ GEM
     emblem-source (0.3.17)
     erubis (2.7.0)
     execjs (2.2.1)
+    faker (1.4.2)
+      i18n (~> 0.5)
     foundation-rails (5.3.3.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -180,6 +182,7 @@ DEPENDENCIES
   ember-rails
   ember-source
   emblem-rails
+  faker
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails

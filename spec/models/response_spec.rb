@@ -15,6 +15,9 @@ RSpec.describe Response, :type => :model do
       @response = Response.create
     end
 
+    it { is_expected.to respond_to(:worksheet) }
+    it { is_expected.to respond_to(:student) }
+
     it 'should belong to a student and a worksheet' do
       @response.student = Student.create
       @response.worksheet = Worksheet.create

@@ -54,3 +54,6 @@ gem 'emblem-rails'
 
 # Foundation
 gem 'foundation-rails'
+
+# Faker
+gem 'faker'

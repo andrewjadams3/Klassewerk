@@ -7,6 +7,7 @@ class CreateTeachers < ActiveRecord::Migration
       t.string :security_question
       t.string :security_answer
       t.string :password_digest
+      t.string :email
       t.belongs_to :school
       t.timestamps
     end
