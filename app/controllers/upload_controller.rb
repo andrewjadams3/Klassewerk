@@ -26,7 +26,7 @@ class UploadController < ApplicationController
     # image.format('png')
 
     puts "Format to PNG"
-    # filename = random_filename
+    filename = random_filename
     # image.write('tmp/' + filename + '.png')
     puts "Saved Image"
     return filename + '.png'
