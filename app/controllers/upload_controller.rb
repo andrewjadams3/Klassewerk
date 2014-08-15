@@ -11,6 +11,7 @@ class UploadController < ApplicationController
     FileUtils.cp temp.path, file
 
     puts file.inspect
+    convert_pdf(file.path)
     # upload_to_s3(params['file'])
     redirect_to '/temp/upload'
   end
@@ -27,7 +28,7 @@ class UploadController < ApplicationController
     image.format('png')
 
     filename = random_filename
-    # image.write('tmp/' + filename + '.png')
+    image.write('public/' + filename + '.png')
 
     return filename + '.png'
   end
