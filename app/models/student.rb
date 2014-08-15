@@ -4,7 +4,7 @@ class Student < ActiveRecord::Base
   has_many :responses
   belongs_to :school
 
-  validates :first_name, :last_name, :username, :security_question, :security_answer,:password_digest,  presence: true
+  validates :first_name, :last_name, :username, :password_digest, presence: true
 
   has_secure_password
   

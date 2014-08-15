@@ -3,7 +3,7 @@ class Teacher < ActiveRecord::Base
   has_many :classrooms
   has_many :assignments, through: :classrooms
 
-  validates :first_name, :last_name, :username, :security_question, :security_answer,:password_digest, :email, presence: true
+  validates :first_name, :last_name, :email, :password_digest, presence: true
 
   has_secure_password
   

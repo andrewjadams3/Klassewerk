@@ -11,16 +11,10 @@ Student.destroy_all
 
 20.times do
   password = Faker::Internet.password
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = (first_name + last_name).downcase
   Teacher.create(
-    first_name: first_name,
-    last_name: last_name,
-    username: username,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    security_question: Faker::Lorem.sentence,
-    security_answer: Faker::Lorem.sentence,
     password: password,
     password_confirmation: password
     )
@@ -35,8 +29,6 @@ end
     first_name: first_name,
     last_name: last_name,
     username: username,
-    security_question: Faker::Lorem.sentence,
-    security_answer: Faker::Lorem.sentence,
     password: password,
     password_confirmation: password
     )
