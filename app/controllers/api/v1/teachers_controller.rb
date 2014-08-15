@@ -7,9 +7,9 @@ class Api::V1::TeachersController < ApplicationController
 
   def show
     if(current_teacher)
-      render current_teacher
+      render json: current_teacher
     else
-      render {error: "You must be logged in"}, status: 401
+      render json: {:error => "Invalid Login Details"}, status: 401
     end
   end
 

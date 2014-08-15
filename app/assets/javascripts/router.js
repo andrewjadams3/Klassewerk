@@ -2,6 +2,9 @@
 
 App.Router.map(function() {
   // this.resource('posts');
+  this.resource('teacher', function() {
+    this.route('session');
+  })
 });
 
 App.Router.reopen({
