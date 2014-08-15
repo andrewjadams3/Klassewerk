@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     post '/upload' => '/upload#upload'
   end
 
+  namespace :auth do
+    get '/teacher' => '/auth#teacher'
+    get '/student' => '/auth#student'
+  end
+
   namespace :api do
     namespace :v1 do
       resources :teachers, only: [:index, :show, :create]
