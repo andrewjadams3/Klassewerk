@@ -22,6 +22,6 @@ class Auth::StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :username, :security_question, :security_answer, :password, :password_confirmation)
+    params.require(:student).permit(:first_name, :last_name, :username, :password, :password_confirmation)
   end
 end

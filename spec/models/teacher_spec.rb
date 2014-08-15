@@ -15,8 +15,8 @@ require 'rails_helper'
 
 RSpec.describe Teacher, :type => :model do
   before do
-  @teacher = Teacher.new(:first_name => "Joe", :last_name => "Webb", :username => "ImJW", :security_question => "Hello", :security_answer => "Hello",:password_digest => "Hello", :email => "email@email.com", :school => School.new)
-  @teacher.save
+    @teacher = Teacher.new(:first_name => "Joe", :last_name => "Webb", :password_digest => "Hello", :email => "email@email.com", :school => School.new)
+    @teacher.save
   end
 
   it 'should belong to a school' do
@@ -26,10 +26,9 @@ RSpec.describe Teacher, :type => :model do
   subject(:teacher) { @teacher }
   it { is_expected.to respond_to(:first_name) }
   it { is_expected.to respond_to(:last_name) }
-  it { is_expected.to respond_to(:security_question) }
-  it { is_expected.to respond_to(:security_answer) }
   it { is_expected.to respond_to(:password_digest) }
   it { is_expected.to respond_to(:email) }
+  it { is_expected.to be_valid }
 
   it 'should have a first_name' do
     expect(@teacher.first_name).to eq("Joe")
@@ -39,22 +38,10 @@ RSpec.describe Teacher, :type => :model do
     expect(@teacher.last_name).to eq("Webb")
   end
 
-  it 'should have a username' do
-    expect(@teacher.username).to eq("ImJW")
-  end
-
-  it { is_expected.to be_valid }
   it "has no errors" do
     expect(@teacher.errors.messages).to eq({})
   end
-
-  
-  describe "Must have all validations" do
-    before do
-     @teacher = Teacher.new(:first_name => "Joe", :last_name => "Webb", :username => "ImJW", :security_question => "Hello", :password_digest => "Hello", :email => "emial@email.com", :school => School.new)
-    end
-    it { is_expected.to_not be_valid }
-  end  
+ 
 end
 
 

@@ -14,7 +14,7 @@ require 'rails_helper'
 
 RSpec.describe Student, :type => :model do
   before do
-    @student = Student.new(:first_name => "Joe", :last_name => "Webb", :username => "ImJW", :security_question => "Hello", :security_answer => "Hello",:password_digest => "Hello", :school => School.new)
+    @student = Student.new(:first_name => "Joe", :last_name => "Webb", :username => "ImJW", :password_digest => "Hello", :school => School.new)
     @student.save
   end
 
@@ -25,10 +25,7 @@ RSpec.describe Student, :type => :model do
   subject(:student) { @student }
   it { is_expected.to respond_to(:first_name) }
   it { is_expected.to respond_to(:last_name) }
-  it { is_expected.to respond_to(:security_question) }
-  it { is_expected.to respond_to(:security_answer) }
   it { is_expected.to respond_to(:password_digest) }
-  
 
   it 'should have a first_name' do
     expect(@student.first_name).to eq("Joe")
@@ -45,14 +42,6 @@ RSpec.describe Student, :type => :model do
   it { is_expected.to be_valid }
   it "has no errors" do
     expect(@student.errors.messages).to eq({})
-  end
-
-  
-  describe "Must have all validations" do
-    before do
-     @student = Teacher.new(:first_name => "Joe", :last_name => "Webb", :username => "ImJW", :security_question => "Hello", :password_digest => "Hello", :school => School.new)
-    end
-    it { is_expected.to_not be_valid }
-  end  
+  end 
 
 end
