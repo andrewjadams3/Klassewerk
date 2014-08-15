@@ -10,20 +10,24 @@ require 'rails_helper'
   # end
 
 RSpec.describe Response, :type => :model do
-   describe "associations" do
-    before do
-      @response = Response.create
-    end
+  before do
+    @response = Response.create
+    @response.save
+  end
 
-    it { is_expected.to respond_to(:worksheet) }
-    it { is_expected.to respond_to(:student) }
+  it { is_expected.to respond_to(:worksheet) }
+  it { is_expected.to respond_to(:student) }
 
-    it 'should belong to a student and a worksheet' do
-      @response.student = Student.create
-      @response.worksheet = Worksheet.create
-      @response.save
-      expect(@response.student).to be_a(Student)
-      expect(@response.worksheet).to be_a(Worksheet)
-    end
+  it { is_expected.to be_valid }
+  it "has no errors" do
+    expect(@response.errors.messages).to eq({})
+  end
+
+  it 'should belong to a student and a worksheet' do
+    @response.student = Student.create
+    @response.worksheet = Worksheet.create
+    @response.save
+    expect(@response.student).to be_a(Student)
+    expect(@response.worksheet).to be_a(Worksheet)
   end
 end
