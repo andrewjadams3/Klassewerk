@@ -6,5 +6,12 @@ Rails.application.routes.draw do
     post '/upload' => '/upload#upload'
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :teachers, only: [:index, :show, :create]
+      resources :students, only: [:index, :show, :create]
+    end
+  end
+
   get '*path', to: 'home#index'
 end
