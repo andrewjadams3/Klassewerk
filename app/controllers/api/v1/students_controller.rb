@@ -10,16 +10,16 @@ class Api::V1::StudentsController < ApplicationController
   end
 
   def create
-    respond_with :api, :v1, Student.create(lead_params)
+    respond_with :api, :v1, Student.create(student_params)
   end
 
   private
 
-  def lead
+  def student
     Student.find(params[:id])
   end
 
-  def lead_params
+  def student_params
     params.require(:lead).permit(:first_name, :last_name, :username, :security_question, :security_answer, :password, :password_confirmation)
   end
 
