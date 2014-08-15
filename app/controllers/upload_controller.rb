@@ -11,7 +11,7 @@ class UploadController < ApplicationController
     FileUtils.cp temp.path, file
 
     puts file.inspect
-    convert_pdf(file.path)
+    convert_pdf(file)
     # upload_to_s3(params['file'])
     redirect_to '/temp/upload'
   end
