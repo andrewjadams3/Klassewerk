@@ -5,13 +5,13 @@ class Auth::SessionsController < ApplicationController
   end
 
   def create_teacher
-    teacher = Teacher.find_by(email: params[:session][:email]) if Teacher.exists?(email: params[:session][:email])
-    if teacher && teacher.authenticate(params[:session][:password])
+    teacher = Teacher.find_by(email: params[:teacher][:email]) if Teacher.exists?(email: params[:teacher][:email])
+    if teacher && teacher.authenticate(params[:teacher][:password])
       session[:user_id] = teacher.id
       session[:user_type] = 'teacher'
       redirect_to root_path
     else
-      render 'sessions/teacher_login'
+      redirect_to auth_teacher_login_path
     end
   end
 
@@ -20,13 +20,13 @@ class Auth::SessionsController < ApplicationController
   end
 
   def create_student
-    student = Student.find_by(username: params[:session][:username]) if Student.exists?(username: params[:session][:username])
-    if student && student.authenticate(params[:session][:password])
+    student = Student.find_by(username: params[:student][:username]) if Student.exists?(username: params[:student][:username])
+    if student && student.authenticate(params[:student][:password])
       session[:user_id] = student.id
       session[:user_type] = 'student'
       redirect_to root_path
     else
-      render 'sessions/student_login'
+      redirect_to auth_student_login_path
     end
   end
 
