@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def current_student
     if session[:user_type] == 'student'
-      @current_teacher ||= Student.find(session[:user_id])
+      @current_student ||= Student.find(session[:user_id])
     end
   end
 

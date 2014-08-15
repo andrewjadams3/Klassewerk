@@ -7,14 +7,25 @@ Rails.application.routes.draw do
   end
 
   namespace :auth do
-    get '/teacher' => '/auth#teacher'
-    get '/student' => '/auth#student'
+    resources :teachers, only: [:new, :create]
+    resources :students, only: [:new, :create]
+
+    match '/teacher_signup', to: 'teachers#new', via: 'get'
+    match '/student_signup', to: 'students#new', via: 'get'
+
+    match '/teacher_login', to: 'sessions#new_teacher', via: 'get'
+    match '/student_login', to: 'sessions#new_student', via: 'get'
+
+    match '/teacher_login', to: 'sessions#create_teacher', via: 'post'
+    match '/student_login', to: 'sessions#create_student', via: 'post'
+
+    match '/logout', to: 'sessions#destroy', via: 'delete'
   end
 
   namespace :api do
     namespace :v1 do
-      resources :teachers, only: [:index, :show, :create]
-      resources :students, only: [:index, :show, :create]
+      resources :teachers, only: [:index, :show]
+      resources :students, only: [:index, :show]
     end
   end
 
