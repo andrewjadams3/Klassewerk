@@ -23,7 +23,7 @@ class UploadController < ApplicationController
 
     puts "Combine Options"
 
-    # image.format('png')
+    image.format('png')
 
     puts "Format to PNG"
     filename = random_filename
