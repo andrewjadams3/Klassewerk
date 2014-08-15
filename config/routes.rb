@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :teachers, only: [:index, :show, :create]
       resources :students, only: [:index, :show, :create]
+      resources :schools, only: [:index, :show]
     end
   end
 
