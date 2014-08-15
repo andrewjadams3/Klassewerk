@@ -59,4 +59,6 @@ gem 'foundation-rails'
 # Faker
 gem 'faker'
 
+gem 'carrierwave'
+
 gem 'rails_12factor', group: :production

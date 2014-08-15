@@ -6,13 +6,18 @@ class UploadController < ApplicationController
 
 
   def upload
-    image = convert_pdf(params['file'].tempfile.path)
+    temp = params['file'].tempfile
+    file = File.join("public", params[:file_upload][:my_file].original_filename)
+  FileUtils.cp tmp.path, file
+
+    puts file.inspect
     # upload_to_s3(params['file'])
     redirect_to '/temp/upload'
   end
 
   def convert_pdf(file)
     image = MiniMagick::Image.open(file)
+
 
     image.combine_options do |mogrify|
       mogrify.alpha 'remove'
