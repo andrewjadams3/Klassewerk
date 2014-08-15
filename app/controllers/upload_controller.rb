@@ -6,8 +6,8 @@ class UploadController < ApplicationController
 
 
   def upload
-    # image = convert_pdf(params['file'].tempfile.path)
-    upload_to_s3(params['file'])
+    image = convert_pdf(params['file'].tempfile.path)
+    # upload_to_s3(params['file'])
     redirect_to '/temp/upload'
   end
 
@@ -22,7 +22,7 @@ class UploadController < ApplicationController
     image.format('png')
 
     filename = random_filename
-    image.write('tmp/' + filename + '.png')
+    # image.write('tmp/' + filename + '.png')
 
     return filename + '.png'
   end
