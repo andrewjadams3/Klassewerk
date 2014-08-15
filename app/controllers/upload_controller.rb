@@ -7,8 +7,8 @@ class UploadController < ApplicationController
 
   def upload
     temp = params['file'].tempfile
-    file = File.join("public", params[:file_upload][:my_file].original_filename)
-  FileUtils.cp tmp.path, file
+    file = File.join("public", params['file'].original_filename)
+    FileUtils.cp tmp.path, file
 
     puts file.inspect
     # upload_to_s3(params['file'])
