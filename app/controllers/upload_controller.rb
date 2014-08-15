@@ -11,8 +11,8 @@ class UploadController < ApplicationController
     FileUtils.cp temp.path, file
 
     puts file.inspect
-    convert_pdf(file)
-    upload_to_s3(params['file'])
+    filename = convert_pdf(file)
+    upload_to_s3(filename)
     redirect_to '/temp/upload'
   end
 
@@ -20,6 +20,8 @@ class UploadController < ApplicationController
     image = MiniMagick::Image.open(file)
 
     image.append
+
+    image.alpha('remove')
 
     image.format('png')
 
