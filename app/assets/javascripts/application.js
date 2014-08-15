@@ -20,12 +20,14 @@
 //= require ./app
 
 // for more details see: http://emberjs.com/guides/application/
-App = Ember.Application.create({
+
+//= require_tree .
+
+App = Ember.Application.create({ 
+  rootElement: '#ember-app',
   LOG_TRANSITIONS: true,
   LOG_TRANSITIONS_INTERNAL: true,
   LOG_ACTIVE_GENERATION: true
 });
-
-//= require_tree .
 
 $(function(){ $(document).foundation(); });

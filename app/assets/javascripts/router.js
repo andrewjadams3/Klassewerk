@@ -1,10 +1,9 @@
 // For more information see: http://emberjs.com/guides/routing/
 
 App.Router.map(function() {
-  // this.resource('posts');
-  this.resource('teacher', function() {
-    this.route('session');
-  })
+  this.route("index", { path: "/" });
+  this.route("teachers", { path: "/teachers" });
+  this.route("students", { path: "/students" });
 });
 
 App.Router.reopen({

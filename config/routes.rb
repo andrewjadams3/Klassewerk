@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
+  match '/welcome', to: 'home#welcome', via: 'get'
 
   namespace :temp do
     get '/upload' => '/upload#index'
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :teachers, only: [:index, :show]
       resources :students, only: [:index, :show]
+      match '/', to: 'index#index', via: 'get'
     end
   end
 
