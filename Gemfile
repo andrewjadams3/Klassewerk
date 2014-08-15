@@ -45,6 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Use S3 for storing PNGs.
+gem 'paperclip'
 gem 'aws-sdk'
 gem 'mini_magick'
 
