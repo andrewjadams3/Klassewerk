@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
+  match '/welcome', to: 'home#welcome', via: 'get'
 
   namespace :temp do
     get '/upload' => '/upload#index'
