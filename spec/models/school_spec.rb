@@ -11,10 +11,9 @@ require 'rails_helper'
 #   end
 
 RSpec.describe School, :type => :model do
-   
-  
- before do
+  before do
     @school = School.new(:code => "CODE-1234", :location => "Chi City", :mascot => "Wind", :name => "That Place")
+    @school.save
   end
 
   subject(:school) { @school }
@@ -40,7 +39,9 @@ RSpec.describe School, :type => :model do
   end
 
   it { is_expected.to be_valid }
-
+  it "has no errors" do
+    expect(@school.errors.messages).to eq({})
+  end
   
   describe "Must have all validations" do
     before do
@@ -48,5 +49,4 @@ RSpec.describe School, :type => :model do
     end
     it { is_expected.to_not be_valid }
   end  
-
 end

@@ -8,9 +8,9 @@ require 'rails_helper'
 #   end
 
 RSpec.describe GradingPeriod, :type => :model do
-
   before do
-    @grading_period = GradingPeriod.new(:start_date => DateTime.new(2012, 8, 1, 22, 35, 0), :end_date => DateTime.new(2014, 8, 1, 22, 35, 0))
+    @grading_period = GradingPeriod.new(:start_date => Time.zone.now, :end_date => 1.hour.from_now)
+    @grading_period.save
   end
   subject(:grading_period) { @grading_period }
 
@@ -23,6 +23,9 @@ RSpec.describe GradingPeriod, :type => :model do
   end
 
   it { is_expected.to be_valid }
+  it "has no errors" do
+    expect(@grading_period.errors.messages).to eq({})
+  end
 
   describe "when a start_date is not present" do
     before {@grading_period.start_date = nil }
@@ -36,12 +39,11 @@ RSpec.describe GradingPeriod, :type => :model do
 
   describe "when a start_date is after end_date" do
     before do
-      @grading_period.start_date = DateTime.new(2014, 8, 5, 22, 35, 0)
-      @grading_period.end_date = DateTime.new(2014, 8, 2, 22, 34, 0)
+      @grading_period.start_date = 1.hour.from_now
+      @grading_period.end_date = Time.zone.now
     end
     it { is_expected.to_not be_valid }
   end  
-
 end
 
 
