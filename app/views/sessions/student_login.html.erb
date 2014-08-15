@@ -1,0 +1,12 @@
+<div class="small-10 columns small-centered">
+  <div class="row signup">
+    <h1>Student Log In</h1>
+    <%= form_for(:session, url: auth_student_login_path, method: 'POST') do |f| %>
+      <label for="left-label" class="left"><%= f.label :username %> </label>
+      <%= f.text_field :username %>
+      <label for="left-label" class="left"><%= f.label :password %> </label>
+      <%= f.password_field :password %>
+      <%= f.submit "Log In", class: 'button' %>
+    <% end %>
+  </div>
+</div>
