@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require jquery
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -22,9 +21,13 @@
 
 // for more details see: http://emberjs.com/guides/application/
 
-
 //= require_tree .
 
-App = Ember.Application.create({ rootElement: '#ember-app' });
+App = Ember.Application.create({ 
+  rootElement: '#ember-app',
+  LOG_TRANSITIONS: true,
+  LOG_TRANSITIONS_INTERNAL: true,
+  LOG_ACTIVE_GENERATION: true
+});
 
 $(function(){ $(document).foundation(); });

@@ -41,11 +41,13 @@ CI Testing: Codeship
 
 Test coverage: simplecov
 
-Testing: RSpec, Jasmine, Capybara
+Testing: RSpec, Jasmine, Capybara, Konacha
 
 Templating: Emblem.js/Handlebars.js
 
 Optional features tech: paper.js, d3, jQuery mobile
+
+
 
 ##Contributing and Licensing: 
 

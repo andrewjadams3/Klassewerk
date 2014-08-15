@@ -11,9 +11,9 @@ class Api::V1::TeachersController < ApplicationController
 
   def show
     if(current_teacher)
-      respond_with teacher
+      render json: current_teacher
     else
-      respond_with ({error: "You must be logged in"}), status: 401
+      render json: {:error => "Invalid Login Details"}, status: 401
     end
   end
 
