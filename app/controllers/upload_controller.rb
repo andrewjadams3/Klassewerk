@@ -12,8 +12,10 @@ class UploadController < ApplicationController
   end
 
   def convert_pdf(file)
+    puts "!!!!!!!!!!!!!!"
+    puts "file"
     image = MiniMagick::Image.open(file)
-
+    puts "image"
     image.combine_options do |mogrify|
       mogrify.alpha 'remove'
       mogrify.append
