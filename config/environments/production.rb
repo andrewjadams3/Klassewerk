@@ -82,13 +82,4 @@ Rails.application.configure do
 
   config.ember.variant = :production
 
-  # config/environments/production.rb
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => 'classwork'
-      :access_key_id => ENV['AWS_KEY'],
-      :secret_access_key => ENV['AWS_SECRET']
-    }
-  }
 end
