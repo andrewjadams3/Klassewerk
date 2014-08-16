@@ -20,9 +20,9 @@ describe "On the login page" do
       page.set_rack_session(:user_type => 'teacher')      
     end
 
-    it "should be redirected to /teachers" do
+    it "should be redirected to the ember app" do
       visit '/'
-      expect(page).not_to have_link('', href:"/auth/teacher_login")
+      expect(page).to have_css('div#ember-app')
     end
   end
 
@@ -34,9 +34,9 @@ describe "On the login page" do
       page.set_rack_session(:user_type => 'student')      
     end
 
-    it "should be redirected to /students" do
+    it "should be redirected to the ember app" do
       visit '/'
-      expect(page).not_to have_link('', href:"/auth/teacher_login")
+      expect(page).to have_css('div#ember-app')
     end
   end
   

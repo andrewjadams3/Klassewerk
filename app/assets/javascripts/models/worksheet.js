@@ -1,15 +1,16 @@
 App.Worksheet = DS.Model.extend({
   name: DS.attr('string'),
   url: DS.attr('string'),
-  input_fields: DS.attr('sting'),
-  answer_key: DS.attr('string')
+  inputFields: DS.attr(),
+  answerKey: DS.attr()
 });
 
 
 App.Worksheet.FIXTURES = [{
   id: 1,
+  name: "worksheet",
   url: '/http://winterrowd-math.wikispaces.com/file/view/wkst_proportions_pg_1.png',
-  input_fields: '[{
+  inputFields: [{
     "x": "50",
     "y": "50",
     "height": "50",
@@ -19,8 +20,8 @@ App.Worksheet.FIXTURES = [{
     "y": "50",
     "height": "50",
     "width": "50"
-  }]',
-  answer_key: '[{
+  }],
+  answerKey: [{
     "x": "50",
     "y": "50",
     "height": "50",
@@ -30,5 +31,5 @@ App.Worksheet.FIXTURES = [{
     "y": "50",
     "height": "50",
     "width": "50"
-  }]'
+  }]
 }]

@@ -1,8 +1,8 @@
 App.Classroom = DS.Model.extend({
   title: DS.attr('string'),
   code: DS.attr('string'),
-  teacher: DS.attr('number'),
-  gradingPeriod: DS.attr('number')
+  teacher: DS.belongsTo('teacher'),
+  gradingPeriod: DS.belongsTo('gradingPeriod')
 })
 
 App.Classroom.FIXTURES = [{
