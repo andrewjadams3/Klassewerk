@@ -40,13 +40,6 @@ App.ASSIGNMENTS = [{
   assigned_date: new Date('2013')
 }]
 
-App.CLASSROOMS = [{
-  id: 1,
-  teacher: 1,
-  title: 'English',
-  grading_period: '1'
-}]
-
 App.GRADING_PERIODS = [{
   id: 1,
   start_date: new Date('2012'),
