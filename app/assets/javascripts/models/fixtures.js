@@ -5,14 +5,12 @@ App.WORKSHEETS = [{
     x: 50,
     y: 50,
     height: 50,
-    width: 50,
-    content: "input field text"
+    width: 50
   },{
     x: 150,
     y: 50,
     height: 50,
-    width: 50,
-    content: "second input field"
+    width: 50
   }]
 }]
 
@@ -65,9 +63,15 @@ App.SCHOOLS = [{
 
 App.STUDENTS = [{
   id: 1,
-  first_name: 'Joe',
-  last_name: 'Joe',
-  username: 'Joe',
+  first_name: 'Steve',
+  last_name: 'Steve',
+  username: 'steve',
+  school: 1
+},{
+  id: 2,
+  first_name: 'Bob',
+  last_name: 'Bob',
+  username: 'bob',
   school: 1
 }]
 
