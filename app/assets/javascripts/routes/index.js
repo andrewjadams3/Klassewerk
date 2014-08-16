@@ -3,7 +3,7 @@ App.IndexRoute = Ember.Route.extend({
     var self = this;
 
     $.getJSON("/api/v1", function(json) {
-      self.transitionTo(json.user);
+      self.transitionTo(json.app);
     });
   }
 })
