@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140814161607) do
   end
 
   create_table "classrooms", force: true do |t|
+    t.string   "code"
     t.integer  "teacher_id"
     t.string   "title"
     t.integer  "grading_period_id"
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140814161607) do
   end
 
   create_table "worksheets", force: true do |t|
+    t.string   "name"
     t.string   "url"
     t.json     "input_fields"
     t.json     "answer_key"

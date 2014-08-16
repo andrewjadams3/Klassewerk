@@ -2,13 +2,13 @@
 
 App.Router.map(function() {
   this.route("index", { path: "/" });
-  this.resource("teachers", function() {
+  this.resource("teacherapp", function() {
     this.route("logout");
     this.resource("worksheets");
     this.resource("classrooms");
     this.resource("teacher", {path: "/account"});
   });
-  this.resource("students");
+  this.resource("studentapp");
 });
 
 App.Router.reopen({
