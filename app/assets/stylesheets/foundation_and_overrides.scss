@@ -59,7 +59,7 @@ $body-font-weight: $font-weight-normal;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #008CBA;
+$primary-color: #F57011;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -1209,7 +1209,7 @@ $sub-nav-active-cursor: default;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #F57011;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1239,9 +1239,9 @@ $sub-nav-active-cursor: default;
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-color-hover: #555555;
-// $topbar-link-bg-hover: #272727;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-hover: #CC5200;
+$topbar-link-bg-active: #FF8533;
+$topbar-link-bg-active-hover: #CC5200;
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: $topbar-height / 3;
