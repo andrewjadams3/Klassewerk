@@ -1,4 +1,4 @@
-App.WorksheetsController = Ember.ArrayController.extend({
+App.WorksheetsController = Ember.Controller.extend({
   worksheets: function() {
     return this.store
   }

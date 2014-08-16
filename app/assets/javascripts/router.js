@@ -3,9 +3,12 @@
 App.Router.map(function() {
   this.route("index", { path: "/" });
   this.resource("teacherapp", function() {
-    this.route("logout");
+    this.resource("classrooms", function() {
+      this.resource('classroom', { path: "/:id" })
+    });
+
+
     this.resource("worksheets");
-    this.resource("classrooms");
     this.resource("teacher", {path: "/account"});
   });
   this.resource("studentapp");
