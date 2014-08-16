@@ -1,1 +1,7 @@
 <p>Worksheets</p>
+
+<div>
+  {{#each}}
+    {{#link-to 'worksheet' this}}{{name}}{{/link-to}}
+  {{/each}}
+</div>
