@@ -3,9 +3,21 @@
 App.Router.map(function() {
   this.route("index", { path: "/" });
   this.resource("teacherapp", function() {
-    this.route("logout");
-    this.resource("worksheets");
-    this.resource("classrooms");
+    this.resource("classrooms", function() {
+      this.resource('classroom', { path: "/:classroomId" }, function(){
+        this.resource('assignments', function(){
+          this.resource('assignment', { path: "/:assignmentId" })
+        })
+      })
+    });
+
+    this.resource("worksheets", function(){
+      this.resource("worksheet", {path: '/:id'}, function(){
+        this.route("edit")
+      }),
+      this.route("new")
+    });
+
     this.resource("teacher", {path: "/account"});
   });
   this.resource("studentapp");

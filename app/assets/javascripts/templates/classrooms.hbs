@@ -1,6 +1,10 @@
 <h1>Classrooms</h1>
 <ul>
   {{#each}}
-    <li>{{title}}</li>
+    <li>{{#link-to 'assignments' id }}{{title}}{{/link-to}}</li>
   {{/each}}
 </ul>
+
+{{ outlet assignments }}
+
+{{ outlet responses }}
