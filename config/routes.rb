@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     match '/teacher_login', to: 'sessions#create_teacher', via: 'post'
     match '/student_login', to: 'sessions#create_student', via: 'post'
 
-    match '/logout', to: 'sessions#destroy', via: 'delete'
+    match '/logout', to: 'sessions#destroy', via: 'get'
   end
 
   namespace :api do
