@@ -19,7 +19,7 @@ App.Assignment.FIXTURES = [{
   assignedDate: new Date('2013')
 },{
   id: 3,
-  classroom: 1,
+  classroom: 2,
   worksheet: 1,
   dueDate: new Date('2013'),
   assignedDate: new Date('2013')

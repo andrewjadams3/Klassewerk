@@ -4,7 +4,11 @@ App.Router.map(function() {
   this.route("index", { path: "/" });
   this.resource("teacherapp", function() {
     this.resource("classrooms", function() {
-      this.resource('classroom', { path: "/:id" })
+      this.resource('classroom', { path: "/:classroomId" }, function(){
+        this.resource('assignments', function(){
+          this.resource('assignment', { path: "/:assignmentId" })
+        })
+      })
     });
 
 
