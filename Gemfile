@@ -66,6 +66,7 @@ gem 'rails_12factor', group: :production
 group :test, :development do
   gem "konacha"
   gem "capybara"
+  gem 'rack_session_access'
   gem "sinon-rails"
   gem 'selenium-webdriver'
 end
