@@ -11,8 +11,13 @@ App.Router.map(function() {
       })
     });
 
+    this.resource("worksheets", function(){
+      this.resource("worksheet", {path: '/:id'}, function(){
+        this.route("edit")
+      }),
+      this.route("new")
+    });
 
-    this.resource("worksheets");
     this.resource("teacher", {path: "/account"});
   });
   this.resource("studentapp");
