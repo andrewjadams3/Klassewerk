@@ -8,28 +8,52 @@
 
 Teacher.destroy_all
 Student.destroy_all
+Classroom.destroy_all
+Assignment.destroy_all
 
-20.times do
-  password = Faker::Internet.password
-  Teacher.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: password,
-    password_confirmation: password
-    )
-end
+# 20.times do
+#   password = Faker::Internet.password
+#   Teacher.create(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: password,
+#     password_confirmation: password
+#     )
+# end
 
-20.times do
-  password = Faker::Internet.password
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = (first_name + last_name).downcase
-  Student.create(
-    first_name: first_name,
-    last_name: last_name,
-    username: username,
-    password: password,
-    password_confirmation: password
-    )
-end
+# 20.times do
+#   password = Faker::Internet.password
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
+#   username = (first_name + last_name).downcase
+#   Student.create(
+#     first_name: first_name,
+#     last_name: last_name,
+#     username: username,
+#     password: password,
+#     password_confirmation: password
+#     )
+# end
+
+teacher = Teacher.create(
+  username: "bill",
+  password: "password",
+  password_confirmation: "password")
+
+student = Student.create(
+  username: 'student',
+  password: 'password'
+  password_confirmation: "password")
+
+worksheet = Worksheet.create(
+  name: "Math Worksheet",
+  url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
+  input_fields: [{x: 50, y:50, height: 50, width: 50}].to_json
+  )
+
+worksheet = Worksheet.create(
+  name: "English Worksheet",
+  url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
+  input_fields: [{x: 50, y:50, height: 50, width: 50}].to_json
+  )

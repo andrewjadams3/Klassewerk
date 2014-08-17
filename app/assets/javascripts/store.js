@@ -12,20 +12,36 @@
 //   namespace: 'api/v1'
 // })
 
-App.ApplicationAdapter = DS.FixtureAdapter.extend({
-  queryFixtures: function(records, query, type) {
-    return records.filter(function(record) {
-        for(var key in query) {
-            if (!query.hasOwnProperty(key)) { continue; }
-            var value = query[key];
-            if (record[key] !== value) { return false; }
-        }
-        return true;
-    });
+App.Store = DS.Store.extend({
+  adapter: 'Fixture'
+});
+
+App.FixtureAdapter = DS.FixtureAdapter.extend({
+  queryFixtures : function(fixtures, query, type) {
+      return fixtures.filter(function(item) {
+          for (prop in query) {
+              var intValue = parseInt(query[prop]);
+              if (item[prop] instanceof Array) {
+                  var result = false;
+                  item[prop].forEach(function(element) {
+                      if (typeof element === 'number') {
+                          if (intValue == element) {
+                              result = true;
+                          }
+                      } else {
+                          if (element.id == intValue) {
+                              result = true;
+                          }
+                      }
+                  });
+                  return result;
+              } else {
+                  return (item[prop] != query[prop]);
+              }
+          }
+          return true;
+      });
   }
 });
 
 
-App.Store = DS.Store.extend({
-  adapter: 'Fixture'
-});

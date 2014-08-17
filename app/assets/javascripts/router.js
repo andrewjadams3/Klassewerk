@@ -6,7 +6,11 @@ App.Router.map(function() {
     this.resource("classrooms", function() {
       this.resource('classroom', { path: "/:classroomId" }, function(){
         this.resource('assignments', function(){
-          this.resource('assignment', { path: "/:assignmentId" })
+          this.resource('assignment', { path: "/:assignmentId" }, function(){
+            this.resource('responses', function() {
+              this.resource('response', { path: "/:responseId" })
+            })
+          })
         })
       })
     });
