@@ -9,6 +9,8 @@
 Teacher.destroy_all
 Student.destroy_all
 Classroom.destroy_all
+Worksheet.destroy_all
+Response.destroy_all
 
 # 20.times do
 #   password = Faker::Internet.password
@@ -53,11 +55,19 @@ student = teacher.students.create(
 worksheet = teacher.worksheets.create(
   name: "Math Worksheet",
   url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
-  input_fields: [{x: 50, y:50, height: 50, width: 50}].to_json
+  input_fields: [{question: 1, x: 50, y:50, height: 50, width: 50}].to_json
+  )
+
+response = Response.create(
+  student_id: student.id,
+  worksheet_id: worksheet.id,
+  answers: [{question: 1, content: "A flibberty-gibbet"},
+            {question: 2, content: "How appropriate, you fight like a cow."}],
+  submitted: true
   )
 
 worksheet = teacher.worksheets.create(
   name: "English Worksheet",
   url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
-  input_fields: [{x: 50, y:50, height: 50, width: 50}].to_json
+  input_fields: [{question:1, x: 50, y:50, height: 50, width: 50}].to_json
   )
