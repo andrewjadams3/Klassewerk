@@ -1,9 +1,8 @@
 class Student < ActiveRecord::Base
-  has_many :classrooms
-  has_many :teachers, through: :classrooms
+  belongs_to :teacher
   has_many :responses
 
-  validates :first_name, :last_name, :username, :password_digest, presence: true
+  validates :first_name, :last_name, :username, :password_digest, :teacher, presence: true
 
   has_secure_password
 

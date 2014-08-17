@@ -5,7 +5,6 @@ class CreateWorksheets < ActiveRecord::Migration
       t.string :name
       t.string :url
       t.json :input_fields
-      # t.json :answer_key
       t.timestamps
     end
   end

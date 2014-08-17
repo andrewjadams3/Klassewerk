@@ -10,11 +10,13 @@ class Auth::StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
+    @student.teacher = Teacher.find_by(class_code: params[:class_code])
     if @student.save
       session[:user_id] = @student.id
       session[:user_type] = 'student'
       redirect_to root_path
     else
+      @errors = @student.errors.full_messages
       render 'students/new'
     end
   end
