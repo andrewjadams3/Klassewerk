@@ -1,40 +1,20 @@
 App.WorksheetController = Ember.ObjectController.extend({
   actions: {
-    loadWorksheet: function() {
-      var i, post;
-      var $postIts = $('.post_board .post-it')
-      var posts = []
-
-      for(i = 0; i < $('.post_board .post-it').length; i++) {
-        $post = $postIts.eq(i)
-
-      post = {
-        "question": $post.attr("id"),
-        "content": $post.find('.content').text(),
-        "position": {
-        "left": $post.css('left'),
-        "top": $post.css('top'),
-        "width": $post.css('width'),
-        "height": $post.css('height')
-      }
-    }
-    posts.push(post)
-    console.log(posts)
-  }
-  boards[currentBoard] = posts
-
-  $('.post_board').remove()
-  new Board()
-    },
-    loadTags: function() {
-      var name = this.get('model.name');
-      console.log(name);
-  //       for(key in samples) {
-  //   $('#board_list').append("<button>"+key+"</button><br>")
-  //   boards[key] = samples[key]
+  //   loadTags: function() {
+  //     var name = this.get('model.name');
+  //     var model = this.get('model')
+  //     var input_field = model.get('inputFields');
+  //     console.log(model);
+  //     console.log(name);
+  //     console.log(input_field[0].left);
+  //     console.log(input_field[0].right);
+  //     console.log(input_field[1].left);
+  //     console.log(input_field[1].right);
+  //   }
   // }
 
-  // $('#load_samples').remove()
+    loadWorksheet: function() {
+      $('#image_panel').append('<div class="post_board"><img class="worksheet-img" src="'+this.get('model.url')+'"></div>')
     }
   }
 });

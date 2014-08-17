@@ -15,6 +15,94 @@
  *= require foundation_and_overrides
 
  */
-.worksheet-img {
+#image_panel {
+  position: relative;
   width: 600px;
+  margin: 20px auto;
+
+}
+
+.worksheet-img {
+  width: 100%;
+}
+#board_selector {
+  position: fixed;
+  z-index: 1000;
+  min-width: 120px;
+  height: 100%;
+  padding: 4px;
+  padding-right: 20px;
+  background-color: #eee;
+  border-right: 1px solid #ddd;
+  float: left;
+}
+
+#board_selector h3 {
+  margin-top: 0;
+}
+
+ul#board_list {
+  padding-left: 20px;
+}
+
+ul#board_list li {
+  cursor: pointer;
+  color: #222;
+  list-style-type: none;
+}
+
+ul#board_list li:hover {
+  color: #555;
+  background-color: #bbb;
+}
+
+ul#board_list li.active {
+  list-style-type: disc;
+}
+
+.post_board {
+  background-color: #9e8d68;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1000;
+}
+
+.post-it {
+  position: absolute !important;
+  width: 160px;
+  background-color: transparent;
+  box-shadow: -2px 2px 5px #555;
+  overflow: hidden;
+  z-index: 1001;
+}
+
+.post-it .header {
+  background-color: white;
+  box-shadow: -2px 2px 5px #555;
+  text-align: right;
+  padding: 2px;
+}
+
+.post-it .header:hover {
+  background-color: #a8a860;
+}
+
+.post-it .header a, .post-it .header a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-it .header a:hover {
+  color: #eee;
+}
+
+.post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
 }
