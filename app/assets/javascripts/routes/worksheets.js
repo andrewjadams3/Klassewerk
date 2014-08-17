@@ -3,3 +3,11 @@ App.WorksheetsRoute = Ember.Route.extend({
     return this.store.find('worksheet');
   }
 });
+
+App.WorksheetsNewRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render({
+      into: "worksheets"
+    })
+  }
+})
