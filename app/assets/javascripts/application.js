@@ -18,12 +18,13 @@
 //= require ember-data
 //= require_self
 //= require ./app
+//= require jquery-ui
 
 // for more details see: http://emberjs.com/guides/application/
 
 //= require_tree .
 
-App = Ember.Application.create({ 
+App = Ember.Application.create({
   rootElement: '#ember-app',
   LOG_TRANSITIONS: true,
   LOG_TRANSITIONS_INTERNAL: true,
