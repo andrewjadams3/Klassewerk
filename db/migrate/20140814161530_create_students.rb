@@ -5,7 +5,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :last_name
       t.string :username
       t.string :password_digest
-      t.belongs_to :school
+      t.belongs_to :teacher
       t.timestamps
     end
   end

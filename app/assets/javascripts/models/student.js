@@ -2,9 +2,7 @@ App.Student = DS.Model.extend({
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
   username: DS.attr('string'),
-  school: DS.belongsTo('school'),
-  responses: DS.hasMany('responses'),
-  classrooms: DS.hasMany('classrooms')
+  responses: DS.hasMany('response'),
 })
 
 App.Student.FIXTURES = [{

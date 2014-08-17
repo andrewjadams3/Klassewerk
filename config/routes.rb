@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :teachers, only: [:index, :show]
       resources :students, only: [:index, :show]
+      resources :worksheets, only: [:index, :show]
+      resources :responses, only: [:index, :show]
       match '/', to: 'index#index', via: 'get'
     end
   end

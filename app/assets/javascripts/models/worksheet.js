@@ -1,6 +1,7 @@
 App.Worksheet = DS.Model.extend({
   name: DS.attr('string'),
   url: DS.attr('string'),
+<<<<<<< HEAD
   inputFields: DS.attr(),
   answerKey: DS.attr()
 });
@@ -144,3 +145,7 @@ App.Worksheet.FIXTURES = [{
     }
   ]
 }]
+=======
+  inputFields: DS.attr()
+});
+>>>>>>> master
