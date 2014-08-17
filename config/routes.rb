@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :teachers, only: [:index, :show]
       resources :students, only: [:index, :show]
       resources :worksheets, only: [:index, :show]
+      resources :classrooms, only: [:index, :show]
       match '/', to: 'index#index', via: 'get'
     end
   end

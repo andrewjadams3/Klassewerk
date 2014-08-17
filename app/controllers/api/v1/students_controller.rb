@@ -2,7 +2,7 @@ class Api::V1::StudentsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Student.all
+    render json: Student.all
   end
 
   def show
