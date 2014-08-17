@@ -71,3 +71,5 @@ group :test, :development do
   gem "sinon-rails"
   gem 'selenium-webdriver'
 end
+
+gem 'sidekiq'

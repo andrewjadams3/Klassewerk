@@ -1,0 +1,15 @@
+
+<h1>Worksheets</h1>
+
+<div class="container">
+  {{#link-to 'worksheets.new'}}Create a new worksheet{{/link-to}}
+</div>
+
+<p><b>Current Worksheets</b></p>
+
+<ul class="side-nav">
+  {{#each}}
+    {{#link-to 'worksheet' id tagName="li"}}<a {{action "clear"}}>{{name}}</a>{{/link-to}}
+  {{/each}}
+</ul>
+

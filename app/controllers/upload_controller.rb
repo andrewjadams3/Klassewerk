@@ -1,4 +1,5 @@
 class UploadController < ApplicationController
+  S3_HEADER = "https://s3-us-west-2.amazonaws.com/classwork/"
 
   def index
     render :upload_form, layout: false
@@ -13,8 +14,19 @@ class UploadController < ApplicationController
     puts file.inspect
     filename = convert_pdf(file)
     upload_to_s3(filename)
-    redirect_to '/temp/upload'
+
+    worksheet = Worksheet.create(url: S3_HEADER + filename, name: "New Worksheet")
+
+    respond_to do |format|
+      format.json {render :json => {id: worksheet.id}}
+    end
+
+    # respond_to do |format|
+    #   format.json {render :json => {id: 20}}
+    # end
   end
+
+
 
   def convert_pdf(file)
     image = MiniMagick::Image.open(file)
@@ -38,7 +50,6 @@ class UploadController < ApplicationController
     )
     bucket = s3.buckets['classwork']
 
-    Worksheet.create(url: filename)
     bucket.objects[filename].write(:file => filename)
   end
 
