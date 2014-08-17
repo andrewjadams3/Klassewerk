@@ -9,7 +9,6 @@
 Teacher.destroy_all
 Student.destroy_all
 Classroom.destroy_all
-Assignment.destroy_all
 
 # 20.times do
 #   password = Faker::Internet.password
@@ -36,23 +35,28 @@ Assignment.destroy_all
 #     )
 # end
 
+
 teacher = Teacher.create(
-  username: "bill",
+  first_name: "bill",
+  last_name: "bill",
+  email: "bill@bill.com",
   password: "password",
   password_confirmation: "password")
 
-student = Student.create(
+student = teacher.students.create(
+  first_name: "student",
+  last_name: "student",
   username: 'student',
-  password: 'password'
+  password: 'password',
   password_confirmation: "password")
 
-worksheet = Worksheet.create(
+worksheet = teacher.worksheets.create(
   name: "Math Worksheet",
   url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
   input_fields: [{x: 50, y:50, height: 50, width: 50}].to_json
   )
 
-worksheet = Worksheet.create(
+worksheet = teacher.worksheets.create(
   name: "English Worksheet",
   url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
   input_fields: [{x: 50, y:50, height: 50, width: 50}].to_json

@@ -1,4 +1,4 @@
 class Worksheet < ActiveRecord::Base
   has_many :responses
-  has_many :assignments
+  belongs_to :teacher
 end
