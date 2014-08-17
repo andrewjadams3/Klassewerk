@@ -1,6 +1,6 @@
 App.ResponsesRoute = Ember.Route.extend({
   model: function(){
-    return this.store.find('response', {classroom: parseInt(this.modelFor('assignment').id)});
+    return this.store.find('response');
   },
   renderTemplate: function() {
     this.render({ outlet: 'responses' });

@@ -1,3 +1,20 @@
-{{#each}}
-  <li>{{name}}</li>
-{{/each}}
+
+<h1>Worksheets</h1>
+
+<p><b>Current Worksheets</b></p>
+<div class="container">
+  <div class="row">
+    <div class="small-4 columns">
+      <ol class="side-nav">
+        {{#each}}
+          {{#link-to 'worksheet' id tagName="li"}}<a {{action "clear"}}>{{name}}</a>{{/link-to}}
+        {{/each}}
+      </ol>
+    </div>
+    <div class="small-8 columns">
+      {{outlet}}
+    </div>
+  </div>
+</div>
+
+
