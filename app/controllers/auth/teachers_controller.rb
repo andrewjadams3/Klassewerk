@@ -4,6 +4,7 @@ class Auth::TeachersController < ApplicationController
       redirect_to(root_path)
     else
       @teacher = Teacher.new
+      @class_code = new_code
       render 'teachers/new'
     end
   end
@@ -15,6 +16,8 @@ class Auth::TeachersController < ApplicationController
       session[:user_type] = 'teacher'
       redirect_to root_path
     else
+      @errors = @teacher.errors.full_messages
+      @class_code = teacher_params[:class_code]
       render 'teachers/new'
     end
   end
@@ -22,6 +25,21 @@ class Auth::TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:teacher).permit(:first_name, :last_name, :email, :class_code, :password, :password_confirmation)
+  end
+
+  def random_code
+    letters = ('1'..'9').to_a + ('A'..'N').to_a + ('P'..'Z').to_a
+    random = letters.shuffle[0,6]
+    random[0..2].join + "-" + random[3..5].join
+  end
+
+  def new_code
+    new_code = ""
+    loop do
+      new_code = random_code
+      break unless Teacher.exists?(class_code: new_code)
+    end
+    return new_code
   end
 end
