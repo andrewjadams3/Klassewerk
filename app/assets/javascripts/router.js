@@ -18,7 +18,15 @@ App.Router.map(function() {
 
     this.resource("teacher", {path: "/account"});
   });
-  this.resource("studentapp");
+  this.resource("studentapp", function() {
+    this.resource("todo", function() {
+      this.resource("create_response", {path: "/:id"})
+    })
+
+    this.resource("completed", function() {
+      this.resource("response", {path: "/:id"})
+    })
+  });
 });
 
 App.Router.reopen({
