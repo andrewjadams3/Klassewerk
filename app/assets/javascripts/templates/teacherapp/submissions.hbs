@@ -1,25 +1,11 @@
-<div class="row text-center">
+<div class="row">
   <h1>Submissions</h1>
 </div>
 <div class="row">
-  <div class="small-10 small-centered columns">
-    <div class="row">
-      <div class="small-6 columns">
-          <ul class="side-nav">
-            {{#each}}
-              {{#link-to 'submissions.responses' id tagName='li'}}<a>{{name}}</a>{{/link-to}}
-            {{/each}}
-          </ul>
-      </div>
-      <div class="small-6 columns">
-        {{ outlet responses }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-10 small-centered columns">
-      {{ outlet response }}
-      </div>
-    </div>
-  </div>
+  <ul class="side-nav">
+    {{#each}}
+      {{#link-to 'submissions.responses' id tagName='li'}}<a>{{name}}</a>{{/link-to}}
+    {{/each}}
+  </ul>
 </div>
 
