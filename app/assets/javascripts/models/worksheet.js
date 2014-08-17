@@ -143,3 +143,4 @@ App.Worksheet.FIXTURES = [{
         }
     }
   ]
+}];
