@@ -1,5 +1,5 @@
 App.Assignment = DS.Model.extend({
-  classroom: DS.belongsTo('classroom'),
+  classroom: DS.belongsTo('classroom', {async: true}),
   worksheet: DS.belongsTo('worksheet'),
   dueDate: DS.attr('date'),
   assignedDate: DS.attr('date')

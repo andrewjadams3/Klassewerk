@@ -8,28 +8,66 @@
 
 Teacher.destroy_all
 Student.destroy_all
+Classroom.destroy_all
+Worksheet.destroy_all
+Response.destroy_all
 
-20.times do
-  password = Faker::Internet.password
-  Teacher.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: password,
-    password_confirmation: password
-    )
-end
+# 20.times do
+#   password = Faker::Internet.password
+#   Teacher.create(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: password,
+#     password_confirmation: password
+#     )
+# end
 
-20.times do
-  password = Faker::Internet.password
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = (first_name + last_name).downcase
-  Student.create(
-    first_name: first_name,
-    last_name: last_name,
-    username: username,
-    password: password,
-    password_confirmation: password
-    )
-end
+# 20.times do
+#   password = Faker::Internet.password
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
+#   username = (first_name + last_name).downcase
+#   Student.create(
+#     first_name: first_name,
+#     last_name: last_name,
+#     username: username,
+#     password: password,
+#     password_confirmation: password
+#     )
+# end
+
+
+teacher = Teacher.create(
+  first_name: "bill",
+  last_name: "bill",
+  email: "bill@bill.com",
+  password: "password",
+  password_confirmation: "password")
+
+student = teacher.students.create(
+  first_name: "student",
+  last_name: "student",
+  username: 'student',
+  password: 'password',
+  password_confirmation: "password")
+
+worksheet = teacher.worksheets.create(
+  name: "Math Worksheet",
+  url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
+  input_fields: [{question: 1, x: 50, y:50, height: 50, width: 50}].to_json
+  )
+
+response = Response.create(
+  student_id: student.id,
+  worksheet_id: worksheet.id,
+  answers: [{question: 1, content: "A flibberty-gibbet"},
+            {question: 2, content: "How appropriate, you fight like a cow."}],
+  submitted: true
+  )
+
+worksheet = teacher.worksheets.create(
+  name: "English Worksheet",
+  url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
+  input_fields: [{question:1, x: 50, y:50, height: 50, width: 50}].to_json
+  )
