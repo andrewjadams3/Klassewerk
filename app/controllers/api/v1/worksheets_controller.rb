@@ -8,4 +8,10 @@ class Api::V1::WorksheetsController < ApplicationController
   def show
     render json: Worksheet.find(params[:id])
   end
+
+  def update
+    @worksheet = Worksheet.find(params[:id])
+    @worksheet.update_attributes(input_fields: params[:worksheet][:input_fields])
+    render :nothing => true, :status => 200
+  end
 end

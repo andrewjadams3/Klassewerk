@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Teacher.destroy_all
-Student.destroy_all
+# Teacher.destroy_all
+# Student.destroy_all
 Worksheet.destroy_all
 Response.destroy_all
 
@@ -67,6 +67,6 @@ response = Response.create(
 
 worksheet = teacher.worksheets.create(
   name: "English Worksheet",
-  url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
+  url: "http://www.studyvillage.com/attachments/Resources/3118-192245-Singular-plural-worksheet.png",
   input_fields: [{x: 50, y:50, height: 50, width: 50}]
   )

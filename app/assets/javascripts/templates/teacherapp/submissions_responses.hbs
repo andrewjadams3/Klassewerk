@@ -1,0 +1,5 @@
+<ul class="side-nav">
+  {{#each responses}}
+    {{#link-to 'submissions.response' id tagName='li'}}<a>{{this.student.firstName}} {{this.student.lastName}}</a>{{/link-to}}
+  {{/each}}
+</ul>

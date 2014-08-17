@@ -1,5 +1,5 @@
 App.Response = DS.Model.extend({
-  worksheet: DS.belongsTo('worksheet'),
+  worksheet: DS.belongsTo('worksheet', {async:true}),
   student: DS.belongsTo('student'),
   answers: DS.attr(),
   submitted: DS.attr('boolean')
