@@ -15,3 +15,6 @@
  *= require foundation_and_overrides
 
  */
+.worksheet-img {
+  width: 600px;
+}

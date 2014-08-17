@@ -12,7 +12,7 @@ App.Router.map(function() {
     });
 
     this.resource("worksheets", function(){
-      this.resource("worksheet", {path: '/:id'}, function(){
+      this.resource("worksheet", {path: '/:worksheetId'}, function(){
         this.route("edit")
       }),
       this.route("new")

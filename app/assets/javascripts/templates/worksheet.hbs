@@ -1,0 +1,11 @@
+<h1>{{name}}</h1>
+  <button {{action "loadTags"}}>Load Tags</button>
+  <button {{action "loadTags"}}>Load Worksheet</button>
+  <p>{{url}}</p>
+  {{#each inputFields}}
+  <p>{{x}}</p>
+  {{/each}}
+  <p>{{answerKey}}</p>
+  <div id="image-panel">
+    <img class="worksheet-img" {{bind-attr src="url"}}>
+  </div>

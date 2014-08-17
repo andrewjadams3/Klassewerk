@@ -2,11 +2,16 @@
 
 <p><b>Current Worksheets</b></p>
 <div class="container">
-  <div class="eleven columns centered">
-    <ol>
-      {{#each}}
-        <li>{{#link-to 'worksheet' id }}{{name}}{{/link-to}}</li>
-      {{/each}}
-    </ol>
+  <div class="row">
+    <div class="four columns">
+      <ol>
+        {{#each}}
+          <li>{{#link-to 'worksheet' id }}{{name}}{{/link-to}}</li>
+        {{/each}}
+      </ol>
+    </div>
+    <div class="eight columns">
+      {{outlet}}
+    </div>
   </div>
 </div>
