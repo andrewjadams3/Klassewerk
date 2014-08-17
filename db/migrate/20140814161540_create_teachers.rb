@@ -4,8 +4,8 @@ class CreateTeachers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
+      t.string :class_code
       t.string :password_digest
-      # t.belongs_to :school
       t.timestamps
     end
   end

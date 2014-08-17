@@ -1,11 +1,21 @@
 <div class="small-10 columns small-centered">
   <div class="row signup">
     <h1>Student Sign Up</h1>
+    <% if @errors %>
+    <p>Please correct the following errors:</p>
+    <ul class="no-bullet">
+      <% @errors.each do |error| %>
+      <li style="color:red"><%= error %>
+      <% end %>
+    </ul>
+    <% end %>
     <%= form_for @student, :url => auth_students_path do |f| %>
       <label for="left-label" class="left"><%= f.label :first_name %> </label>
       <%= f.text_field :first_name %>
       <label for="left-label" class="left"><%= f.label :last_name %> </label>
       <%= f.text_field :last_name %>
+      <label for="left-label" class="left"><%= label_tag :class_code %> </label>
+      <%= text_field_tag :class_code %>
       <label for="left-label" class="left"><%= f.label :username %> </label>
       <%= f.text_field :username %>
       <label for="left-label" class="left"><%= f.label :password %> </label>
