@@ -6,7 +6,7 @@ class Api::V1::StudentsController < ApplicationController
   end
 
   def show
-    respond_with student
+    render json: student
   end
 
   private

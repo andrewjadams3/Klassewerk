@@ -3,8 +3,8 @@
 App.Router.map(function() {
   this.route("index", { path: "/" });
   this.resource("teacherapp", function() {
-    this.resource("submissions", function() {
-      this.resource("worksheet", {path: '/:id'}, function() {
+    this.resource("submissions", function() {                   // API call for all worksheets
+      this.resource("worksheet", {path: '/:id'}, function() {   // API call for all responses
         this. resource("response", {path: '/:id'})
       })
     });

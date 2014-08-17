@@ -3,9 +3,9 @@ class Api::V1::TeachersController < ApplicationController
 
   def index
     if(current_teacher)
-      respond_with Teacher.all
+      render json: Teacher.all
     else
-      respond_with ({error: "You must be logged in"}), status: 401
+      render json: ({error: "You must be logged in"}), status: 401
     end
   end
 
