@@ -1,5 +1,15 @@
-<ul class="side-nav">
-  {{#each responses}}
-    {{#link-to 'submissions.response' id tagName='li'}}<a>{{this.student.firstName}} {{this.student.lastName}}</a>{{/link-to}}
-  {{/each}}
-</ul>
+<div class="row">
+  <h1>Submissions</h1>
+</div>
+
+
+<div class="row">
+  <h4>{{name}}</h4>
+  {{#link-to "submissions"}}Back{{/link-to}}
+
+  <ul class="side-nav">
+    {{#each responses}}
+      {{#link-to 'submissions.response' id tagName='li'}}<a>{{this.student.firstName}} {{this.student.lastName}}</a>{{/link-to}}
+    {{/each}}
+  </ul>
+</div>
