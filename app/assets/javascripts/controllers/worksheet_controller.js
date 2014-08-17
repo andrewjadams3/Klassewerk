@@ -38,12 +38,12 @@ App.WorksheetController = Ember.ObjectController.extend({
       var model = this.get('model')
       var inputFields = model.get('inputFields')
       tags=[]
-      for(i in inputFields) {
+      for(i = 0; i < inputFields.length; i++) {
         var postit
         var post = inputFields[i]
-        console.log(i);
+        console.log("------inputFields-------")
         console.log(inputFields[i]);
-        postit = new PostIt($('.post_board'), post['position']['left'], post['position']['top'], post['position']['width'], post['position']['height']);
+        postit = new PostIt($('.post_board'), post["x"], post["y"], post["width"], post["height"]);
         postit.$elem.find('.content').text(post.content);
       };
     },
@@ -63,14 +63,10 @@ App.WorksheetController = Ember.ObjectController.extend({
       for(i = 0; i < $('.post_board .post-it').length; i++) {
         $post = $postIts.eq(i)
         post = {
-          "question": $post.attr("id"),
-          "content": $post.find('.content').text(),
-          "position": {
-            "left": $post.css('left'),
-            "top": $post.css('top'),
+            "x": $post.css('left'),
+            "y": $post.css('top'),
             "width": $post.css('width'),
             "height": $post.css('height')
-          }
         }
         posts.push(post)
       }
