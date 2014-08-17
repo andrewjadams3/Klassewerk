@@ -3,8 +3,8 @@
 App.Router.map(function() {
   this.route("index", { path: "/" });
   this.resource("teacherapp", function() {
-    this.resource("submissions", function() {
-      this.resource("worksheet", {path: '/:id'}, function() {
+    this.resource("submissions", function() {                   // API call for all worksheets
+      this.resource("worksheet", {path: '/:id'}, function() {   // API call for all responses
         this. resource("response", {path: '/:id'})
       })
     });
@@ -18,7 +18,15 @@ App.Router.map(function() {
 
     this.resource("teacher", {path: "/account"});
   });
-  this.resource("studentapp");
+  this.resource("studentapp", function() {
+    this.resource("todo", function() {
+      this.resource("create.response", {path: "/:id"})
+    })
+
+    this.resource("completed", function() {
+      this.resource("completed.response", {path: "/:id"})
+    })
+  });
 });
 
 App.Router.reopen({

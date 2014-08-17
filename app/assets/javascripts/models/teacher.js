@@ -2,8 +2,6 @@ App.Teacher = DS.Model.extend({
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
   email: DS.attr('string'),
-  school: DS.belongsTo('school'),
-  classrooms: DS.hasMany('classrooms'),
   worksheets: DS.hasMany('worksheets')
 })
 

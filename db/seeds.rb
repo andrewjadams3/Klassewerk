@@ -8,7 +8,6 @@
 
 Teacher.destroy_all
 Student.destroy_all
-Classroom.destroy_all
 Worksheet.destroy_all
 Response.destroy_all
 
