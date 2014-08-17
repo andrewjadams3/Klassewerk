@@ -1,1 +1,7 @@
 Completed.hbs
+
+{{#each}}
+  <li>{{#link-to 'completed.response' id}}{{id}}{{/link-to}}</li>
+{{/each}}
+
+{{outlet}}

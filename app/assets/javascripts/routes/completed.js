@@ -1,3 +1,5 @@
 App.CompletedRoute = Ember.Route.extend({
-  renderTemplate:
+  renderTemplate: function() {
+    this.render('studentapp/completed')
+  }
 })
