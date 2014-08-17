@@ -2,6 +2,8 @@ Todo.hbs
 
 <ul class="side-nav">
 {{#each}}
-  {{#link-to 'create.response' id tagName="li"}}<a>{{url}}</a>{{/link-to}}
+  {{#link-to 'create.response' id tagName="li"}}<a>{{name}}</a>{{/link-to}}
 {{/each}}
 </ul>
+
+{{outlet}}
