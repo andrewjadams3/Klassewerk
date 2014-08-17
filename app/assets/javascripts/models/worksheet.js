@@ -1,7 +1,8 @@
 App.Worksheet = DS.Model.extend({
   name: DS.attr('string'),
   url: DS.attr('string'),
-  inputFields: DS.attr()
+  inputFields: DS.attr(),
+  responses: DS.hasMany('response', {async:true})
 });
 
 
