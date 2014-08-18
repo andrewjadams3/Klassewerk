@@ -28,6 +28,28 @@ App.CreateResponseController = Ember.ObjectController.extend({
         var post = inputFields[i];
         new Field($('.post_board'), post["x"], post["y"], post["width"], post["height"]);
       }
+    },
+    submitResponse: function() {
+      var model = this.get('model');
+      var i, response;
+      var $fields = $('.post_board .post-it');
+      var answers = [];
+      for(i = 0; i < $('.post_board .post-it').length; i++) {
+        $post = $fields.eq(i);
+        response = {
+            "content": $post.text()
+        };
+        answers.push(response);
+      }
+      console.log(JSON.stringify(answers));
+      console.log(this.get('model'));
+      var responseRecord = this.store.createRecord('response', {
+        answers: answers,
+        worksheet: this.get('model'),
+        submitted: true
+      });
+      responseRecord.save();
+      return answers;
     }
   }
 });

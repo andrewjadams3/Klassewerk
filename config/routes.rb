@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resources :teachers, only: [:index, :show]
       resources :students, only: [:index, :show]
       resources :worksheets, only: [:index, :show, :update]
-      resources :responses, only: [:index, :show]
+      resources :responses, only: [:index, :show, :create]
       match '/', to: 'index#index', via: 'get'
     end
   end
