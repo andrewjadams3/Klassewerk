@@ -1,9 +1,9 @@
 <div id="image_panel">
   <div class="post_board">
     <img {{bind-attr src='worksheet.url'}} />
-    {{#each formattedAnswers}}
-      <div class="post-it">
-        test {{worksheetName}}
+    {{#each field in fields}}
+      <div class="post-it" {{bind-attr style=field.style}}>
+        {{field.answer}}
       </div>
     {{/each}}
   </div>

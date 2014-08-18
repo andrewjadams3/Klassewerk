@@ -2,7 +2,24 @@ App.Worksheet = DS.Model.extend({
   name: DS.attr('string'),
   url: DS.attr('string'),
   inputFields: DS.attr(),
-  responses: DS.hasMany('response', {async:true})
+  responses: DS.hasMany('response', {async:true}),
+
+  styles: function() {
+    var i, styles = [], field;
+    var inputFields = this.get('inputFields')
+
+    for(i=0; i<inputFields.length; i++) {
+      field = inputFields[i];
+
+      styles[i] = {style: "left: " + field.x + 
+                  "; top: " + field.y + 
+                  "; height: " + field.height + 
+                  "; width: " + field.width}
+    }
+
+    return styles
+  }.property('inputFields')
+
 });
 
 

@@ -4,27 +4,20 @@ App.Response = DS.Model.extend({
   answers: DS.attr(),
   submitted: DS.attr('boolean'),
 
-  formattedAnswers: function() {
-    var i, field
+  fields: function() {
+    var styles = this.get('worksheet.styles')
     var answers = this.get('answers')
-    var worksheet = this.get('worksheet')
-    // var fields = worksheet.inputFields
-  
-    var formatted = answers
-    for(i=0; i<answers.length; i++) {
-      // field = worksheet.inputFields[i]
+    var i;
+    var array = []
 
-      console.log(worksheet.name)
-
-      formatted[i].worksheetName = worksheet.name
-
-      // formatted[i].formatStyle = "left: " + field.x + 
-      //                      "px; top: " + field.y + 
-      //                      "px; height: " + field.height + 
-      //                      "px; width: " + field.width + "px;"
+    if(styles) {
+      for(i=0; i<answers.length; i++) {
+        array[i] = {style: styles[i].style, answer: answers[i].content}
+      }
     }
-    return formatted
-  }.property('answers', 'worksheet.name')
+
+    return array
+  }.property('worksheet.styles', 'answers')
 })
 
 App.Response.FIXTURES = [{
