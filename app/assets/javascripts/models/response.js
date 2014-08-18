@@ -1,5 +1,7 @@
 App.Response = DS.Model.extend({
-  worksheet: DS.belongsTo('worksheet', {async:true}),
+  worksheet: DS.belongsTo('worksheet', {
+    async: true
+  }),
   student: DS.belongsTo('student'),
   answers: DS.attr(),
   submitted: DS.attr('boolean'),
@@ -14,10 +16,13 @@ App.Response = DS.Model.extend({
     var i;
     var array = []
 
-    if(styles) {
-      for(i=0; i<answers.length; i++) {
-        if(styles[i] && answers[i]) {
-          array[i] = {style: styles[i].style, answer: answers[i].content}
+    if (styles) {
+      for (i = 0; i < answers.length; i++) {
+        if (styles[i] && answers[i]) {
+          array[i] = {
+            style: styles[i].style,
+            answer: answers[i].content
+          }
         }
       }
     }
@@ -32,7 +37,7 @@ App.Response.FIXTURES = [{
   student: 1,
   answers: [],
   submitted: false
-},{
+}, {
   id: 2,
   worksheet: 1,
   student: 2,

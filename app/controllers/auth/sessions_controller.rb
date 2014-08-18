@@ -1,5 +1,5 @@
 class Auth::SessionsController < ApplicationController
-  
+
   def new_teacher
     render 'sessions/teacher_login'
   end

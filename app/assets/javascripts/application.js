@@ -32,4 +32,6 @@ App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true
 });
 
-$(function(){ $(document).foundation(); });
+$(function() {
+  $(document).foundation();
+});

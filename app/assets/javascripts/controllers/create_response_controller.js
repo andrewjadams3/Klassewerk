@@ -1,4 +1,4 @@
-var Field = function( board, x, y, width, height) {
+var Field = function(board, x, y, width, height) {
   this.x = x;
   this.y = y;
   this.height = height;
@@ -23,8 +23,8 @@ App.CreateResponseController = Ember.ObjectController.extend({
     loadFields: function() {
       var model = this.get('model');
       var inputFields = model.get('inputFields');
-      tags=[];
-      for(i = 0; i < inputFields.length; i++) {
+      tags = [];
+      for (i = 0; i < inputFields.length; i++) {
         var post = inputFields[i];
         new Field($('.post_board'), post["x"], post["y"], post["width"], post["height"]);
       }
@@ -34,10 +34,10 @@ App.CreateResponseController = Ember.ObjectController.extend({
       var i, response;
       var $fields = $('.post_board .post-it');
       var answers = [];
-      for(i = 0; i < $('.post_board .post-it').length; i++) {
+      for (i = 0; i < $('.post_board .post-it').length; i++) {
         $post = $fields.eq(i);
         response = {
-            "content": $post.text()
+          "content": $post.text()
         };
         answers.push(response);
       }

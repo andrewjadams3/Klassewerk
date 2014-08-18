@@ -3,7 +3,9 @@ App.Teacher = DS.Model.extend({
   lastName: DS.attr('string'),
   email: DS.attr('string'),
   classCode: DS.attr('string'),
-  worksheets: DS.hasMany('worksheet', {async:true})
+  worksheets: DS.hasMany('worksheet', {
+    async: true
+  })
 })
 
 App.Teacher.FIXTURES = [{
