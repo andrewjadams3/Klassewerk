@@ -1,1 +1,10 @@
-<img {{bind-attr src='worksheet.url'}} />
+<div id="image_panel">
+  <div class="post_board">
+    <img {{bind-attr src='worksheet.url'}} />
+    {{#each formattedAnswers}}
+      <div class="post-it">
+        test {{worksheetName}}
+      </div>
+    {{/each}}
+  </div>
+</div>

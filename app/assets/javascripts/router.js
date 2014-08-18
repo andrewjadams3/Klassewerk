@@ -17,7 +17,7 @@ App.Router.map(function() {
       this.route("new")
     });
 
-    this.resource("teacher", {path: "/account"});
+    this.resource("account", {path: "/account"});
   });
   this.resource("studentapp", function() {
     this.resource("todo", function() {
