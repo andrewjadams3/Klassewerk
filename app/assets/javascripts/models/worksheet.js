@@ -4,6 +4,10 @@ App.Worksheet = DS.Model.extend({
   inputFields: DS.attr(),
   responses: DS.hasMany('response', {async:true}),
 
+  completed: function() {
+    return (this.get('responses.length') > 0)
+  }.property('responses.length'),
+
   styles: function() {
     var i, styles = [], field;
     var inputFields = this.get('inputFields')

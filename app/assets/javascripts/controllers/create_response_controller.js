@@ -49,6 +49,8 @@ App.CreateResponseController = Ember.ObjectController.extend({
         submitted: true
       });
       responseRecord.save();
+
+      this.transitionTo('todo')
       return answers;
     }
   }
