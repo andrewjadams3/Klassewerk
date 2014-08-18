@@ -12,7 +12,9 @@ App.Response = DS.Model.extend({
 
     if(styles) {
       for(i=0; i<answers.length; i++) {
-        array[i] = {style: styles[i].style, answer: answers[i].content}
+        if(styles[i] && answers[i]) {
+          array[i] = {style: styles[i].style, answer: answers[i].content}
+        }
       }
     }
 
