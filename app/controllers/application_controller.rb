@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
 
   def current_teacher
     if session[:user_type] == 'teacher'
-      @current_teacher ||= Teacher.find(session[:user_id])
+      @current_teacher ||= Teacher.find_by(id: session[:user_id])
     end
   end
 
   def current_student
     if session[:user_type] == 'student'
-      @current_student ||= Student.find(session[:user_id])
+      @current_student ||= Student.find_by(id: session[:user_id])
     end
   end
 

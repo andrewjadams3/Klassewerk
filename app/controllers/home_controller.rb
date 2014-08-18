@@ -11,6 +11,9 @@ class HomeController < ApplicationController
   protected
 
   def authenticate_user
-    redirect_to :welcome unless (current_student || current_teacher)
+    unless (current_student || current_teacher)
+      reset_session
+      redirect_to :welcome
+    end
   end
 end
