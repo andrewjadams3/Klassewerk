@@ -3,7 +3,7 @@ Todo.hbs
 <ul class="side-nav">
 {{#each}}
   {{#if completed}}{{else}}
-    {{#link-to 'create.response' id tagName="li"}}<a {{action clearFields}}>{{name}}</a>{{/link-to}}
+    {{#link-to 'create.response' id tagName="li"}}<a>{{name}}</a>{{/link-to}}
   {{/if}}
 {{/each}}
 </ul>

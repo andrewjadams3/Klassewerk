@@ -1,4 +1,4 @@
-App.TodoIndexRoute = Ember.Route.extend({
+App.TodoRoute = Ember.Route.extend({
   renderTemplate: function() {
     this.render('studentapp/todo', {
       into: 'studentapp',
@@ -7,7 +7,13 @@ App.TodoIndexRoute = Ember.Route.extend({
   },
 
   model: function() { 
-    return this.store.find('worksheet', {completed: false})
+    return this.store.find('worksheet')
+  }
+})
+
+App.TodoIndexRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.find('worksheet')
   }
 })
 
