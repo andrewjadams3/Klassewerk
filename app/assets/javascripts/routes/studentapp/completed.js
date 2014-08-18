@@ -12,7 +12,7 @@ App.CompletedRoute = Ember.Route.extend({
 
 App.CompletedResponseRoute = Ember.Route.extend({
   renderTemplate: function() {
-    this.render('studentapp/completed_response', {
+    this.render('response', {
       outlet: 'right',
       into: 'studentapp'
     })
@@ -22,14 +22,3 @@ App.CompletedResponseRoute = Ember.Route.extend({
   }
 })
 
-App.SubmissionsResponseRoute = Ember.Route.extend({
-  renderTemplate: function() {
-    this.render('response',  {
-      into: 'studentapp',
-      outlet: 'right'
-    })
-  },
-  model: function(params) {
-    return this.store.find('response', params.id)
-  }
-})
