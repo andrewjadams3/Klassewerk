@@ -12,7 +12,13 @@ class Api::V1::WorksheetsController < ApplicationController
   end
 
   def show
-    render json: Worksheet.find(params[:id])
+    if current_teacher
+      render json: current_teacher.worksheets.find(params[:id])
+    elsif current_student
+      render json: current_student.teacher.worksheets.find(params[:id])
+    else
+      render json: ({error: "You must be logged in"}), status: 401
+    end
   end
 
   def update

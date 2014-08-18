@@ -2,11 +2,23 @@ class Api::V1::ResponsesController < ApplicationController
   respond_to :json
 
   def index
-    render json: Response.all
+    if current_teacher
+      render json: current_teacher.responses
+    elsif current_student
+      render json: current_student.responses
+    else
+      render json: ({error: "You must be logged in"}), status: 401
+    end
   end
 
   def show
-    render json: Response.find(params[:id])
+    if current_teacher
+      render json: current_teacher.responses.find(params[:id])
+    elsif current_student
+      render json: current_student.responses.find(params[:id])
+    else
+      render json: ({error: "You must be logged in"}), status: 401
+    end
   end
 
   def create
