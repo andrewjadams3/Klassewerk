@@ -8,7 +8,7 @@ var PostIt = function( board, x, y, width, height) {
     this.height = height;
     this.width = width;
     tags.push(this);
-    board.append("<div class = 'post-it' id=" + tags.length + "></div>");
+    board.append("<div class = 'post-it' id=" + tags.length + "><a class='destroy'>X</a></div>");
     this.$elem = $('.post-it').last();
     var position = this.$elem.position();
     this.$elem
@@ -16,7 +16,6 @@ var PostIt = function( board, x, y, width, height) {
       .css('top', this.y)
       .css('height', this.height)
       .css('width', this.width)
-      .append("<div class='header'><a class='to-image'>" + tags.length + ".  </a> <a class='destroy'>X</a></div>")
       .append("<div class='content'></div>")
       .click(function(e) {
         e.stopPropagation()
