@@ -1,9 +1,3 @@
-var idSame = function(w_id, responseWorksheet) {
-  return function(responseWorksheet) {
-        return responseWorksheet.get(id) == w_id
-  }
-}
-
 App.Student = DS.Model.extend({
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
