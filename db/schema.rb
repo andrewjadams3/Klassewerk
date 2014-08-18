@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20140814161540) do
     t.datetime "updated_at"
   end
 
+  add_index "students", ["username"], name: "index_students_on_username", unique: true, using: :btree
+
   create_table "teachers", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -44,6 +46,9 @@ ActiveRecord::Schema.define(version: 20140814161540) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "teachers", ["class_code"], name: "index_teachers_on_class_code", unique: true, using: :btree
+  add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true, using: :btree
 
   create_table "worksheets", force: true do |t|
     t.integer  "teacher_id"
