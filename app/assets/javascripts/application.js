@@ -19,6 +19,7 @@
 //= require_self
 //= require ./app
 //= require jquery-ui
+//= require jquery.ui.touch-punch
 
 // for more details see: http://emberjs.com/guides/application/
 
