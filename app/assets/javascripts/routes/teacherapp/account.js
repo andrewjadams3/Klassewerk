@@ -4,9 +4,6 @@ App.AccountRoute = Ember.Route.extend({
       into: 'teacherapp',
       outlet: 'left'
     })
-  },
-  model: function(){
-    return this.store.find('teacher')
   }
 })
 
