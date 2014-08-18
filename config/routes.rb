@@ -25,12 +25,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :auth, only: [:index]
       resources :teachers, only: [:index, :show]
       resources :students, only: [:index, :show]
       resources :worksheets, only: [:index, :show, :update]
       resources :responses, only: [:index, :show, :create]
       match '/', to: 'index#index', via: 'get'
-      match '/teacher', to: 'teachers#teacher', via: 'get'
     end
   end
 

@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authorized
+    (current_teacher || current_student)
+  end
+
 end

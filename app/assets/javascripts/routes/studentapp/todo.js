@@ -5,6 +5,13 @@ App.TodoRoute = Ember.Route.extend({
       outlet: 'left'
     })
   },
+
+  model: function() { 
+    return this.store.find('worksheet')
+  }
+})
+
+App.TodoIndexRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('worksheet')
   }
