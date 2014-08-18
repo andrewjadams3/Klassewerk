@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Teacher.destroy_all
-# Student.destroy_all
+Teacher.destroy_all
+Student.destroy_all
 Worksheet.destroy_all
 Response.destroy_all
 
