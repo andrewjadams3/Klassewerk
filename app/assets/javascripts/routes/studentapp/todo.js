@@ -1,12 +1,13 @@
-App.TodoRoute = Ember.Route.extend({
+App.TodoIndexRoute = Ember.Route.extend({
   renderTemplate: function() {
     this.render('studentapp/todo', {
       into: 'studentapp',
       outlet: 'left'
     })
   },
-  model: function() {
-    return this.store.find('worksheet')
+
+  model: function() { 
+    return this.store.find('worksheet', {completed: false})
   }
 })
 
