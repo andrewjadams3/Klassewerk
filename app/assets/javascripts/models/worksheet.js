@@ -3,6 +3,7 @@ App.Worksheet = DS.Model.extend({
   url: DS.attr('string'),
   inputFields: DS.attr(),
   responses: DS.hasMany('response', {async:true}),
+  teacher: DS.belongsTo('teacher', {async:true}),
 
   completed: function() {
     return (this.get('responses.length') > 0)
@@ -15,9 +16,9 @@ App.Worksheet = DS.Model.extend({
     for(i=0; i<inputFields.length; i++) {
       field = inputFields[i];
 
-      styles[i] = {style: "left: " + field.x + 
-                  "; top: " + field.y + 
-                  "; height: " + field.height + 
+      styles[i] = {style: "left: " + field.x +
+                  "; top: " + field.y +
+                  "; height: " + field.height +
                   "; width: " + field.width}
     }
 

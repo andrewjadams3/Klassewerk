@@ -22,4 +22,11 @@ App.RawTransform = DS.Transform.extend({
   }
 });
 
-App.register('transform:raw', App.RawTransform);      
+App.register('transform:raw', App.RawTransform);
+
+
+// App.CurrentTeacherAdapter = Ember.Object.extend({
+//   find: function(){
+//     return $.getJSON('/api/v1/teachers');
+//   }
+// });

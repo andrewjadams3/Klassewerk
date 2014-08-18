@@ -21,10 +21,4 @@ class Api::V1::TeachersController < ApplicationController
     end
   end
 
-  private
-
-  def teacher
-    Teacher.find(params[:id])
-  end
-
 end
