@@ -21,7 +21,7 @@ var PostIt = function( board, x, y, width, height) {
       .click(function(e) {
         e.stopPropagation()
       })
-      .draggable({containment: "parent"})
+      .draggable({handle: ".header"})
       .resizable();
     this.$elem.on('click', '.destroy', function(e) {
       e.stopPropagation();
