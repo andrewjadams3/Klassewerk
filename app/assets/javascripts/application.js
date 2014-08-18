@@ -11,14 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
+//= require jquery.ui.touch-punch
 //= require foundation
 //= require handlebars
 //= require ember
 //= require ember-data
 //= require_self
 //= require ./app
-//= require jquery-ui
 
 // for more details see: http://emberjs.com/guides/application/
 
