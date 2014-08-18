@@ -8,5 +8,6 @@ class CreateStudents < ActiveRecord::Migration
       t.belongs_to :teacher
       t.timestamps
     end
+    add_index :students, :username, unique: true
   end
 end

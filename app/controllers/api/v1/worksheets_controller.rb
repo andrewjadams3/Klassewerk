@@ -2,7 +2,13 @@ class Api::V1::WorksheetsController < ApplicationController
   respond_to :json
 
   def index
-    render json: Worksheet.all
+    if current_teacher
+      render json: current_teacher.worksheets
+    elsif current_student
+      render json: current_student.teacher.worksheets
+    else
+      render json: ({error: "You must be logged in"}), status: 401
+    end
   end
 
   def show
