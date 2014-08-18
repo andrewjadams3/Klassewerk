@@ -24,7 +24,7 @@ App.SubmissionsResponsesRoute = Ember.Route.extend({
 
 App.SubmissionsResponseRoute = Ember.Route.extend({
   renderTemplate: function() {
-    this.render('teacherapp/submissions_response',  {
+    this.render('response',  {
       into: 'teacherapp',
       outlet: 'right'
     })

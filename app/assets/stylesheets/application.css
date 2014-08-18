@@ -74,8 +74,9 @@ ul#board_list li.active {
 .post-it {
   position: absolute !important;
   width: 160px;
-  background-color: transparent;
-  box-shadow: -2px 2px 5px #555;
+  background-color: rgba(255,255,255,0.8);
+/*  box-shadow: -2px 2px 5px #555;*/
+  border: 1px solid black;
   overflow: hidden;
   z-index: 1001;
 }
