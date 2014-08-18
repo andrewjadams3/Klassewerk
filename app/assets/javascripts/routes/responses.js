@@ -1,8 +1,10 @@
 App.ResponsesRoute = Ember.Route.extend({
-  model: function(){
+  model: function() {
     return this.store.find('response');
   },
   renderTemplate: function() {
-    this.render({ outlet: 'responses' });
+    this.render({
+      outlet: 'responses'
+    });
   }
 })

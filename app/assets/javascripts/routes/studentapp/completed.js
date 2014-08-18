@@ -21,4 +21,3 @@ App.CompletedResponseRoute = Ember.Route.extend({
     return this.store.find('response', params.id)
   }
 })
-

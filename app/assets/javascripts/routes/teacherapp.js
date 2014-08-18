@@ -1,5 +1,5 @@
 App.TeacherappRoute = Ember.Route.extend({
-  renderTemplate: function(){
+  renderTemplate: function() {
     this.render({
       into: 'application'
     })
