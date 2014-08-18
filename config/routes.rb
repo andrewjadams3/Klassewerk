@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :worksheets, only: [:index, :show, :update]
       resources :responses, only: [:index, :show, :create]
       match '/', to: 'index#index', via: 'get'
+      match '/teacher', to: 'teachers#teacher', via: 'get'
     end
   end
 

@@ -13,11 +13,14 @@ App.Router.map(function() {
       this.resource("worksheet", {path: '/:worksheetId'}, function(){
         this.route("edit", {path: '/edit'})
       })
-      
+
       this.route("new")
     });
 
-    this.resource("account", {path: "/account"});
+    this.resource("account", {path: "/account"}, function(){
+      this.resource("account.students", {path: '/students'})
+      this.route("edit", {path: '/edit'})
+    });
   });
   this.resource("studentapp", function() {
     this.resource("todo", function() {

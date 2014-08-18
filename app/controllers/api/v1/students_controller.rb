@@ -2,7 +2,11 @@ class Api::V1::StudentsController < ApplicationController
   respond_to :json
 
   def index
-    render json: Student.all
+    if current_teacher
+      render json: current_teacher.students
+    else
+      render json: {:error => "Invalid Login Details"}, status: 401
+    end
   end
 
   def show

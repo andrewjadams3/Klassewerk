@@ -9,18 +9,20 @@ class Api::V1::TeachersController < ApplicationController
     end
   end
 
-  def show
+  def teacher
     if(current_teacher)
-      render json: current_teacher
+      render json: {id: current_teacher.id}
     else
       render json: {:error => "Invalid Login Details"}, status: 401
     end
   end
 
-  private
-
-  def teacher
-    Teacher.find(params[:id])
+  def show
+    if(current_teacher)
+      render json: Teacher.find(params[:id])
+    else
+      render json: {:error => "Invalid Login Details"}, status: 401
+    end
   end
 
 end
