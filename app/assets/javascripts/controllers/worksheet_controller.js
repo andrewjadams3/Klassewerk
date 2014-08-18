@@ -43,7 +43,7 @@ App.WorksheetController = Ember.ObjectController.extend({
       }
       if (image.attr('class') != "post_board clickable") {
         image.addClass('clickable');
-        image.click(function(event) {
+        image.dblclick(function(event) {
           var x = event.offsetX;
           var y = event.offsetY;
           new PostIt($(this), x, y, "100px", "48px");
