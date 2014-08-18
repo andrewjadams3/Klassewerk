@@ -7,13 +7,13 @@ App.TodoRoute = Ember.Route.extend({
   },
 
   model: function() { 
-    return this.store.find('worksheet')
+    return this.store.find('student')
   }
 })
 
 App.TodoIndexRoute = Ember.Route.extend({
   model: function() {
-    return this.store.find('worksheet')
+    return this.store.find('student')
   }
 })
 
