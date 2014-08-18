@@ -2,10 +2,11 @@ Todo.hbs
 
 <ul class="side-nav">
 {{#each}}
-  {{#if completed}}{{else}}
-    {{#link-to 'create.response' id tagName="li"}}<a>{{name}}</a>{{/link-to}}
-  {{/if}}
+  {{#each incompleteWorksheets}}
+    {{#link-to 'create.response' id tagName='li'}}<a>{{name}}</a>{{/link-to}}
+  {{/each}}
 {{/each}}
+
 </ul>
 
 {{outlet}}

@@ -4,6 +4,10 @@ App.Response = DS.Model.extend({
   answers: DS.attr(),
   submitted: DS.attr('boolean'),
 
+  worksheetId: function() {
+    return this.get('worksheet.id')
+  }.property('worksheet.id'),
+
   fields: function() {
     var styles = this.get('worksheet.styles')
     var answers = this.get('answers')
