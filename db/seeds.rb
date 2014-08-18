@@ -38,20 +38,21 @@ Response.destroy_all
 
 
 teacher = Teacher.create(
-  first_name: "bill",
-  last_name: "bill",
-  email: "bill@bill.com",
+  first_name: "Bill",
+  last_name: "Teacher",
+  email: "admin@classwork.com",
   password: "password",
+  class_code: 'MBT-982',
   password_confirmation: "password")
 
 student = teacher.students.create(
-  first_name: "student",
-  last_name: "student",
+  first_name: "Johnny",
+  last_name: "Student",
   username: 'student',
   password: 'password',
   password_confirmation: "password")
 
-worksheet = teacher.worksheets.create(
+worksheet_1 = teacher.worksheets.create(
   name: "Math Worksheet",
   url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
   input_fields: [{x: 50, y:50, height: 50, width: 50}]
@@ -59,14 +60,18 @@ worksheet = teacher.worksheets.create(
 
 response = Response.create(
   student_id: student.id,
-  worksheet_id: worksheet.id,
+  worksheet_id: worksheet_1.id,
   answers: [{content: "A flibberty-gibbet"},
             {content: "How appropriate, you fight like a cow."}],
   submitted: true
   )
 
-worksheet = teacher.worksheets.create(
+worksheet_2 = teacher.worksheets.create(
   name: "English Worksheet",
   url: "http://www.studyvillage.com/attachments/Resources/3118-192245-Singular-plural-worksheet.png",
   input_fields: [{x: 50, y:50, height: 50, width: 50}]
   )
+
+teacher.students << student
+teacher.worksheets << worksheet_1
+teacher.worksheets << worksheet_2
