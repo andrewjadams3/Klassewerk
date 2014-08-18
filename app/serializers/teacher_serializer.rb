@@ -1,6 +1,6 @@
 class TeacherSerializer < ActiveModel::Serializer
   embed :ids
-  
+
   attributes :id, :first_name, :last_name, :email
   has_many :worksheets
 end

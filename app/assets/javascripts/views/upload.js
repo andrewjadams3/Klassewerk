@@ -11,7 +11,7 @@ App.WorksheetsNewView = Ember.View.extend({
       files = document.getElementById('file_path').files
       formData = new FormData();
 
-      for(i=0; i<files.length; i++) {
+      for (i = 0; i < files.length; i++) {
         var file = files[i];
         console.log(file)
         formData.append('file', file, file.name)
@@ -19,7 +19,7 @@ App.WorksheetsNewView = Ember.View.extend({
 
       $.ajax('/temp/upload', {
         type: "POST",
-        data: formData, 
+        data: formData,
         processData: false,
         contentType: false,
         dataType: 'json',

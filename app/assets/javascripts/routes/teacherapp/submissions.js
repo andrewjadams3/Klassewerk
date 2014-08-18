@@ -12,7 +12,7 @@ App.SubmissionsIndexRoute = Ember.Route.extend({
 
 App.SubmissionsResponsesRoute = Ember.Route.extend({
   renderTemplate: function() {
-    this.render('teacherapp/submissions_responses',  {
+    this.render('teacherapp/submissions_responses', {
       into: 'teacherapp',
       outlet: 'left'
     })
@@ -24,7 +24,7 @@ App.SubmissionsResponsesRoute = Ember.Route.extend({
 
 App.SubmissionsResponseRoute = Ember.Route.extend({
   renderTemplate: function() {
-    this.render('response',  {
+    this.render('response', {
       into: 'teacherapp',
       outlet: 'right'
     })
