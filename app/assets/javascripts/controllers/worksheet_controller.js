@@ -16,8 +16,8 @@ var PostIt = function( board, x, y, width, height) {
       .css('top', this.y)
       .css('height', this.height)
       .css('width', this.width)
-      .append("<div class='header'><a class='to-image'>Input: " + tags.length + "</a> <a class='destroy'>X</a></div>")
-      .append("<div contenteditable='true' class='content'></div>")
+      .append("<div class='header'><a class='to-image'>" + tags.length + ".  </a> <a class='destroy'>X</a></div>")
+      .append("<div class='content'></div>")
       .click(function(e) {
         e.stopPropagation()
       })
@@ -26,6 +26,9 @@ var PostIt = function( board, x, y, width, height) {
     this.$elem.on('click', '.destroy', function(e) {
       e.stopPropagation();
       $(this).closest('.post-it').remove();
+      for(i = 0; i < $('.header').length; i++) {
+        $('.to-image').eq(i).text((i + 1) + ".  ");
+      }
       tags.pop();
     });
 }
