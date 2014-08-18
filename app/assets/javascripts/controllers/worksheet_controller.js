@@ -32,29 +32,30 @@ var PostIt = function( board, x, y, width, height) {
 
 
 App.WorksheetController = Ember.ObjectController.extend({
-  actions: {
 
+  actions: {
     loadTags: function() {
+      var image = $('.post_board').last();
+      if ($('.post-it')) {
+        $('.post-it').remove();
+      }
+      if (image.attr('class') != "post_board clickable") {
+        image.addClass('clickable');
+        image.click(function(event) {
+          var x = event.offsetX;
+          var y = event.offsetY;
+          new PostIt($(this), x, y, "100px", "48px");
+        });
+      }
       var model = this.get('model')
       var inputFields = model.get('inputFields')
       tags=[]
       for(i = 0; i < inputFields.length; i++) {
-        var postit
-        var post = inputFields[i]
-        console.log("------inputFields-------")
-        console.log(inputFields[i]);
-        postit = new PostIt($('.post_board'), post["x"], post["y"], post["width"], post["height"]);
-        postit.$elem.find('.content').text(post.content);
+        var field = inputFields[i]
+        new PostIt($('.post_board'), field["x"], field["y"], field["width"], field["height"]);
       };
-    },
 
-    loadWorksheet: function() {
-      tags=[]
-      $('.post_board').remove()
-      $('#image_panel').append('<div class="post_board"><img class="worksheet-img" src="'+this.get('model.url')+'"></div>');
-      console.log(test)
     },
-
     saveTags: function() {
       var model = this.get('model')
       var i, post;
@@ -74,15 +75,6 @@ App.WorksheetController = Ember.ObjectController.extend({
       model.set('inputFields', posts);
       model.save();
       return posts;
-    },
-
-    editTags: function() {
-      var image = $('.post_board').last();
-      image.click(function(event) {
-        var x = event.offsetX;
-        var y = event.offsetY;
-        new PostIt($(this), x, y, "100px", "48px");
-      });
-    }//Edit Action
+    }
   }//Actions
 });
