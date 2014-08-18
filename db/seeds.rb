@@ -55,7 +55,7 @@ student = teacher.students.create(
 worksheet_1 = teacher.worksheets.create(
   name: "Math Worksheet",
   url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
-  input_fields: [{x: 50, y:50, height: 50, width: 50}]
+  input_fields: [{x: "50px", y: "50px", height: "50px", width: "50px"}]
   )
 
 response = Response.create(
@@ -69,7 +69,7 @@ response = Response.create(
 worksheet_2 = teacher.worksheets.create(
   name: "English Worksheet",
   url: "http://www.studyvillage.com/attachments/Resources/3118-192245-Singular-plural-worksheet.png",
-  input_fields: [{x: 50, y:50, height: 50, width: 50}]
+  input_fields: [{x: "50px", y: "50px", height: "50px", width: "50px"}]
   )
 
 teacher.students << student
