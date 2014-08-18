@@ -7,20 +7,25 @@ class UploadController < ApplicationController
 
 
   def upload
-    temp = params['file'].tempfile
-    file = File.join("public", params['file'].original_filename)
-    FileUtils.cp temp.path, file
+    if current_teacher
+      temp = params['file'].tempfile
+      file = File.join("public", params['file'].original_filename)
+      FileUtils.cp temp.path, file
 
-    puts file.inspect
-    filename = convert_pdf(file)
-    upload_to_s3(filename)
+      puts file.inspect
+      filename = convert_pdf(file)
+      upload_to_s3(filename)
 
-    worksheet = Worksheet.create(url: S3_HEADER + filename, name: "New Worksheet")
+      worksheet = current_teacher.worksheets.create(url: S3_HEADER + filename, name: "New Worksheet", input_fields: [])
 
-    respond_to do |format|
-      format.json {render :json => {id: worksheet.id}}
+      respond_to do |format|
+        format.json {render :json => {id: worksheet.id}}
+      end
+    else
+      respond_to do |format|
+        format.json {render :json => {error: "must be logged in"}, status: 401}
+      end
     end
-
     # respond_to do |format|
     #   format.json {render :json => {id: 20}}
     # end
