@@ -3,6 +3,9 @@ App.Student = DS.Model.extend({
   lastName: DS.attr('string'),
   username: DS.attr('string'),
   responses: DS.hasMany('response'),
+
+  completedWorksheets: function() {},
+  incompleteWorksheets: function() {}
 })
 
 App.Student.FIXTURES = [{
