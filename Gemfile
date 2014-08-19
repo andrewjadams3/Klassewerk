@@ -63,7 +63,7 @@ gem 'faker'
 
 gem 'carrierwave'
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor'
 
 group :test, :development do
   gem "konacha"

@@ -69,6 +69,56 @@ App.WorksheetsNewView = Ember.View.extend({
           $('.image-processing').hide()
         }
       })
-    })
-  }
+    }); // upload finction
+
+        
+     var obj = $('.drop_image');
+
+     obj.on('dragover', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).css('border', "2px solid #3498db");
+        console.log('drag')
+
+     });
+
+     obj.on('drop', function(e){
+       e.stopPropagation();
+       e.preventDefault();
+       $('.drop_image').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>');
+       
+
+      var files = e.originalEvent.dataTransfer.files;
+      var file = files[0];
+      var formData = new FormData();
+
+
+      formData.append('file', file, file.name)
+    
+
+      $.ajax('/upload/upload', {
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        success: function(params) {
+          $('.thumbnail img').attr('src', "/" + params['filename'])
+          $('input[name=filename]').val(params['filename'])
+          $('.image-upload').hide()
+          $('.image-processing').show()
+        },
+        error: function(response) {
+          alert("The file could not be uploaded")
+          console.log(response)
+          $('.fa-spin').replaceWith('<div class="drop_image"><center> Drop Files Here </center></div>')
+        }
+      })
+      
+      
+
+
+    }); // drop 
+
+   } // action 
 });
