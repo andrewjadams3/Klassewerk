@@ -2,11 +2,12 @@ App.WorksheetsNewView = Ember.View.extend({
   first_name: "steve",
   templateName: "teacherapp/upload",
   didInsertElement: function() {
+    var self = this
     var router = this.get('controller.target.router');
 
     $('.image-processing').hide()
 
-    $('#upload-button').click(function(e) {
+    $('#ember-app').on('click', '#upload-button', function(e) {
       var files, formData, i
       e.preventDefault();
 
@@ -30,17 +31,19 @@ App.WorksheetsNewView = Ember.View.extend({
         success: function(params) {
           $('.thumbnail img').attr('src', "/" + params['filename'])
           $('input[name=filename]').val(params['filename'])
+          $('.fa-spin').replaceWith('<button type="submit" class="button" id="upload-button">Upload <i class="fa fa-upload"></i></button>')
           $('.image-upload').hide()
           $('.image-processing').show()
         },
         error: function(response) {
           alert("The file could not be uploaded")
           console.log(response)
+          $('.fa-spin').replaceWith('<button type="submit" class="button" id="upload-button">Upload <i class="fa fa-upload"></i></button>')
         }
       })
     })
 
-    $('#submit-button').click(function(e) {
+    $('#ember-app').on('click', '#submit-button', function(e) {
       e.preventDefault();
 
       $('#submit-button').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>')
@@ -60,9 +63,11 @@ App.WorksheetsNewView = Ember.View.extend({
           router.transitionTo('worksheet.edit', params.id)
         },
         error: function(response) {
-          alert("An error has occurred")
-          console.log(response)
-        }        
+          alert("An error has occurred; Please resend your image")
+          $('.fa-spin').replaceWith('<input type="submit" class="button small" id="submit-button" value="Submit">')
+          $('.image-upload').show()
+          $('.image-processing').hide()
+        }
       })
     })
   }
