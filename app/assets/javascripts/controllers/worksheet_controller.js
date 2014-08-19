@@ -8,7 +8,7 @@ var PostIt = function(board, x, y, width, height) {
   this.height = height;
   this.width = width;
   tags.push(this);
-  board.append("<div class = 'post-it' id=" + tags.length + "><a class='destroy'>X</a></div>");
+  board.append("<div class = 'post-it' id=" + tags.length + "><a><i class='fa fa-bomb destroy'></i></a></div>");
   this.$elem = $('.post-it').last();
   var position = this.$elem.position();
   this.$elem
@@ -21,9 +21,12 @@ var PostIt = function(board, x, y, width, height) {
       e.stopPropagation()
     })
     .draggable({
-      containment: "parent"
+      containment: "parent",
+      grid: [ 5, 5 ]
     })
-    .resizable();
+    .resizable({
+      grid: [ 5, 5 ]
+    });
   this.$elem.on('click', '.destroy', function(e) {
     e.stopPropagation();
     $(this).closest('.post-it').remove();
@@ -64,6 +67,7 @@ App.WorksheetController = Ember.ObjectController.extend({
 
     },
     saveTags: function() {
+
       var model = this.get('model')
       var i, post;
       var $postIts = $('.post_board .post-it')
@@ -81,6 +85,7 @@ App.WorksheetController = Ember.ObjectController.extend({
       console.log(JSON.stringify(posts))
       model.set('inputFields', posts);
       model.save();
+      $("#edit-ws-title").prepend("<div data-alert class='alert-box success'>Your shit was Saved!<a href='#'' class='close'>&times;</a></div>")
       return posts;
     }
   } //Actions

@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require foundation
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.ui.touch-punch
-//= require foundation
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -24,6 +24,9 @@
 // for more details see: http://emberjs.com/guides/application/
 
 //= require_tree .
+$(function() {
+  $(document).foundation();
+});
 
 App = Ember.Application.create({
   rootElement: '#ember-app',
@@ -32,6 +35,3 @@ App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true
 });
 
-$(function() {
-  $(document).foundation();
-});

@@ -4,8 +4,15 @@
     display: inline;
   }
   .button {
+    padding-top: .6em;
+    padding-bottom: .5em;
     line-height: 0.6em;
     vertical-align: middle;
     margin: 0;
+    i {font-size: 24px;}
   }
+}
+.save {
+  display: none;
+  color: green;
 }
