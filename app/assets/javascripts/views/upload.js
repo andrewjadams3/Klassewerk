@@ -85,7 +85,8 @@ App.WorksheetsNewView = Ember.View.extend({
      obj.on('drop', function(e){
        e.stopPropagation();
        e.preventDefault();
-       $(this).css('border', "2px dotted #3498db");
+       $('.drop_image').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>');
+       
 
       var files = e.originalEvent.dataTransfer.files;
       var file = files[0];
@@ -110,6 +111,7 @@ App.WorksheetsNewView = Ember.View.extend({
         error: function(response) {
           alert("The file could not be uploaded")
           console.log(response)
+          $('.fa-spin').replaceWith('<div class="drop_image"><center> Drop Files Here </center></div>')
         }
       })
       
