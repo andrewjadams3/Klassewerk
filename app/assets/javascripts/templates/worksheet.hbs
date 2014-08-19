@@ -1,6 +1,6 @@
-<h1>{{name}}</h1>
-  <button {{action "saveTags"}}>Save Tags</button>
- 
+
+  <span id="edit-ws-title">{{view Ember.TextField value=name}} <button {{action "saveTags"}} class="button small">Save</button></span>
+  <hr>
   <div id="image_panel">
     <div class="post_board">
       <img {{bind-attr class="worksheet-img" src='url'}} />

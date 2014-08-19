@@ -1,15 +1,9 @@
-<h1>Worksheets</h1>
 
-<div class="container">
-  {{#link-to 'worksheets.new' tagName='button'}}Create a new worksheet{{/link-to}}
-</div>
+  <h3>Worksheets {{#link-to 'worksheets.new' class='button tiny'}}New{{/link-to}}</h3>
+  <ul class="side-nav left-nav">
+    {{#each}}
+      {{#link-to 'worksheet' id tagName="li"}}<a>{{name}}</a>{{/link-to}}
+    {{/each}}
+  </ul>
 
-<p><b>Current Worksheets</b></p>
-<hr>
-
-<ul class="side-nav">
-  {{#each}}
-    {{#link-to 'worksheet' id tagName="li"}}<a>{{name}}</a>{{/link-to}}
-  {{/each}}
-</ul>
 
