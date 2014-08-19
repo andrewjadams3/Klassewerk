@@ -132,12 +132,18 @@ ul#board_list li.active {
 }
 
 .rot-90 img {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .rot-180 img {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .rot-270 img {
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 .radio-selected {
