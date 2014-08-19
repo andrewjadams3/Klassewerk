@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :upload do
     post '/upload' => '/upload#upload'
-    post '/rotate' => '/upload#rotate'
+    post '/process' => '/upload#process_image'
   end
 
   namespace :auth do

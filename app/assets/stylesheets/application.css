@@ -110,3 +110,39 @@ ul#board_list li.active {
   min-height: 70px;
   outline: none;
 }
+
+.upload-form{
+  border: 1px solid black;
+  padding: 10px;
+  max-width: 450px;
+  margin: 10px auto 10px;
+}
+
+.thumbnail {
+  display: inline-block;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.thumbnail img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.rot-90 {
+  transform: rotate(90deg);
+}
+.rot-180 {
+  transform: rotate(180deg);
+}
+.rot-270 {
+  transform: rotate(270deg);
+}
+
+.radio-selected {
+  border: 1px solid blue;
+}

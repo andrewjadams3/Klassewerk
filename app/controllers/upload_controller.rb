@@ -8,23 +8,15 @@ class UploadController < ApplicationController
 
   def upload
     if current_teacher
-      filename = "public/" + random_filename + ".png"
+      filename = random_filename + ".png"
       file = params['file'].tempfile.path
 
       convert_to_png(file, filename)
-      upload_to_s3(filename)
-
-      worksheet = current_teacher.worksheets.create(
-        url: S3_HEADER + filename, 
-        name: params['name']||"New Worksheet", 
-        input_fields: []
-      )
+      # upload_to_s3(filename)
 
       respond_to do |format|
-        format.json {render :json => {id: worksheet.id}}
+        format.json {render :json => {filename: filename}}
       end
-
-
     else
       respond_to do |format|
         format.json {render :json => {error: "must be logged in"}, status: 401}
@@ -41,18 +33,40 @@ class UploadController < ApplicationController
     image.alpha('remove')
     image.format('png')
 
-    image.write(filename)
+    image.write("public/" + filename)
     return file
   end
 
 
 
-  def rotate
-    image = MiniMagick::Image.open(filename)
-    image.rotate(params['rotation'])
-    image.save(filename)
+  def process_image
+    if current_teacher
+      puts "PROCESS IMAGE"
+      puts params
+      filename = 'public/' + params['filename']
 
-    upload_to_s3(filename)
+      if params['rotation'] != '0'
+        image = MiniMagick::Image.open(filename)
+        image.rotate(params['rotation'])
+        image.write(filename)
+      end
+
+      upload_to_s3(filename)
+
+      worksheet = current_teacher.worksheets.create(
+        url: S3_HEADER + filename, 
+        name: params['name']||"New Worksheet", 
+        input_fields: []
+      )
+
+      respond_to do |format|
+        format.json {render :json => {id: worksheet.id}}
+      end
+    else
+      respond_to do |format|
+        format.json {render :json => {error: "must be logged in"}, status: 401}
+      end
+    end
   end
 
   def upload_to_s3(filename)
