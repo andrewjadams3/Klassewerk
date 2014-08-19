@@ -21,3 +21,12 @@ App.CompletedResponseRoute = Ember.Route.extend({
     return this.store.find('response', params.id)
   }
 })
+
+App.CompletedIndexRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render('studentapp/completed_index', {
+      into: 'studentapp',
+      outlet: 'right'
+    })
+  },
+})

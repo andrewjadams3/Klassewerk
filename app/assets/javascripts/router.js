@@ -50,6 +50,14 @@ App.Router.map(function() {
         path: "/:id"
       })
     })
+
+    this.resource("student_account", {
+      path: "/account"
+    }, function() {
+      this.route("edit", {
+        path: '/edit'
+      })
+    });
   });
 });
 
