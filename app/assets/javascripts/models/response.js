@@ -6,7 +6,7 @@ App.Response = DS.Model.extend({
   answers: DS.attr(),
   submitted: DS.attr('boolean'),
   grading: DS.attr(),
-  notes: DS.attr('string')
+  notes: DS.attr('string'),
 
   worksheetId: function() {
     return this.get('worksheet.id')

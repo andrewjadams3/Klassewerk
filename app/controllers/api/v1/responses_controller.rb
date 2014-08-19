@@ -25,9 +25,9 @@ class Api::V1::ResponsesController < ApplicationController
     puts params
     response = Response.new(worksheet_id: params[:response][:worksheet_id], student: current_student, answers: params[:response][:answers], submitted: params[:response][:submitted])
     if response.save
-      render :nothing => true, :status => 200
+      render json: response
     else
-      render :nothing => true, :status => 500
+      render json: ({error: "You must be logged in"}), status: 401
     end
   end
 

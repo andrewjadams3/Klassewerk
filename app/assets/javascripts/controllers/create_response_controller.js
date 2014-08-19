@@ -21,6 +21,7 @@ var Field = function(board, x, y, width, height) {
 App.CreateResponseController = Ember.ObjectController.extend({
   actions: {
     loadFields: function() {
+      $(".post-it").remove();
       var model = this.get('model');
       var inputFields = model.get('inputFields');
       tags = [];
@@ -41,16 +42,25 @@ App.CreateResponseController = Ember.ObjectController.extend({
         };
         answers.push(response);
       }
-      console.log(JSON.stringify(answers));
-      console.log(this.get('model'));
       var responseRecord = this.store.createRecord('response', {
         answers: answers,
         worksheet: this.get('model'),
         submitted: true
       });
-      responseRecord.save();
 
-      this.transitionTo('todo')
+      var self = this
+      var onSuccess = function(response) {
+        self.transitionToRoute('todo');
+      };
+
+      var onFail = function(response) {
+        $(".alert-box").remove();
+        $(".submit-ws").before("<div data-alert class='alert-box alert'>Uh oh! Something went wrong...<a class='close'>&times;</a></div>");
+      };
+      console.log(this)
+      responseRecord.save().then(onSuccess, onFail);
+
+      
       return answers;
     }
   }
