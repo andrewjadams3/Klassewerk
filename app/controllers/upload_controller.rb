@@ -12,7 +12,6 @@ class UploadController < ApplicationController
       file = params['file'].tempfile.path
 
       convert_to_png(file, filename)
-      # upload_to_s3(filename)
 
       respond_to do |format|
         format.json {render :json => {filename: filename}}
@@ -30,13 +29,21 @@ class UploadController < ApplicationController
     image = MiniMagick::Image.open(file)
 
     image.resize('600x600^')
-    # image.colors('16') if size > 500000
     image.append
     image.alpha('remove')
     image.format('gif')
 
     image.write("public/" + filename)
     return file
+  end
+
+  def random_filename
+    random = ""
+    loop do
+      random = SecureRandom::hex(6)
+      break unless Worksheet.find_by(url: random)
+    end
+    return random
   end
 
 
@@ -55,10 +62,11 @@ class UploadController < ApplicationController
 
       params['name'] = "New Worksheet" if params['name'].strip == ""
 
-      worksheet = current_teacher.worksheets.create(
+      worksheet = Worksheet.create(
         url: S3_HEADER + filename, 
         name: params['name'].strip||"New Worksheet", 
-        input_fields: []
+        input_fields: [],
+        teacher_id: current_teacher.id
       )
 
       respond_to do |format|
@@ -79,15 +87,6 @@ class UploadController < ApplicationController
     bucket = s3.buckets['classwork']
 
     bucket.objects[filename].write(:file => filename)
-  end
-
-  def random_filename
-    random = ""
-    loop do
-      random = SecureRandom::hex(6)
-      break unless Worksheet.find_by(url: random)
-    end
-    return random
   end
 
 end
