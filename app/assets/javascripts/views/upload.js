@@ -10,7 +10,7 @@ App.WorksheetsNewView = Ember.View.extend({
       var files, formData, i
       e.preventDefault();
 
-      $('#upload-button').replaceWith('<img src="/assets/ajax-loader.gif">')
+      $('#upload-button').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>')
 
       files = document.getElementById('file_path').files
       formData = new FormData();
@@ -43,7 +43,7 @@ App.WorksheetsNewView = Ember.View.extend({
     $('#submit-button').click(function(e) {
       e.preventDefault();
 
-      $('#submit-button').replaceWith('<img src="/assets/ajax-loader.gif">')
+      $('#submit-button').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>')
 
       var data = {}
       data['name'] = $('input[name=name]').val()
