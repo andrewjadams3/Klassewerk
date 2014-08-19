@@ -1,0 +1,26 @@
+.left-div {
+  margin: 15px 0;
+  padding: 20px;
+  background: hsla(0, 0, 0, 0.025);
+  h3 {
+    margin: 0 14px;
+    .button {
+      line-height: 0.6em;
+      vertical-align: middle;
+      margin: 0;
+    }
+  }
+  #back-link {
+    margin-left: 14px;
+  }
+}
+
+.left-nav {
+  li {
+    border-bottom: 1px solid #dddddd;
+    margin: 0;
+  }
+  .active {
+    background: hsla(0, 0, 0, 0.025);
+  }
+}

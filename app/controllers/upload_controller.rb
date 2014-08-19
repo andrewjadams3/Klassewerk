@@ -8,7 +8,7 @@ class UploadController < ApplicationController
 
   def upload
     if current_teacher
-      filename = random_filename + ".png"
+      filename = random_filename + ".gif"
       file = params['file'].tempfile.path
 
       convert_to_png(file, filename)
@@ -25,13 +25,15 @@ class UploadController < ApplicationController
   end
 
   def convert_to_png(file, filename)
+    size = File.size(file)
+
     image = MiniMagick::Image.open(file)
 
     image.resize('600x600^')
-    image.colors('16')
+    # image.colors('16') if size > 500000
     image.append
     image.alpha('remove')
-    image.format('png')
+    image.format('gif')
 
     image.write("public/" + filename)
     return file
@@ -41,8 +43,6 @@ class UploadController < ApplicationController
 
   def process_image
     if current_teacher
-      puts "PROCESS IMAGE"
-      puts params
       filename = 'public/' + params['filename']
 
       if params['rotation'] != '0'

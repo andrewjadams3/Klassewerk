@@ -3,6 +3,10 @@ App.SubmissionsIndexRoute = Ember.Route.extend({
     this.render('teacherapp/submissions', {
       into: 'teacherapp',
       outlet: 'left'
+    });
+    this.render('teacherapp/submissions_index', {
+      into: 'teacherapp',
+      outlet: 'right'
     })
   },
   model: function() {
@@ -15,6 +19,10 @@ App.SubmissionsResponsesRoute = Ember.Route.extend({
     this.render('teacherapp/submissions_responses', {
       into: 'teacherapp',
       outlet: 'left'
+    })
+    this.render('teacherapp/submissions_index', {
+      into: 'teacherapp',
+      outlet: 'right'
     })
   },
   model: function(params) {
