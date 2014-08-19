@@ -63,7 +63,10 @@ response = Response.create(
   worksheet_id: worksheet_1.id,
   answers: [{content: "A flibberty-gibbet"},
             {content: "How appropriate, you fight like a cow."}],
-  submitted: true
+  submitted: true,
+  grading: [{correct: false},
+            {correct: true}],
+  notes: "Needs work. 1/2 You FAIL."
 )
 
 worksheet_2 = teacher.worksheets.create(
