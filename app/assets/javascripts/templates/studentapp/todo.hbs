@@ -1,9 +1,10 @@
-Todo.hbs
-
+<h3>Todo</h3>
 <ul class="side-nav">
 {{#each}}
   {{#each incompleteWorksheets}}
     {{#link-to 'create.response' id tagName='li'}}<a>{{name}}</a>{{/link-to}}
+  {{else}}
+    <li>You have no worksheets to complete.</li>
   {{/each}}
 {{/each}}
 

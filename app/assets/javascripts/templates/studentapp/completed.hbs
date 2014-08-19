@@ -1,9 +1,9 @@
-Completed.hbs
-
-
+<h3>Completed</h3>
 <ul class="side-nav">
   {{#each}}
     {{#link-to 'completed.response' id tagName="li"}}<a>{{worksheet.name}}</a>{{/link-to}}
+  {{else}}
+    <li>You have no completed worksheets.</li>
   {{/each}}
 </ul>
 
