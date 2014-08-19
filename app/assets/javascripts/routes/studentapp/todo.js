@@ -17,6 +17,9 @@ App.TodoIndexRoute = Ember.Route.extend({
       outlet: 'right'
     })
   },
+  model: function() {
+    return this.store.find('student')
+  }
 })
 
 App.CreateResponseRoute = Ember.Route.extend({
