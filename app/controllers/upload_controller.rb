@@ -8,12 +8,10 @@ class UploadController < ApplicationController
 
   def upload
     if current_teacher
-      temp = params['file'].tempfile
-      file = File.join("public", params['file'].original_filename)
-      FileUtils.cp temp.path, file
+      file = params['file'].tempfile.path
 
       puts file.inspect
-      filename = convert_pdf(file)
+      filename = convert_to_png(file)
       upload_to_s3(filename)
 
       worksheet = current_teacher.worksheets.create(url: S3_HEADER + filename, name: "New Worksheet", input_fields: [])
@@ -33,19 +31,20 @@ class UploadController < ApplicationController
 
 
 
-  def convert_pdf(file)
+  def convert_to_png(file)
     image = MiniMagick::Image.open(file)
 
+    image.resize('600x600^')
+
+    image.colors('16')
+
     image.append
-
     image.alpha('remove')
-
     image.format('png')
 
-    filename = 'public/' + random_filename + '.png'
-    image.write(filename)
+    image.write(file)
 
-    return filename
+    return file
   end
 
   def upload_to_s3(filename)

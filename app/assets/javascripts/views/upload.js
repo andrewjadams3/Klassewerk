@@ -17,6 +17,8 @@ App.WorksheetsNewView = Ember.View.extend({
         formData.append('file', file, file.name)
       }
 
+      $('form#file_upload input[type=submit]').replaceWith('<img src="/assets/ajax-loader.gif">')
+
       $.ajax('/temp/upload', {
         type: "POST",
         data: formData,
