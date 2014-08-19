@@ -131,13 +131,13 @@ ul#board_list li.active {
   vertical-align: middle;
 }
 
-.rot-90 {
+.rot-90 img {
   transform: rotate(90deg);
 }
-.rot-180 {
+.rot-180 img {
   transform: rotate(180deg);
 }
-.rot-270 {
+.rot-270 img {
   transform: rotate(270deg);
 }
 .radio-selected {
