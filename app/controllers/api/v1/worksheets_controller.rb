@@ -24,6 +24,6 @@ class Api::V1::WorksheetsController < ApplicationController
   def update
     @worksheet = Worksheet.find(params[:id])
     @worksheet.update_attributes(input_fields: params[:worksheet][:input_fields])
-    render :nothing => true, :status => 200
+    render json: @worksheet
   end
 end

@@ -8,7 +8,7 @@ var PostIt = function(board, x, y, width, height) {
   this.height = height;
   this.width = width;
   tags.push(this);
-  board.append("<div class = 'post-it' id=" + tags.length + "><a class='destroy'>X</a></div>");
+  board.append("<div class = 'post-it' id=" + tags.length + "><a><i class='fa fa-times destroy'></i></a></div>");
   this.$elem = $('.post-it').last();
   var position = this.$elem.position();
   this.$elem
@@ -64,6 +64,7 @@ App.WorksheetController = Ember.ObjectController.extend({
 
     },
     saveTags: function() {
+
       var model = this.get('model')
       var i, post;
       var $postIts = $('.post_board .post-it')
@@ -78,9 +79,19 @@ App.WorksheetController = Ember.ObjectController.extend({
         }
         posts.push(post)
       }
-      console.log(JSON.stringify(posts))
+
+      var onSuccess = function(post) {
+        $(".alert-box").remove();
+        $("#edit-ws-title").prepend("<div data-alert class='alert-box'>Your worksheet was saved!<a class='close'>&times;</a></div>");
+      };
+
+      var onFail = function(post) {
+        $(".alert-box").remove();
+        $("#edit-ws-title").prepend("<div data-alert class='alert-box alert'>Uh oh! Something went wrong...<a class='close'>&times;</a></div>");
+      };
+
       model.set('inputFields', posts);
-      model.save();
+      model.save().then(onSuccess, onFail);
       return posts;
     }
   } //Actions

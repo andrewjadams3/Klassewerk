@@ -14,12 +14,12 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.ui.touch-punch
-//= require foundation
 //= require handlebars
 //= require ember
 //= require ember-data
 //= require_self
 //= require ./app
+//= require foundation
 
 // for more details see: http://emberjs.com/guides/application/
 
@@ -32,6 +32,12 @@ App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true
 });
 
-$(function() {
-  $(document).foundation();
+App.ApplicationView = Em.View.extend({
+  initFoundation: function(){
+   this.$(document).foundation()
+ }.on('didInsertElement')
 });
+
+// $(function() {
+//   $(document).foundation();
+// });

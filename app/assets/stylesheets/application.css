@@ -74,7 +74,8 @@ ul#board_list li.active {
 
 .post-it {
   position: absolute !important;
-  width: 160px;
+  min-width: 2em;
+  min-height: 2em;
   background-color: rgba(255, 255, 255, 0.8);
   /*  box-shadow: -2px 2px 5px #555;*/
   border: 1px solid black;
@@ -82,33 +83,14 @@ ul#board_list li.active {
   z-index: 1001;
 }
 
-.post-it .header {
-  background-color: white;
-  box-shadow: -2px 2px 5px #555;
-  text-align: right;
-  padding: 2px;
-}
-
-.post-it .header:hover {
-  background-color: #a8a860;
-}
-
-.post-it .header a,
-.post-it .header a:visited {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.post-it .header a:hover {
-  color: #eee;
-}
-
 .post-it .content {
   padding: 10px;
   min-height: 70px;
   outline: none;
+}
+
+.post-it .destroy {
+  padding-left: 5px;
 }
 
 .upload-form{
