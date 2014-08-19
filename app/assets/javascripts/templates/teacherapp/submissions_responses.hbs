@@ -1,15 +1,9 @@
-<div class="row">
-  <h1>Submissions</h1>
-</div>
 
+  <h3>{{name}}</h3>
+  <span id="back-link">{{#link-to "submissions"}}<i class="fa fa-caret-left"></i> All Worksheets{{/link-to}}</span>
 
-<div class="row">
-  <h4>{{name}}</h4>
-  {{#link-to "submissions"}}Back{{/link-to}}
-
-  <ul class="side-nav">
+  <ul class="side-nav left-nav">
     {{#each responses}}
       {{#link-to 'submissions.response' id tagName='li'}}<a>{{this.student.firstName}} {{this.student.lastName}}</a>{{/link-to}}
     {{/each}}
   </ul>
-</div>

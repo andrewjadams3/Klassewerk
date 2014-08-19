@@ -7,6 +7,15 @@ App.AccountRoute = Ember.Route.extend({
   }
 })
 
+App.AccountIndexRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render('teacherapp/account_index',{
+      into: "teacherapp",
+      outlet: "right"
+    })
+  }
+})
+
 App.AccountStudentsRoute = Ember.Route.extend({
   renderTemplate: function() {
     this.render('teacherapp/account_students', {

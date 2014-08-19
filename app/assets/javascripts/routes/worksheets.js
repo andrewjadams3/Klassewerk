@@ -18,3 +18,12 @@ App.WorksheetsNewRoute = Ember.Route.extend({
     })
   }
 })
+
+App.WorksheetsIndexRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render('teacherapp/worksheets_index',{
+      into: "teacherapp",
+      outlet: "right"
+    })
+  }
+})
