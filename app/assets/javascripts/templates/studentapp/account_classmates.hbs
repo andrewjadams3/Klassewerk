@@ -1,0 +1,13 @@
+{{#each}}
+<h2>Classmates</h2>
+<p>Below is a list of all students who are in your class.</p>
+<table>
+  <tbody>
+    {{#each students}}
+    <tr>
+      <td>{{firstName}} {{lastName}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{/each}}

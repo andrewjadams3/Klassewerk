@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      {{#link-to "studentapp" tagName='h1' }}<a>Klasswërk</a>{{/link-to}}
+      {{#link-to "studentapp" tagName='h1' }}<a>Klassewerk &middot; Student</a>{{/link-to}}
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
@@ -9,8 +9,9 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      {{#link-to "todo" tagName='li' }}<a>Todo</a>{{/link-to}}
+      {{#link-to "todo" tagName='li' }}<a>To-Do</a>{{/link-to}}
       {{#link-to "completed" tagName='li' }}<a>Completed</a>{{/link-to}}
+      {{#link-to "student_account.edit" tagName='li' }}<a>Account</a>{{/link-to}}
       <li><a href='/auth/logout'>Logout</a></li>
     </ul>
   </section>

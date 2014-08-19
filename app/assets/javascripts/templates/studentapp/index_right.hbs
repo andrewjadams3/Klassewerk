@@ -1,0 +1,33 @@
+{{#each}}
+
+<h1>Welcome, {{firstName}} {{lastName}}!</h1>
+<p>Follow the links on top and to the left to navigate. Read below for more information about each page.</p>
+<hr>
+
+<ul class="small-block-grid-1 large-block-grid-2">
+  <li>
+    <div class="panel">
+      <h4>Teacher: <span class="class-code">{{teacher.firstName}} {{teacher.lastName}}</span></h4>
+      <p>All assignments you complete will be sent to this teacher. If this is incorrect, ask your current teacher for a new class code, and update your class in your {{#link-to "completed"}}<a>account</a>{{/link-to}}.</p>
+    </div>
+  </li>
+  <li>
+    <div class="panel">
+      {{#link-to "todo" tagName='h4' }}<a>To-Do</a>{{/link-to}}
+      <p>View and complete assignments which have been assigned by your teacher.</p>
+    </div>
+  </li>
+  <li>
+    <div class="panel">
+      {{#link-to "completed" tagName='h4' }}<a>Completed</a>{{/link-to}}
+      <p>Review your responses and see teacher feedback for all assignments you have completed.</p>
+    </div>
+    </li>
+  <li>
+    <div class="panel">
+      {{#link-to "student_account.edit" tagName='h4' }}<a>Account</a>{{/link-to}}
+      <p>View and edit the details of your account, including your personal information and class code.</p>
+    </div>
+  </li>
+</ul>
+{{/each}}
