@@ -19,7 +19,7 @@ App.TodoIndexRoute = Ember.Route.extend({
 
 App.CreateResponseRoute = Ember.Route.extend({
   renderTemplate: function() {
-    this.render('studentapp/create_response', {
+    this.render({
       into: 'studentapp',
       outlet: 'right'
     })
