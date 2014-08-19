@@ -16,6 +16,12 @@
  *= require jquery-ui
  */
 
+
+.drop_image {
+   border: 2px dotted #3498db;
+   padding: 20px;
+}
+
 #image_panel {
   position: relative;
   width: 600px;
