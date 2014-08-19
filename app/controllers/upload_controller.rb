@@ -42,6 +42,8 @@ class UploadController < ApplicationController
 
 
   def process_image
+    raise "wugga bugga"
+
     if current_teacher
       filename = 'public/' + params['filename']
 
