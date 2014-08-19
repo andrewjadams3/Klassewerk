@@ -8,15 +8,56 @@ class UploadController < ApplicationController
 
   def upload
     if current_teacher
-      temp = params['file'].tempfile
-      file = File.join("public", params['file'].original_filename)
-      FileUtils.cp temp.path, file
+      filename = random_filename + ".gif"
+      file = params['file'].tempfile.path
 
-      puts file.inspect
-      filename = convert_pdf(file)
+      convert_to_png(file, filename)
+      # upload_to_s3(filename)
+
+      respond_to do |format|
+        format.json {render :json => {filename: filename}}
+      end
+    else
+      respond_to do |format|
+        format.json {render :json => {error: "must be logged in"}, status: 401}
+      end
+    end
+  end
+
+  def convert_to_png(file, filename)
+    size = File.size(file)
+
+    image = MiniMagick::Image.open(file)
+
+    image.resize('600x600^')
+    # image.colors('16') if size > 500000
+    image.append
+    image.alpha('remove')
+    image.format('gif')
+
+    image.write("public/" + filename)
+    return file
+  end
+
+
+
+  def process_image
+    if current_teacher
+      filename = 'public/' + params['filename']
+
+      if params['rotation'] != '0'
+        image = MiniMagick::Image.open(filename)
+        image.rotate(params['rotation'])
+        image.write(filename)
+      end
+
       upload_to_s3(filename)
 
-      worksheet = current_teacher.worksheets.create(url: S3_HEADER + filename, name: "New Worksheet", input_fields: [])
+      worksheet = current_teacher.worksheets.create(
+        url: S3_HEADER + filename, 
+        name: params['name']||"New Worksheet", 
+        input_fields: []
+      )
 
       respond_to do |format|
         format.json {render :json => {id: worksheet.id}}
@@ -26,26 +67,6 @@ class UploadController < ApplicationController
         format.json {render :json => {error: "must be logged in"}, status: 401}
       end
     end
-    # respond_to do |format|
-    #   format.json {render :json => {id: 20}}
-    # end
-  end
-
-
-
-  def convert_pdf(file)
-    image = MiniMagick::Image.open(file)
-
-    image.append
-
-    image.alpha('remove')
-
-    image.format('png')
-
-    filename = 'public/' + random_filename + '.png'
-    image.write(filename)
-
-    return filename
   end
 
   def upload_to_s3(filename)

@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   match '/welcome', to: 'home#welcome', via: 'get'
 
-  namespace :temp do
-    get '/upload' => '/upload#index'
+  namespace :upload do
     post '/upload' => '/upload#upload'
+    post '/process' => '/upload#process_image'
   end
 
   namespace :auth do
