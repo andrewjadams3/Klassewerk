@@ -8,7 +8,7 @@ var PostIt = function(board, x, y, width, height) {
   this.height = height;
   this.width = width;
   tags.push(this);
-  board.append("<div class = 'post-it' id=" + tags.length + "><a><i class='fa fa-bomb destroy'></i></a></div>");
+  board.append("<div class = 'post-it' id=" + tags.length + "><a><i class='fa fa-times destroy'></i></a></div>");
   this.$elem = $('.post-it').last();
   var position = this.$elem.position();
   this.$elem
@@ -21,12 +21,9 @@ var PostIt = function(board, x, y, width, height) {
       e.stopPropagation()
     })
     .draggable({
-      containment: "parent",
-      grid: [ 5, 5 ]
+      containment: "parent"
     })
-    .resizable({
-      grid: [ 5, 5 ]
-    });
+    .resizable();
   this.$elem.on('click', '.destroy', function(e) {
     e.stopPropagation();
     $(this).closest('.post-it').remove();
@@ -82,10 +79,19 @@ App.WorksheetController = Ember.ObjectController.extend({
         }
         posts.push(post)
       }
-      console.log(JSON.stringify(posts))
+
+      var onSuccess = function(post) {
+        $(".alert-box").remove();
+        $("#edit-ws-title").prepend("<div data-alert class='alert-box'>Your worksheet was saved!<a class='close'>&times;</a></div>");
+      };
+
+      var onFail = function(post) {
+        $(".alert-box").remove();
+        $("#edit-ws-title").prepend("<div data-alert class='alert-box alert'>Uh oh! Something went wrong...<a class='close'>&times;</a></div>");
+      };
+
       model.set('inputFields', posts);
-      model.save();
-      $("#edit-ws-title").prepend("<div data-alert class='alert-box success'>Your shit was Saved!<a href='#'' class='close'>&times;</a></div>")
+      model.save().then(onSuccess, onFail);
       return posts;
     }
   } //Actions

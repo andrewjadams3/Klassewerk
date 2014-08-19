@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require foundation
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.ui.touch-punch
@@ -20,13 +19,11 @@
 //= require ember-data
 //= require_self
 //= require ./app
+//= require foundation
 
 // for more details see: http://emberjs.com/guides/application/
 
 //= require_tree .
-$(function() {
-  $(document).foundation();
-});
 
 App = Ember.Application.create({
   rootElement: '#ember-app',
@@ -35,3 +32,12 @@ App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true
 });
 
+App.ApplicationView = Em.View.extend({
+  initFoundation: function(){
+   this.$(document).foundation()
+ }.on('didInsertElement')
+});
+
+// $(function() {
+//   $(document).foundation();
+// });
