@@ -1,8 +1,10 @@
-
-  <h3>Submissions</h3>
-  <ul class="side-nav left-nav">
-    {{#each}}
-      {{#link-to 'submissions.responses' id tagName='li'}}<a>{{name}}</a>{{/link-to}}
-    {{/each}}
-  </ul>
+<h3>Submissions</h3>
+<ul class="side-nav left-nav">
+  {{#each}}
+    {{#link-to 'submissions.responses' id tagName='li'}}<a>{{name}}</a>{{/link-to}}
+  {{else}}
+    <li class="empty-list">You don't have any worksheets currently assigned.</li>
+    {{#link-to 'worksheets.new' tagName='li'}}<a>Create a new worksheet.</a>{{/link-to}}
+  {{/each}}
+</ul>
 

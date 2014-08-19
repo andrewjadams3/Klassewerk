@@ -3,6 +3,9 @@
   <ul class="side-nav left-nav">
     {{#each}}
       {{#link-to 'worksheet' id tagName="li"}}<a>{{name}}</a>{{/link-to}}
+    {{else}}
+      <li class="empty-list">You currently have no worksheets.</li>
+      {{#link-to 'worksheets.new' tagName='li'}}<a>Create a new worksheet.</a>{{/link-to}}
     {{/each}}
   </ul>
 
