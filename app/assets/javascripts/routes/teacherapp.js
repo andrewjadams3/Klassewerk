@@ -16,5 +16,8 @@ App.TeacherappIndexRoute = Ember.Route.extend({
       into: 'teacherapp',
       outlet: 'right'
     })
+  },
+  model: function() {
+    return this.store.find('teacher')
   }
 })

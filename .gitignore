@@ -6,3 +6,4 @@
 coverage
 /public/*.pdf
 /public/*.png
+/public/*.gif
