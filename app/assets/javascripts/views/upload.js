@@ -1,6 +1,7 @@
 App.WorksheetsNewView = Ember.View.extend({
   first_name: "steve",
   templateName: "teacherapp/upload",
+
   didInsertElement: function() {
     var self = this
     var router = this.get('controller.target.router');
@@ -8,7 +9,7 @@ App.WorksheetsNewView = Ember.View.extend({
     $('.image-processing').hide()
     $('.file-input-spinner').hide()
 
-    $('#ember-app').on('change', '#file_path', function(e) {
+    $('.file-upload-template').on('change', '#file_path', function(e) {
       var files, formData, i
       e.preventDefault();
 
@@ -39,8 +40,9 @@ App.WorksheetsNewView = Ember.View.extend({
           $('.image-processing').show()
         },
         error: function(response) {
-          alert("The file could not be uploaded")
-          console.log(response)
+          $(".file-upload-template").prepend("<div data-alert class='alert-box alert'>Your file could not be uploaded<a class='close'>&times;</a></div>");
+          $(document).foundation();
+
           $('.file-input-container').show()
           $('.file-input-spinner').hide()
 
@@ -50,7 +52,7 @@ App.WorksheetsNewView = Ember.View.extend({
       })
     })
 
-    $('#ember-app').on('click', '#submit-button', function(e) {
+    $('.file-upload-template').on('click', '#submit-button', function(e) {
       e.preventDefault();
 
       $('#submit-button').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>')
@@ -70,7 +72,9 @@ App.WorksheetsNewView = Ember.View.extend({
           router.transitionTo('worksheet.edit', params.id)
         },
         error: function(response) {
-          alert("An error has occurred; Please resend your image")
+          $(".file-upload-template").prepend("<div data-alert class='alert-box alert'>An error has occurred; Please resend your image<a class='close'>&times;</a></div>");
+          $(document).foundation();
+
           $('.image-processing .fa-spin').replaceWith('<input type="submit" class="button small" id="submit-button" value="Submit">')
           $('.image-upload').show()
           $('.image-processing').hide()
@@ -118,8 +122,9 @@ App.WorksheetsNewView = Ember.View.extend({
           $('.image-processing').show()
         },
         error: function(response) {
-          alert("The file could not be uploaded")
-          console.log(response)
+          $(".file-upload-template").prepend("<div data-alert class='alert-box alert'>Your file could not be uploaded<a class='close'>&times;</a></div>");
+          $(document).foundation();
+          
           $('.fa-spin').replaceWith('<div class="drop_image"><center> Drop Files Here </center></div>')
         }
       })
