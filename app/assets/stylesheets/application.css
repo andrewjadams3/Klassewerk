@@ -95,7 +95,6 @@ ul#board_list li.active {
 
 .upload-form{
   padding: 10px 0;
-  max-width: 450px;
   margin: 10px 0 10px;
 }
 
@@ -122,7 +121,7 @@ ul#board_list li.active {
 
 .file-input-container .drop_image {
   border: 2px dotted #3498db;
-  padding: 20px;
+  padding: 100px;
   width: 100%;
   display: inline-block; 
   vertical-align: middle;
