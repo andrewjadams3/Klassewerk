@@ -5,13 +5,10 @@ App.WorksheetsNewView = Ember.View.extend({
   didInsertElement: function() {
     var self = this
     var router = this.get('controller.target.router');
+    var obj = $('.drop_image');
 
-    $('.image-processing').hide()
-    $('.file-input-spinner').hide()
-
-    $('.file-upload-template').on('change', '#file_path', function(e) {
+    var uploadFile = function() {
       var files, formData, i
-      e.preventDefault();
 
       $('.file-input-container').hide()
       $('.file-input-spinner').show()
@@ -50,7 +47,22 @@ App.WorksheetsNewView = Ember.View.extend({
           $('input[type=file]').replaceWith('<input id="file_path" type="file" name="file">')
         }
       })
+    }
+
+    $('.image-processing').hide()
+    $('.file-input-spinner').hide()
+
+    $('.file-upload-template').on('change', '#file_path', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      uploadFile();
     })
+
+    obj.on('drop', function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      uploadFile();
+    });
 
     $('.file-upload-template').on('click', '#submit-button', function(e) {
       e.preventDefault();
@@ -85,53 +97,12 @@ App.WorksheetsNewView = Ember.View.extend({
       })
     }); // upload finction
 
-        
-    var obj = $('.drop_image');
-
     obj.on('dragover', function(e){
       e.stopPropagation();
       e.preventDefault();
       $(this).css('border', "2px solid #3498db");
       console.log('drag')
-
     });
 
-
-    obj.on('drop', function(e){
-      e.stopPropagation();
-      e.preventDefault();
-      $('.drop_image').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>');
-       
-
-      var files = e.originalEvent.dataTransfer.files;
-      var file = files[0];
-      var formData = new FormData();
-
-      formData.append('file', file, file.name)
-    
-      $.ajax('/upload/upload', {
-        type: "POST",
-        data: formData,
-        processData: false,
-        contentType: false,
-        dataType: 'json',
-        success: function(params) {
-          $('.thumbnail img').attr('src', "/" + params['filename'])
-          $('input[name=filename]').val(params['filename'])
-          $('.image-upload').hide()
-          $('.image-processing').show()
-        },
-        error: function(response) {
-          $(".file-upload-template").prepend("<div data-alert class='alert-box alert'>Your file could not be uploaded<a class='close'>&times;</a></div>");
-          $(document).foundation();
-          
-          $('.fa-spin').replaceWith('<div class="drop_image"><center> Drop Files Here </center></div>')
-        }
-      })
-
-
-
-    }); // drop 
-
-   } // action 
+  } // action 
 });
