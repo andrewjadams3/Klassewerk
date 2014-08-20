@@ -56,8 +56,6 @@ response = Response.create(
   answers: [{content: "A flibberty-gibbet"},
             {content: "How appropriate, you fight like a cow."}],
   submitted: true,
-  grading: [{correct: false},
-            {correct: true}],
   notes: "Needs work. 1/2 You FAIL."
 )
 
