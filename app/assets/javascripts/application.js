@@ -41,6 +41,8 @@ App = Ember.Application.create({
 Ember.View.reopen({
   didInsertElement : function(){
     this._super();
+    $('#deleteModal').hide();
+    App.modalWorksheetId = null;
     Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
   },
   afterRenderEvent : function(){

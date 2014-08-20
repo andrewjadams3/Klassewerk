@@ -1,1 +1,10 @@
+<div id="deleteModal" class="reveal-modal medium text-center open" data-reveal="" data-options="animation: none;" style="display: block; opacity: 1; visibility: visible;">
+  <h2>Reset</h2>
+  <p><span style="color:red">Warning:</span> Are you sure you want to delete your worksheet?</p>
+  <div class="row">
+    <div class="small-6 columns text-right"><a {{action modalCancel}} id="cancel-reset"><button class="medium button">Cancel</button></a></div>
+    <div class="small-6 columns text-left"><a {{action modalDelete}} id="accept-reset"><button class="medium button alert">Delete</button></a></div>
+  </div>
+</div>
+
 {{outlet}}
