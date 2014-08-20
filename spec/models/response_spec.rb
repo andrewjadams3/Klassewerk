@@ -7,7 +7,6 @@ require 'rails_helper'
 #     t.boolean  "submitted"
 #     t.datetime "created_at"
 #     t.datetime "updated_at"
-#     t.json     "grading"
 #     t.string   "notes"
 #   end
 

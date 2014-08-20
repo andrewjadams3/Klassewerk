@@ -31,13 +31,13 @@ App.SubmissionsResponsesRoute = Ember.Route.extend({
 })
 
 App.SubmissionsResponseRoute = Ember.Route.extend({
+  model: function(params) {
+    return this.store.find('response', params.id)
+  },
   renderTemplate: function() {
-    this.render('response', {
+    this.render('teacherapp/submissions_response', {
       into: 'teacherapp',
       outlet: 'right'
     })
-  },
-  model: function(params) {
-    return this.store.find('response', params.id)
   }
 })
