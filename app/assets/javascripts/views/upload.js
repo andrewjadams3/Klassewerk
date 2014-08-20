@@ -7,7 +7,7 @@ App.WorksheetsNewView = Ember.View.extend({
 
     $('.image-processing').hide()
 
-    $('#ember-app').on('click', '#upload-button', function(e) {
+    $('#ember-app').on('change', '#file_path', function(e) {
       var files, formData, i
       e.preventDefault();
 
@@ -72,30 +72,29 @@ App.WorksheetsNewView = Ember.View.extend({
     }); // upload finction
 
         
-     var obj = $('.drop_image');
+    var obj = $('.drop_image');
 
-     obj.on('dragover', function(e){
-        e.stopPropagation();
-        e.preventDefault();
-        $(this).css('border', "2px solid #3498db");
-        console.log('drag')
+    obj.on('dragover', function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      $(this).css('border', "2px solid #3498db");
+      console.log('drag')
 
-     });
+    });
 
-     obj.on('drop', function(e){
-       e.stopPropagation();
-       e.preventDefault();
-       $('.drop_image').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>');
+
+    obj.on('drop', function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      $('.drop_image').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>');
        
 
       var files = e.originalEvent.dataTransfer.files;
       var file = files[0];
       var formData = new FormData();
 
-
       formData.append('file', file, file.name)
     
-
       $.ajax('/upload/upload', {
         type: "POST",
         data: formData,
@@ -114,8 +113,7 @@ App.WorksheetsNewView = Ember.View.extend({
           $('.fa-spin').replaceWith('<div class="drop_image"><center> Drop Files Here </center></div>')
         }
       })
-      
-      
+
 
 
     }); // drop 
