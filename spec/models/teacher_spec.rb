@@ -16,8 +16,9 @@ RSpec.describe Teacher, :type => :model do
       :first_name => "Bill", 
       :last_name => "Teacher", 
       :password => "password", 
+      :password_confirmation => "password",
       :email => "email@email.com", 
-      :class_code => "123-456")
+      :class_code => "ABC-456")
     @teacher.save
   end
 
@@ -32,6 +33,36 @@ RSpec.describe Teacher, :type => :model do
 
   it "has no errors" do
     expect(@teacher.errors.messages).to eq({})
+  end
+
+  describe "when the first name is not present" do
+    before {@teacher.first_name = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the last name is not present" do
+    before {@teacher.last_name = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the password is not present" do
+    before {@teacher.password = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the password confirmation is not present" do
+    before {@teacher.password_confirmation = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the password does not match the password confirmation" do
+    before {@teacher.password = "123" }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the class_code is not present" do
+    before {@teacher.class_code = nil }
+    it { is_expected.to_not be_valid }
   end
 
 end

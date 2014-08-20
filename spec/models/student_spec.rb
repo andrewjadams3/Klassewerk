@@ -41,4 +41,5 @@ RSpec.describe Student, :type => :model do
     expect(@student.errors.messages).to eq({})
   end
 
+  
 end
