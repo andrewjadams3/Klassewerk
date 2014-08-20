@@ -1,8 +1,7 @@
 <div data-alert></div>
 
 <h2>{{student.firstName}} {{student.lastName}}</h2>
-{{textarea rows="5" value=notes class='notes'}}
-<button {{action "saveNotes"}} class="button small"><i class="fa fa-plus-o"><b>&nbsp;Save Notes</b></i></button>
+
 <hr>
 <div id="image_panel">
   <div class="post_board">
@@ -14,3 +13,7 @@
     {{/each}}
   </div>
 </div>
+<hr>
+
+{{textarea rows="5" value=notes class='notes'}}
+<button {{action "saveNotes"}} class="button small"><i class="fa fa-plus-o"><b>&nbsp;Save Notes</b></i></button>
