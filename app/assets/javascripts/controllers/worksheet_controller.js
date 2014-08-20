@@ -40,6 +40,12 @@ var PostIt = function(board, x, y, width, height) {
 App.WorksheetController = Ember.ObjectController.extend({
 
   actions: {
+    delete: function() {
+      if(App.modalWorksheetId == null) {
+        App.modalWorksheetId = this.content.id
+        $('#deleteModal').show()
+      }
+    },
     loadTags: function() {
       var image = $('.post_board').last();
       if ($('.post-it')) {

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resources :auth, only: [:index]
       resources :teachers, only: [:index, :show, :update]
       resources :students, only: [:index, :show]
-      resources :worksheets, only: [:index, :show, :update]
+      resources :worksheets, only: [:index, :show, :update, :destroy]
       resources :responses, only: [:index, :show, :create, :update]
       match '/', to: 'index#index', via: 'get'
     end

@@ -26,4 +26,9 @@ class Api::V1::WorksheetsController < ApplicationController
     @worksheet.update_attributes(name: params[:worksheet][:name], input_fields: params[:worksheet][:input_fields])
     render json: @worksheet
   end
+
+  def destroy
+    Worksheet.find(params[:id]).destroy
+    render json: ["Worksheet deleted"]
+  end
 end

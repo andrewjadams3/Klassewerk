@@ -2,13 +2,16 @@
   <h3>Worksheets {{#link-to 'worksheets.new' class='button tiny'}}New{{/link-to}}</h3>
   <ul class="side-nav left-nav">
     {{#each}}
-      {{#link-to 'worksheet' id tagName="li"}}
-        {{#if name}}
-          <a>{{name}}</a>
-        {{else}}
-          <a>Untitled</a>
-        {{/if}}
-      {{/link-to}}
+      <li>
+        <a style="float:right" {{action delete}}>Delete</a>
+        {{#link-to 'worksheet' id styleBindings="display:inline-block"}}
+          {{#if name}}
+            {{name}}
+          {{else}}
+            Untitled
+          {{/if}}
+        {{/link-to}}
+      </li>
     {{else}}
       <li class="empty-list">You currently have no worksheets.</li>
       {{#link-to 'worksheets.new' tagName='li'}}<a>Create a new worksheet.</a>{{/link-to}}
