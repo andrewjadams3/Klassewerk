@@ -1,6 +1,7 @@
 App.Teacher = DS.Model.extend({
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
+  title: DS.attr('string'),
   email: DS.attr('string'),
   classCode: DS.attr('string'),
   worksheets: DS.hasMany('worksheet', {

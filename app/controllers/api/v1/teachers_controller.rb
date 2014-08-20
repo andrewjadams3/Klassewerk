@@ -21,4 +21,19 @@ class Api::V1::TeachersController < ApplicationController
     end
   end
 
+  def update
+    @teacher = Teacher.find(params[:id])
+    @teacher.update_attributes(update_teacher_params)
+    puts '*' * 50
+    puts @teacher.first_name
+    puts @teacher.errors.full_messages
+    render json: @teacher
+  end
+
+  private
+
+  def update_teacher_params
+    params.require(:teacher).permit(:first_name, :last_name, :title, :email, :class_code)
+  end
+
 end
