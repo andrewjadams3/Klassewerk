@@ -61,7 +61,7 @@ App.WorksheetController = Ember.ObjectController.extend({
                 elem.css('width'),
                 elem.css('height'));
             } else {
-              new PostIt($(this), x, y, "2em", ".9em");
+              new PostIt($(this), x, y, ".9em", "2em");
             }
           }
         });
