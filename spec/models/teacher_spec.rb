@@ -15,6 +15,7 @@ RSpec.describe Teacher, :type => :model do
     @teacher = Teacher.new(
       :first_name => "Bill", 
       :last_name => "Teacher", 
+      :title => "Mr.",
       :password => "password", 
       :password_confirmation => "password",
       :email => "Email@email.com", 
@@ -47,11 +48,6 @@ RSpec.describe Teacher, :type => :model do
 
   describe "when the password is not present" do
     before {@teacher.password = nil }
-    it { is_expected.to_not be_valid }
-  end
-
-  describe "when the password confirmation is not present" do
-    before {@teacher.password_confirmation = nil }
     it { is_expected.to_not be_valid }
   end
 

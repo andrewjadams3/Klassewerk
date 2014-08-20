@@ -1,5 +1,28 @@
 {{#each}}
-  <h2>{{firstName}} {{lastName}}</h2>
-  <hr>
+  <div data-alert></div>
+  <div class="alert-div"></div>
+  <h2>{{title}} {{firstName}} {{lastName}}</h2>
   <h5>Class Code: <span class="class-code">{{classCode}}</span></h5>
+  <hr>
+  <h4>Update Account Info</h4>
+  <div class="row">
+    <div class="medium-2 columns">
+      <label>Title
+        {{view Ember.TextField content=title value=title}}
+      </label>
+    </div>
+    <div class="medium-5 columns">
+      <label>First Name
+        {{view Ember.TextField content=firstName value=firstName}}
+      </label>
+    </div>
+    <div class="medium-5 columns">
+      <label>Last Name
+        {{view Ember.TextField content=lastName value=lastName}}
+      </label>
+    </div>
+  </div>
+  <button {{action "saveChanges"}} class="button small">Save Changes</button>
 {{/each}}
+
+
