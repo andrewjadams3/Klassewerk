@@ -30,6 +30,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.51.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     barber (0.4.2)
       ember-source
       execjs
@@ -39,6 +42,21 @@ GEM
       emblem-source
     bcrypt (3.1.7)
     builder (3.2.2)
+    capybara (2.4.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
+    childprocess (0.5.3)
+      ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -46,7 +64,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
-    ember-data-source (1.0.0.beta.8)
+    colorize (0.7.3)
+    connection_pool (2.0.0)
+    diff-lcs (1.2.5)
+    docile (1.1.5)
+    ember-data-source (1.0.0.beta.9)
       ember-source
     ember-rails (0.15.0)
       active_model_serializers
@@ -57,7 +79,7 @@ GEM
       handlebars-source (> 1.0.0)
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.6.1)
+    ember-source (1.7.0)
       handlebars-source (~> 1.0)
     emblem-rails (0.2.1)
       barber-emblem (~> 0.1.1)
@@ -65,6 +87,12 @@ GEM
     emblem-source (0.3.17)
     erubis (2.7.0)
     execjs (2.2.1)
+    faker (1.4.3)
+      i18n (~> 0.5)
+    ffi (1.9.3)
+    foundation-rails (5.3.3.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     handlebars-source (1.3.0)
     hike (1.2.3)
     i18n (0.6.11)
@@ -74,18 +102,34 @@ GEM
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.0)
+      railties (>= 3.2.16)
     json (1.8.1)
+    konacha (3.2.4)
+      actionpack (>= 3.1, < 5)
+      capybara
+      colorize
+      railties (>= 3.1, < 5)
+      sprockets
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_magick (3.8.0)
+      subexec (~> 0.2.1)
+    mini_portile (0.6.0)
     minitest (5.4.0)
     multi_json (1.10.1)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack_session_access (0.1.1)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (4.1.4)
       actionmailer (= 4.1.4)
       actionpack (= 4.1.4)
@@ -96,6 +140,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.4)
       sprockets-rails (~> 2.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.4)
       actionpack (= 4.1.4)
       activesupport (= 4.1.4)
@@ -104,6 +153,26 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.1.0)
+    redis-namespace (1.5.1)
+      redis (~> 3.0, >= 3.0.4)
+    rspec-core (3.0.4)
+      rspec-support (~> 3.0.0)
+    rspec-expectations (3.0.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.0.0)
+    rspec-mocks (3.0.4)
+      rspec-support (~> 3.0.0)
+    rspec-rails (3.0.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
+      rspec-support (~> 3.0.0)
+    rspec-support (3.0.4)
+    rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -113,6 +182,24 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    selenium-webdriver (2.42.0)
+      childprocess (>= 0.5.0)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0.4)
+    sidekiq (3.2.2)
+      celluloid (>= 0.15.2)
+      connection_pool (>= 2.0.0)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
+    simplecov (0.9.0)
+      docile (~> 1.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
+    sinon-rails (1.9.0)
+      railties (>= 3.1)
     spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -123,9 +210,13 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    subexec (0.2.3)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timers (1.1.0)
+    touchpunch-rails (1.0.3)
+      railties (>= 3.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -134,21 +225,40 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    websocket (1.0.7)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   bcrypt (~> 3.1.7)
+  capybara
+  carrierwave
   coffee-rails (~> 4.0.0)
   ember-rails
   ember-source
   emblem-rails
+  faker
+  foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
+  konacha
+  mini_magick
   pg
+  rack_session_access
   rails (= 4.1.4)
+  rails_12factor
+  rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  selenium-webdriver
+  sidekiq
+  simplecov
+  sinon-rails
   spring
+  touchpunch-rails
   uglifier (>= 1.3.0)

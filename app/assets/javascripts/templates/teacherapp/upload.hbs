@@ -1,0 +1,63 @@
+<div class='file-upload-template'>
+<h2>Upload a New Worksheet</h2>
+<hr>
+
+
+<div class="upload-form image-upload">
+  <div class="file-input-container">
+    <div class="drop_image">
+      <center> Click to Upload or <br> Drag and Drop PDF <i class="fa fa-file-pdf-o"></i> or Image <i class="fa fa-file-image-o"></i>: </center>
+    </div>
+    <input id="file_path" type="file" name="file"><br>
+  </div>
+  <div class="file-input-spinner"><center><i class="fa fa-spinner fa-spin fa-5x"></i></center></div>
+</div>
+
+<div class="upload-form" id="image-name">
+  Worksheet Name:
+    <input type="text" name="name" placeholder="New Worksheet" />
+    <input type="hidden" name="filename" value="" />
+</div>
+
+<div class="upload-form image-processing">
+  Rotation:<br>
+  <span>
+    <input type="radio" name="rotation" id="rotation-option-0" value="0" checked="checked" />
+    <label for="rotation-option-0">
+      <div class="thumbnail rot-0">
+        <img src="">
+      </div>
+    </label>
+  </span>
+
+  <span>
+    <input type="radio" name="rotation" id="rotation-option-90" value="90" />
+    <label for="rotation-option-90">
+      <div class="thumbnail rot-90">
+        <img src="">
+      </div>
+    </label>
+  </span><br>
+
+  <span>
+    <input type="radio" name="rotation" id="rotation-option-180" value="180" />
+    <label for="rotation-option-180">
+      <div class="thumbnail rot-180">
+        <img src="">
+      </div>
+    </label>
+  </span>
+
+  <span>
+    <input type="radio" name="rotation" id="rotation-option-270" value="270" />
+    <label for="rotation-option-270">
+      <div class="thumbnail rot-270">
+        <img src="">
+      </div>
+    </label>
+  </span><br>
+
+  <input type="submit" class="button small" id="submit-button" value="Submit">
+  
+</div>
+</div>

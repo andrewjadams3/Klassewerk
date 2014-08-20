@@ -1,0 +1,19 @@
+<h2>{{student.firstName}} {{student.lastName}}</h2>
+<hr>
+{{#if notes}}
+<p>Teacher Feedback</p>
+{{textarea readonly="true" rows="5" value=notes class='notes'}}
+{{else}}
+<p>No teacher feedback recieved yet!</p>
+{{/if}}
+<hr>
+<div id="image_panel">
+  <div class="post_board">
+    <img {{bind-attr src='worksheet.url'}} />
+    {{#each field in fields}}
+      <div class="post-it" {{bind-attr style=field.style}}>
+        {{field.answer}}
+      </div>
+    {{/each}}
+  </div>
+</div>

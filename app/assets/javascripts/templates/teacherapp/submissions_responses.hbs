@@ -1,0 +1,10 @@
+<h3>{{name}}</h3>
+<span id="back-link">{{#link-to "submissions"}}<i class="fa fa-arrow-left"></i> All Worksheets{{/link-to}}</span>
+
+<ul class="side-nav left-nav">
+  {{#each responses}}
+    {{#link-to 'submissions.response' id tagName='li'}}<a>{{this.student.firstName}} {{this.student.lastName}}</a>{{/link-to}}
+  {{else}}
+    <li class="empty-list">There are no submissions yet.</li>
+  {{/each}}
+</ul>

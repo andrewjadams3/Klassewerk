@@ -1,0 +1,15 @@
+<h2>Students</h2>
+<p>Below is a list of all students who are enrolled in your class.</p>
+<table>
+  <tbody>
+    {{#each}}
+    <tr>
+      <td>{{firstName}} {{lastName}}</td>
+    </tr>
+    {{else}}
+    <tr>
+      <td>You currently have no students enrolled in your class. Share your unique class code so they can join!</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

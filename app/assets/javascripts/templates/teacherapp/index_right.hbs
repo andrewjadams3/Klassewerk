@@ -1,0 +1,33 @@
+{{#each}}
+
+<h1>Welcome, {{firstName}} {{lastName}}!</h1>
+<p>Follow the links on top and to the left to navigate. Read below for more information about each page.</p>
+<hr>
+
+<ul class="small-block-grid-1 large-block-grid-2">
+  <li>
+    <div class="panel">
+      <h4>Class Code: <span class="class-code">{{classCode}}</span></h4>
+      <p>This unique code allows students to join your classroom when they sign up. Providing this to your students will enable them to receive and submit assignments.</p>
+    </div>
+  </li>
+  <li>
+    <div class="panel">
+      {{#link-to "worksheets" tagName='h4' }}<a>Worksheets</a>{{/link-to}}
+      <p>Create/upload, edit, and assign worksheets for your students to complete.</p>
+    </div>
+  </li>
+  <li>
+    <div class="panel">
+      {{#link-to "submissions" tagName='h4' }}<a>Submissions</a>{{/link-to}}
+      <p>All assignments which students have completed will appear here for you to view/grade.</p>
+    </div>
+    </li>
+  <li>
+    <div class="panel">
+      {{#link-to "account.edit" tagName='h4' }}<a>Account</a>{{/link-to}}
+      <p>View and edit the details of your account, including the students in your class and personal information.</p>
+    </div>
+  </li>
+</ul>
+{{/each}}

@@ -12,4 +12,166 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+ *= require jquery-ui
  */
+
+#image_panel {
+  position: relative;
+  width: 600px;
+  margin: 20px auto;
+
+}
+
+.worksheet-img {
+  width: 100%;
+}
+
+#board_selector {
+  position: fixed;
+  z-index: 1000;
+  min-width: 120px;
+  height: 100%;
+  padding: 4px;
+  padding-right: 20px;
+  background-color: #eee;
+  border-right: 1px solid #ddd;
+  float: left;
+}
+
+#board_selector h3 {
+  margin-top: 0;
+}
+
+ul#board_list {
+  padding-left: 20px;
+}
+
+ul#board_list li {
+  cursor: pointer;
+  color: #222;
+  list-style-type: none;
+}
+
+ul#board_list li:hover {
+  color: #555;
+  background-color: #bbb;
+}
+
+ul#board_list li.active {
+  list-style-type: disc;
+}
+
+.post_board {
+  background-color: #9e8d68;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1000;
+}
+
+.post-it {
+  position: absolute !important;
+  min-width: 2em;
+  min-height: 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  /*  box-shadow: -2px 2px 5px #555;*/
+  border: 1px solid black;
+  overflow: hidden;
+  z-index: 1001;
+}
+
+.post-it .content {
+  padding: 10px;
+  min-height: 70px;
+  outline: none;
+}
+
+.post-it .destroy {
+  padding-left: 5px;
+}
+
+.upload-form{
+  padding: 10px 0;
+  margin: 10px 0 10px;
+}
+
+.file-input-container, .file-input-spinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.file-input-container input[type=file]{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  cursor: pointer;
+  opacity: 0;
+  -moz-opacity: 0;
+  filter: Alpha(Opacity=0);
+}
+
+.file-input-container div, .file-input-spinner {
+  border: 2px dotted #3498db;
+  padding: 90px 0;
+  width: 100%;
+  height: 250px;
+  display: inline-block; 
+  vertical-align: middle;
+  margin: 0 4px 0 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+.image-processing span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.image-processing span label{
+  display: inline-block;
+  vertical-align: middle !important;
+}
+
+.thumbnail {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.thumbnail img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+.rot-90 img {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.rot-180 img {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.rot-270 img {
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.radio-selected {
+  border: 1px solid blue;
+}

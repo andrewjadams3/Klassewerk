@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -16,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'touchpunch-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -30,13 +33,44 @@ gem 'bcrypt', '~> 3.1.7'
 # Use unicorn as the app server
 # gem 'unicorn'
 
+# Test coverage
+gem 'simplecov', :require => false, :group => :test
+
+# Testing
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use S3 for storing PNGs.
+gem 'aws-sdk'
+gem 'mini_magick'
+
 # Ember!
 gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
+
+# Foundation
+gem 'foundation-rails'
+
+# Faker
+gem 'faker'
+
+gem 'carrierwave'
+
+gem 'rails_12factor'
+
+group :test, :development do
+  gem "konacha"
+  gem "capybara"
+  gem 'rack_session_access'
+  gem "sinon-rails"
+  gem 'selenium-webdriver'
+end
+
+gem 'sidekiq'

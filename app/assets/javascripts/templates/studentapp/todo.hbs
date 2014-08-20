@@ -1,0 +1,10 @@
+<h3>To-Do</h3>
+<ul class="side-nav left-nav">
+{{#each}}
+  {{#each incompleteWorksheets}}
+    {{#link-to 'create.response' id tagName='li'}}<a>{{name}}</a>{{/link-to}}
+  {{else}}
+    <li class="empty-list">You have no worksheets to complete!</li>
+  {{/each}}
+{{/each}}
+</ul>
