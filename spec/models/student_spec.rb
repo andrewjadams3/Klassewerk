@@ -59,11 +59,6 @@ RSpec.describe Student, :type => :model do
     it { is_expected.to_not be_valid }
   end
 
-  describe "when the password confirmation is not present" do
-    before {@student.password_confirmation = nil }
-    it { is_expected.to_not be_valid }
-  end
-
   describe "when the password does not match the password confirmation" do
     before {@student.password = "123" }
     it { is_expected.to_not be_valid }
