@@ -1,6 +1,7 @@
 App.WorksheetsNewView = Ember.View.extend({
   first_name: "steve",
   templateName: "teacherapp/upload",
+
   didInsertElement: function() {
     var self = this
     var router = this.get('controller.target.router');
@@ -8,7 +9,7 @@ App.WorksheetsNewView = Ember.View.extend({
     $('.image-processing').hide()
     $('.file-input-spinner').hide()
 
-    $('#ember-app').on('change', '#file_path', function(e) {
+    $('.file-upload-template').on('change', '#file_path', function(e) {
       var files, formData, i
       e.preventDefault();
 
@@ -50,7 +51,7 @@ App.WorksheetsNewView = Ember.View.extend({
       })
     })
 
-    $('#ember-app').on('click', '#submit-button', function(e) {
+    $('.file-upload-template').on('click', '#submit-button', function(e) {
       e.preventDefault();
 
       $('#submit-button').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>')
