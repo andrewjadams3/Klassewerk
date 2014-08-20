@@ -32,6 +32,7 @@ Response.destroy_all
 teacher = Teacher.create(
   first_name: "Bill",
   last_name: "Teacher",
+  title: "Mr.",
   email: "admin@classwork.com",
   password: "password",
   class_code: 'MBT-982',

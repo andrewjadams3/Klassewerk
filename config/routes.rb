@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :auth, only: [:index]
-      resources :teachers, only: [:index, :show]
+      resources :teachers, only: [:index, :show, :update]
       resources :students, only: [:index, :show]
       resources :worksheets, only: [:index, :show, :update]
       resources :responses, only: [:index, :show, :create, :update]

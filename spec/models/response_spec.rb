@@ -13,25 +13,25 @@ require 'rails_helper'
 RSpec.describe Response, :type => :model do
   before do
     @response = Response.new(
-      student: Student.new(:first_name => "Joe", 
-        :last_name => "Webb", 
-        :username => "ImJW", 
-        :password => "Hello", 
-        :password_confirmation => "Hello", 
+      student: Student.new(:first_name => "Joe",
+        :last_name => "Webb",
+        :username => "ImJW",
+        :password => "Hello",
+        :password_confirmation => "Hello",
         :teacher => Teacher.new(
-          :first_name => "Bill", 
-          :last_name => "Teacher", 
-          :password => "password", 
+          :first_name => "Bill",
+          :last_name => "Teacher",
+          :password => "password",
           :password_confirmation => "password",
-          :email => "email@email.com", 
+          :email => "email@email.com",
           :class_code => "ABC-456")),
       worksheet: Worksheet.new(
         teacher: Teacher.new(
-          :first_name => "Bill", 
-          :last_name => "Teacher", 
-          :password => "password", 
+          :first_name => "Bill",
+          :last_name => "Teacher",
+          :password => "password",
           :password_confirmation => "password",
-          :email => "email@email.com", 
+          :email => "email@email.com",
           :class_code => "ABC-456"),
         name: "Math Worksheet",
         url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
@@ -50,7 +50,6 @@ RSpec.describe Response, :type => :model do
   it { is_expected.to respond_to(:student) }
   it { is_expected.to respond_to(:answers) }
   it { is_expected.to respond_to(:submitted) }
-  it { is_expected.to respond_to(:grading) }
   it { is_expected.to respond_to(:notes) }
 
   it { is_expected.to be_valid }

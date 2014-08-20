@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140819194218) do
   create_table "teachers", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "title"
     t.string   "email"
     t.string   "class_code"
     t.string   "password_digest"
