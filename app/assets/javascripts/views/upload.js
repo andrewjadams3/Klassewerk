@@ -35,6 +35,7 @@ App.WorksheetsNewView = Ember.View.extend({
           $('.file-input-spinner').hide()
           $('.image-upload').hide()
           $('.image-processing').show()
+          $('#submit-button').show()
         },
         error: function(response) {
           $(".file-upload-template").prepend("<div data-alert class='alert-box alert'>Your file could not be uploaded<a class='close'>&times;</a></div>");
@@ -51,6 +52,7 @@ App.WorksheetsNewView = Ember.View.extend({
 
     $('.image-processing').hide()
     $('.file-input-spinner').hide()
+    $('#submit-button').hide()
 
     $('.file-upload-template').on('change', '#file_path', function(e) {
       e.stopPropagation();
@@ -87,9 +89,10 @@ App.WorksheetsNewView = Ember.View.extend({
           $(".file-upload-template").prepend("<div data-alert class='alert-box alert'>An error has occurred; Please resend your image<a class='close'>&times;</a></div>");
           $(document).foundation();
 
-          $('.image-processing .fa-spin').replaceWith('<input type="submit" class="button small" id="submit-button" value="Submit">')
+          $('.file-upload-template>.fa-spin').replaceWith('<input type="submit" class="button small" id="submit-button" value="Submit">')
           $('.image-upload').show()
           $('.image-processing').hide()
+          $('#submit-button').hide()
 
           // Try to reset the file input
           $('input[type=file]').replaceWith('<input id="file_path" type="file" name="file">')
