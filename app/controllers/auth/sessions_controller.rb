@@ -5,7 +5,7 @@ class Auth::SessionsController < ApplicationController
   end
 
   def create_teacher
-    teacher = Teacher.find_by(email: params[:teacher][:email]) if Teacher.exists?(email: params[:teacher][:email])
+    teacher = Teacher.find_by(email: params[:teacher][:email].downcase) if Teacher.exists?(email: params[:teacher][:email].downcase)
     if teacher && teacher.authenticate(params[:teacher][:password])
       session[:user_id] = teacher.id
       session[:user_type] = 'teacher'
@@ -20,7 +20,7 @@ class Auth::SessionsController < ApplicationController
   end
 
   def create_student
-    student = Student.find_by(username: params[:student][:username]) if Student.exists?(username: params[:student][:username])
+    student = Student.find_by(username: params[:student][:username].downcase) if Student.exists?(username: params[:student][:username].downcase)
     if student && student.authenticate(params[:student][:password])
       session[:user_id] = student.id
       session[:user_type] = 'student'
