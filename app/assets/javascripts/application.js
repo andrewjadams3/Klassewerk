@@ -74,3 +74,11 @@ $(function() {
     selectText('class-code')
   });
 });
+
+
+
+DS.Model.reopen({
+  numericId: function() {
+    return parseInt(this.get('id'))
+  }.property('id')
+})
