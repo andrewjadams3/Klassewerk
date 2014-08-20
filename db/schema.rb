@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20140819194218) do
     t.boolean  "submitted"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.json     "grading"
     t.string   "notes"
   end
 

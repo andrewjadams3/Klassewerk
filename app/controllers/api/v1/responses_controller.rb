@@ -30,9 +30,15 @@ class Api::V1::ResponsesController < ApplicationController
     end
   end
 
+  def update
+    response = Response.find(params[:id])
+    response.update_attributes(notes: params[:response][:notes])
+    render json: response
+  end
+
   private
 
   def response_params
-    params.require(:response).permit(:worksheet_id, :answers, :submitted)
+    params.require(:response).permit(:worksheet_id, :answers, :notes, :submitted)
   end
 end
