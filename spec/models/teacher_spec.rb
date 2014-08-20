@@ -29,8 +29,14 @@ RSpec.describe Teacher, :type => :model do
   it { is_expected.to respond_to(:password_digest) }
   it { is_expected.to respond_to(:class_code) }
   it { is_expected.to respond_to(:email) }
+  it { is_expected.to respond_to(:title) }
   
   it { is_expected.to be_valid }
+
+
+  it 'email is lowercased' do
+    expect(@teacher.email).to eq(@teacher.email.downcase)
+  end
 
   it "has no errors" do
     expect(@teacher.errors.messages).to eq({})
@@ -43,6 +49,11 @@ RSpec.describe Teacher, :type => :model do
 
   describe "when the last name is not present" do
     before {@teacher.last_name = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the title is not present" do
+    before {@teacher.title = nil }
     it { is_expected.to_not be_valid }
   end
 
@@ -60,5 +71,6 @@ RSpec.describe Teacher, :type => :model do
     before {@teacher.class_code = nil }
     it { is_expected.to_not be_valid }
   end
+
 
 end

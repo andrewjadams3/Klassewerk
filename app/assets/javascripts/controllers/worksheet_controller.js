@@ -7,17 +7,14 @@ var PostIt = function(board, x, y, width, height) {
   this.height = height;
   this.width = width;
   tags.push(this);
-
-  lastPostIt = this //----------------------
-
   board.append("<div class = 'post-it' id=" + tags.length + "><a><i class='fa fa-times destroy'></i></a></div>");
   this.$elem = $('.post-it').last();
   var position = this.$elem.position();
   this.$elem
     .css('left', this.x)
     .css('top', this.y)
-    .css('height', this.height)
-    .css('width', this.width)
+    .height(this.height)
+    .width(this.width)
     .append("<div class='content'></div>")
     .click(function(e) {
       e.stopPropagation()
@@ -58,7 +55,7 @@ App.WorksheetController = Ember.ObjectController.extend({
           if ($(event.target).is("img")) {
             var x = event.offsetX;
             var y = event.offsetY;
-            if ($('.post-it').last()) {
+            if ($('.post-it').last().width()) {
               var elem = $('.post-it').last()
               new PostIt(
                 $('.post_board').last(),
@@ -67,7 +64,7 @@ App.WorksheetController = Ember.ObjectController.extend({
                 elem.css('width'),
                 elem.css('height'));
             } else {
-              new PostIt($(this), x, y, ".9em", "2em");
+              new PostIt($(this), x, y, "85px", "10px");
             }
           }
         });

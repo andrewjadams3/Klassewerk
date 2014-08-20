@@ -34,4 +34,23 @@ RSpec.describe Worksheet, :type => :model do
     expect(@worksheet.errors.messages).to eq({})
   end
 
+  describe "when teacher is not present" do
+    before { @worksheet.teacher = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when name is not present" do
+    before { @worksheet.name = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when url is not present" do
+    before { @worksheet.url = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when input_fields are not present" do
+    before { @worksheet.input_fields = nil }
+    it { is_expected.to_not be_valid }
+  end
 end

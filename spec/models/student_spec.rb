@@ -35,16 +35,8 @@ RSpec.describe Student, :type => :model do
   it { is_expected.to respond_to(:teacher) }
 
 
-  it 'should have a first_name' do
-    expect(@student.first_name).to eq("Joe")
-  end
-
-  it 'should have a last_name' do
-    expect(@student.last_name).to eq("Webb")
-  end
-
-  it 'should have a username' do
-    expect(@student.username).to eq("imjw")
+  it 'username is lowercased' do
+    expect(@student.username).to eq(@student.username.downcase)
   end
 
   it { is_expected.to be_valid }
@@ -52,5 +44,39 @@ RSpec.describe Student, :type => :model do
     expect(@student.errors.messages).to eq({})
   end
 
-  
+  describe "when the first name is not present" do
+    before {@student.first_name = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the last name is not present" do
+    before {@student.last_name = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the password is not present" do
+    before {@student.password = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the password confirmation is not present" do
+    before {@student.password_confirmation = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the password does not match the password confirmation" do
+    before {@student.password = "123" }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when the teacher / classroom code is not present" do
+    before {
+      @student.teacher = nil 
+      @student.save
+    }
+    it { is_expected.to_not be_valid }
+    it "the error code is 'code is not correct'" do
+      expect(@student.errors.messages).to eq({:teacher=>["/ Class code is incorrect."]})
+    end
+  end
 end
