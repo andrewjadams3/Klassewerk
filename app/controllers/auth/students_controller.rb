@@ -10,7 +10,7 @@ class Auth::StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-    @student.teacher = Teacher.find_by(class_code: params[:class_code])
+    @student.teacher = Teacher.find_by(class_code: params[:class_code].upcase)
     if @student.save
       session[:user_id] = @student.id
       session[:user_type] = 'student'

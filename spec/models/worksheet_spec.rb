@@ -1,26 +1,31 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-#  # create_table "worksheets", force: true do |t|
-#  #    t.string   "url"
-#  #    t.json     "input_fields"
-#  #    t.json     "answer_key"
-#  #    t.datetime "created_at"
-#  #    t.datetime "updated_at"
-#  #  end
+  # create_table "worksheets", force: true do |t|
+  #   t.integer  "teacher_id"
+  #   t.string   "name"
+  #   t.string   "url"
+  #   t.json     "input_fields"
+  #   t.datetime "created_at"
+  #   t.datetime "updated_at"
+  # end
 
-# RSpec.describe Worksheet, :type => :model do
-#   before do
-#     @worksheet = Worksheet.new(:input_fields => {input_fields: "blah"}.to_json, :answer_key => Response.new.to_json)
-#     @worksheet.save
-#   end
+RSpec.describe Worksheet, :type => :model do
+  before do
+    @worksheet = Worksheet.new(
+      teacher: Teacher.new,
+      name: "Math Worksheet",
+      url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
+      input_fields: [{x: "50px", y: "50px", height: "50px", width: "50px"}])
+    @worksheet.save
+  end
 
-#   it { is_expected.to be_valid }
-#   it { expect(@worksheet.errors.messages).to eq({}) }
+  subject(:worksheet) { @worksheet }
+  it { 
+    is_expected.to be_valid 
+  }
 
-#   it 'should store .answer_key and .input_fields as json objects' do
-#     expect(@worksheet.input_fields).to be_a(Hash)
-#     expect(@worksheet.answer_key).to be_a(Hash)
-#   end
-# end
+  it "has no errors" do
+    expect(@worksheet.errors.messages).to eq({})
+  end
 
-
+end
