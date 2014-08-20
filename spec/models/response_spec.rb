@@ -14,8 +14,29 @@ require 'rails_helper'
 RSpec.describe Response, :type => :model do
   before do
     @response = Response.new(
-      student: Student.new,
-      worksheet: Worksheet.new,
+      student: Student.new(:first_name => "Joe", 
+        :last_name => "Webb", 
+        :username => "ImJW", 
+        :password => "Hello", 
+        :password_confirmation => "Hello", 
+        :teacher => Teacher.new(
+          :first_name => "Bill", 
+          :last_name => "Teacher", 
+          :password => "password", 
+          :password_confirmation => "password",
+          :email => "email@email.com", 
+          :class_code => "ABC-456")),
+      worksheet: Worksheet.new(
+        teacher: Teacher.new(
+          :first_name => "Bill", 
+          :last_name => "Teacher", 
+          :password => "password", 
+          :password_confirmation => "password",
+          :email => "email@email.com", 
+          :class_code => "ABC-456"),
+        name: "Math Worksheet",
+        url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
+        input_fields: [{x: "50px", y: "50px", height: "50px", width: "50px"}]),
       answers: [{content: "A flibberty-gibbet"},
             {content: "How appropriate, you fight like a cow."}],
       submitted: true,

@@ -12,7 +12,18 @@ require 'rails_helper'
 
 RSpec.describe Student, :type => :model do
   before do
-    @student = Student.new(:first_name => "Joe", :last_name => "Webb", :username => "ImJW", :password => "Hello", :teacher => Teacher.new)
+    @student = Student.new(:first_name => "Joe", 
+      :last_name => "Webb", 
+      :username => "ImJW", 
+      :password => "Hello", 
+      :password_confirmation => "Hello", 
+      :teacher => Teacher.new(
+        :first_name => "Bill", 
+        :last_name => "Teacher", 
+        :password => "password", 
+        :password_confirmation => "password",
+        :email => "email@email.com", 
+        :class_code => "ABC-456"))
     @student.save
   end
 
@@ -33,7 +44,7 @@ RSpec.describe Student, :type => :model do
   end
 
   it 'should have a username' do
-    expect(@student.username).to eq("ImJW")
+    expect(@student.username).to eq("imjw")
   end
 
   it { is_expected.to be_valid }

@@ -12,7 +12,13 @@ require 'rails_helper'
 RSpec.describe Worksheet, :type => :model do
   before do
     @worksheet = Worksheet.new(
-      teacher: Teacher.new,
+      teacher: Teacher.new(
+        :first_name => "Bill", 
+        :last_name => "Teacher", 
+        :password => "password", 
+        :password_confirmation => "password",
+        :email => "email@email.com", 
+        :class_code => "ABC-456"),
       name: "Math Worksheet",
       url: "http://www.math-aids.com/images/skip-counting-worksheets.png",
       input_fields: [{x: "50px", y: "50px", height: "50px", width: "50px"}])

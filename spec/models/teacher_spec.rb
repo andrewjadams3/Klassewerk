@@ -17,7 +17,7 @@ RSpec.describe Teacher, :type => :model do
       :last_name => "Teacher", 
       :password => "password", 
       :password_confirmation => "password",
-      :email => "email@email.com", 
+      :email => "Email@email.com", 
       :class_code => "ABC-456")
     @teacher.save
   end
