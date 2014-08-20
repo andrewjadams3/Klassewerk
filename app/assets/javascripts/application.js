@@ -32,10 +32,20 @@ App = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true
 });
 
-App.ApplicationView = Em.View.extend({
-  initFoundation: function(){
-   this.$(document).foundation()
- }.on('didInsertElement')
+// App.ApplicationView = Em.View.extend({
+//   initFoundation: function(){
+//     this.$(document).foundation()
+//   }.on('didInsertElement')
+// });
+
+Ember.View.reopen({
+  didInsertElement : function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
+  },
+  afterRenderEvent : function(){
+    Ember.$(document).foundation();
+  }
 });
 
 

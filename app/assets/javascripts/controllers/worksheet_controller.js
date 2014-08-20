@@ -55,7 +55,8 @@ App.WorksheetController = Ember.ObjectController.extend({
         });
       }
       var model = this.get('model')
-      var inputFields = model.get('inputFields')
+      var inputFields = model.get('inputFields') || []
+
       tags = []
       for (i = 0; i < inputFields.length; i++) {
         var field = inputFields[i]
@@ -77,7 +78,7 @@ App.WorksheetController = Ember.ObjectController.extend({
           "width": $post.css('width'),
           "height": $post.css('height')
         }
-        posts.push(post)
+        posts.push(post);
       }
 
       var onSuccess = function(post) {
@@ -89,6 +90,8 @@ App.WorksheetController = Ember.ObjectController.extend({
         $(".alert-box").remove();
         $("#edit-ws-title").prepend("<div data-alert class='alert-box alert'>Uh oh! Something went wrong...<a class='close'>&times;</a></div>");
       };
+
+      if(posts.length == 0) { posts = []; };
 
       model.set('inputFields', posts);
       model.save().then(onSuccess, onFail);
