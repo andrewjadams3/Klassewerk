@@ -57,8 +57,28 @@ RSpec.describe Response, :type => :model do
     expect(@response.errors.messages).to eq({})
   end
 
-  it 'should belong to a student and a worksheet' do
-    expect(@response.student).to be_a(Student)
-    expect(@response.worksheet).to be_a(Worksheet)
+  describe "when a student is not present" do
+    before { @response.student = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when a worksheet is not present" do
+    before { @response.worksheet = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when answers are not present" do
+    before { @response.answers = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when submitted is not present" do
+    before { @response.submitted = nil }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "when notes are not present" do
+    before { @response.notes = nil }
+    it { is_expected.to be_valid }
   end
 end
