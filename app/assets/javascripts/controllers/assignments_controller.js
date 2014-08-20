@@ -3,5 +3,6 @@
 // })
 
 Ember.ArrayController.reopen({
-  sortAscending: false
+  sortAscending: false,
+  sortProperties: ['numericId']
 })
