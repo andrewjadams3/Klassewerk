@@ -6,12 +6,14 @@ App.WorksheetsNewView = Ember.View.extend({
     var router = this.get('controller.target.router');
 
     $('.image-processing').hide()
+    $('.file-input-spinner').hide()
 
     $('#ember-app').on('change', '#file_path', function(e) {
       var files, formData, i
       e.preventDefault();
 
-      $('#upload-button').replaceWith('<i class="fa fa-spinner fa-spin fa-2x"></i>')
+      $('.file-input-container').hide()
+      $('.file-input-spinner').show()
 
       files = document.getElementById('file_path').files
       formData = new FormData();
@@ -31,14 +33,16 @@ App.WorksheetsNewView = Ember.View.extend({
         success: function(params) {
           $('.thumbnail img').attr('src', "/" + params['filename'])
           $('input[name=filename]').val(params['filename'])
-          $('.fa-spin').replaceWith('<button type="submit" class="button" id="upload-button">Upload <i class="fa fa-upload"></i></button>')
+          $('.file-input-container').show()
+          $('.file-input-spinner').hide()
           $('.image-upload').hide()
           $('.image-processing').show()
         },
         error: function(response) {
           alert("The file could not be uploaded")
           console.log(response)
-          $('.fa-spin').replaceWith('<button type="submit" class="button" id="upload-button">Upload <i class="fa fa-upload"></i></button>')
+          $('.file-input-container').show()
+          $('.file-input-spinner').hide()
 
           // Try to reset the file input
           $('input[type=file]').replaceWith('<input id="file_path" type="file" name="file">')
@@ -67,7 +71,7 @@ App.WorksheetsNewView = Ember.View.extend({
         },
         error: function(response) {
           alert("An error has occurred; Please resend your image")
-          $('.fa-spin').replaceWith('<input type="submit" class="button small" id="submit-button" value="Submit">')
+          $('.image-processing .fa-spin').replaceWith('<input type="submit" class="button small" id="submit-button" value="Submit">')
           $('.image-upload').show()
           $('.image-processing').hide()
 

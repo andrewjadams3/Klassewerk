@@ -98,7 +98,7 @@ ul#board_list li.active {
   margin: 10px 0 10px;
 }
 
-.file-input-container {
+.file-input-container, .file-input-spinner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -119,10 +119,11 @@ ul#board_list li.active {
   filter: Alpha(Opacity=0);
 }
 
-.file-input-container .drop_image {
+.file-input-container div, .file-input-spinner {
   border: 2px dotted #3498db;
-  padding: 100px;
+  padding: 90px 0;
   width: 100%;
+  height: 250px;
   display: inline-block; 
   vertical-align: middle;
   margin: 0 4px 0 0;
