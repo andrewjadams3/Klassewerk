@@ -55,7 +55,7 @@ App.CreateResponseController = Ember.ObjectController.extend({
 
       var onFail = function(response) {
         $(".alert-box").remove();
-        $(".submit-ws").before("<div data-alert class='alert-box alert'>Uh oh! Something went wrong...<a class='close'>&times;</a></div>");
+        $(".alert-div").before("<div data-alert class='alert-box alert'>Uh oh! Something went wrong...<a class='close'>&times;</a></div>");
       };
       console.log(this)
       responseRecord.save().then(onSuccess, onFail);
