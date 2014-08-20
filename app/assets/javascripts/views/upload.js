@@ -39,6 +39,9 @@ App.WorksheetsNewView = Ember.View.extend({
           alert("The file could not be uploaded")
           console.log(response)
           $('.fa-spin').replaceWith('<button type="submit" class="button" id="upload-button">Upload <i class="fa fa-upload"></i></button>')
+
+          // Try to reset the file input
+          $('input[type=file]').replaceWith('<input id="file_path" type="file" name="file">')
         }
       })
     })
@@ -67,6 +70,9 @@ App.WorksheetsNewView = Ember.View.extend({
           $('.fa-spin').replaceWith('<input type="submit" class="button small" id="submit-button" value="Submit">')
           $('.image-upload').show()
           $('.image-processing').hide()
+
+          // Try to reset the file input
+          $('input[type=file]').replaceWith('<input id="file_path" type="file" name="file">')
         }
       })
     }); // upload finction
