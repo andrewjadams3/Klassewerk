@@ -60,11 +60,11 @@ class UploadController < ApplicationController
 
       upload_to_s3(filename)
 
-      params['name'] = "New Worksheet" if params['name'].strip == ""
+      params['name'] = "Untitled" if params['name'].strip == ""
 
       worksheet = Worksheet.create(
         url: S3_HEADER + filename, 
-        name: params['name'].strip||"New Worksheet", 
+        name: params['name'].strip, 
         input_fields: [],
         teacher_id: current_teacher.id
       )
