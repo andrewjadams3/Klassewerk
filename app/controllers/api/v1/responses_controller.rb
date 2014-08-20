@@ -22,7 +22,6 @@ class Api::V1::ResponsesController < ApplicationController
   end
 
   def create
-    puts params
     response = Response.new(worksheet_id: params[:response][:worksheet_id], student: current_student, answers: params[:response][:answers], submitted: params[:response][:submitted])
     if response.save
       render json: response
