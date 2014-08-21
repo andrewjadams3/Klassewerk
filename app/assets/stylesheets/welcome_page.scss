@@ -24,11 +24,14 @@
 #about-us {
   color: white;
   background-color: black;
+  background-image: url(/images/joe-hands.jpg);
+  background-size: cover;
   h1 {
     color: white;
   }
-  background-image: url(/images/joe-hands.jpg);
-  background-size: cover;
+  p {
+    font-size: 1.3em;
+  }
 }
 
 .info {
