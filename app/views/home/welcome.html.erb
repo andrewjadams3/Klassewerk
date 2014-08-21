@@ -5,122 +5,133 @@
   })
 </script>
 
-<section>
-<meta name="viewport" content="width=device-width, user-scalable=no">
+<div id="welcome-container">
+  <section>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">Klassewerk</a></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
+    <div class="contain-to-grid sticky">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">Klassewerk</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li><a href="#">Log In</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Team</a></li>
-    </ul>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Team</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
   </section>
-</nav>
 
-</section>
-
-<section id="hero">
-  <div class="row text-center full-width">
-    <div class="medium-8 columns small-centered">
-      <h1 id="title">Klassewerk</h1> 
-      <h4 id="tagline">A simple worksheet app for teachers and students.</h4>
-    </div>
-  </div>
-
-  <div class="row buttons">
-    <div class="medium-8 columns small-centered">
-      <div class="row">
-        <div class="medium-6 columns text-center">
-          <h3>Students</h3>
-          <a href="/auth/student_login" class="button full-width">Student Log In</a>
-          <a href="/auth/student_signup" class="button success full-width">New Student</a>
-        </div>
-        <div class="medium-6 columns text-center">
-          <h3>Teachers</h3>
-          <a href="/auth/teacher_login" class="button full-width">Teacher Log In</a>
-          <a href="/auth/teacher_signup" class="button success full-width">New Teacher</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row" id="read-more">
-    <div class="medium-8 columns small-centered text-center">
-      <a href="#">
-        <i class="fa fa-arrow-circle-o-down"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="about-us">
-  <div class="row text-center full-width">
-
-    <div class="row">
+  <section id="hero">
+    <div class="row text-center full-width">
       <div class="medium-8 columns small-centered">
-        <h1 id="title">About</h1> 
+        <h1 id="title">Klassewerk</h1> 
+        <h4 id="tagline">A simple worksheet app for teachers and students.</h4>
       </div>
     </div>
 
-  </div>
-</section>
+    <div class="row buttons">
+      <div class="small-10 medium-8 columns small-centered">
+        <div class="row">
+          <div class="medium-6 columns text-center">
+            <h3>Students</h3>
+            <a href="/auth/student_login" class="button full-width">Student Log In</a>
+            <a href="/auth/student_signup" class="button success full-width">New Student</a>
+          </div>
+          <div class="medium-6 columns text-center">
+            <h3>Teachers</h3>
+            <a href="/auth/teacher_login" class="button full-width">Teacher Log In</a>
+            <a href="/auth/teacher_signup" class="button success full-width">New Teacher</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<section id="team-members">
-  <div class="row text-center full-width">
-    <div class="medium-8 columns small-centered"
+    <div class="row" id="learn-more">
+      <div class="medium-8 columns small-centered text-center">
+        <a href="#"><i class="fa fa-arrow-down"></i></a>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-us" class="info">
+    <div class="row text-center full-width">
+
+      <div class="row">
+        <div class="small-10 medium-8 columns small-centered">
+          <h1>About</h1> 
+          <p>
+            Klassewerk is a platform for teachers to upload and modify traditional paper worksheets and immediately share them with their students via a web interface. Once a student completes a worksheet, teachers are able to view their responses and provide instant feedback.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="team-members" class="info">
+    <div class="row text-center full-width">
+      <div class="medium-10 columns small-centered">
+
+        <div class="row">
+          <div class="small-12 columns small-centered">
+            <h1>Development Team</h1> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="medium-3 large-3 columns">
+            <div class="gravatar">
+              <img src="http://www.gravatar.com/avatar/5591d19f8a18d8147b479d097b5c5f07?s=125">
+            </div>
+            Andrew Adams<br>
+            <i class="fa fa-github-square fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-envelope-square fa-lg"></i>
+          </div>
+          <div class="medium-3 large-3 columns">
+            <div class="gravatar">
+              <img src="http://www.gravatar.com/avatar/68a6ea2af4093f267572e51a089d2cc7?s=125">
+            </div>
+            Joe Webb<br>
+            <i class="fa fa-github-square fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-envelope-square fa-lg"></i>
+          </div>
+          <div class="medium-3 large-3 columns">
+            <div class="gravatar">
+              <img src="http://www.gravatar.com/avatar/d59e426e175212e4fbc63df1f2d1fa17?s=125">
+            </div>
+            Adrian Tawadros<br>
+            <i class="fa fa-github-square fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-envelope-square fa-lg"></i>
+          </div>
+          <div class="medium-3 large-3 columns">
+            <div class="gravatar">
+              <img src="http://www.gravatar.com/avatar/22830408b5fa8f83a68b68aa978ff831?s=125">
+            </div>
+            Spencer Zhang<br>
+            <i class="fa fa-github-square fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-envelope-square fa-lg"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="row text-center full-width">
 
       <div class="row">
         <div class="medium-8 columns small-centered">
-          <h1 id="title">Team</h1> 
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="medium-6 large-3 columns">
-          Picture 1
-        </div>
-        <div class="medium-6 large-3 columns">
-          Picture 2
-        </div>
-        <div class="medium-6 large-3 columns">
-          Picture 3
-        </div>
-        <div class="medium-6 large-3 columns">
-          Picture 4
+          <span>Copyright © 2014 Klassewerk</span> 
         </div>
       </div>
 
     </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </footer>
+</div>
