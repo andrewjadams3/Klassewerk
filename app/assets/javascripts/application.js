@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery-ui/draggable
+//= require jquery-ui/droppable
+//= require jquery-ui/resizable
 //= require jquery_ujs
 //= require jquery.ui.touch-punch
 //= require handlebars
