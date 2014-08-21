@@ -50,7 +50,7 @@ RSpec.describe Worksheet, :type => :model do
   end
 
   describe "when input_fields are not present" do
-    before { @worksheet.input_fields = nil }
-    it { is_expected.to_not be_valid }
+    before { @worksheet.input_fields = [] }
+    it { is_expected.to be_valid }
   end
 end
