@@ -38,7 +38,7 @@ Elementary and middle-school level teachers/students who have access to tablet t
 ##Contributing Members:
 
 - **Andrew Adams** *Professor* ([Email](mailto:andrewjadams3@gmail.com), [GitHub](https://github.com/andrewjadams3))
-- **Adrian Tawadros** *The Muscle* ([Email](mailto:adriantawadros@gmail.com), [GitHub](https://github.com/Adrian2014))
+- **Adrian Tawadros** *Director of International Affairs* ([Email](mailto:adriantawadros@gmail.com), [GitHub](https://github.com/Adrian2014))
 - **Joe Webb** *German Engineer* ([Email](mailto:imjoewebb@gmail.com), [GitHub](https://github.com/ImJoeWebb))
 - **Spencer Zhang** *Super Genius* ([Email](mailto:syz4@cornell.edu), [GitHub](https://github.com/Spencer-Zhang))
 
