@@ -4,7 +4,7 @@ View a live demonstration at http://klassewerk.herokuapp.com/
 
 ##App Background:
 
-Thousands of K-12 schools have recently adopted tablet technology to better accomodate student learning. Teachers who already have set curriculum often rely on paper assignments, and need a way to transfer their documents to a digital platform that is accessible to their students. Klassewerk provides a way for teachers to upload and modify existing worksheets, and then immediately share them with their students via a web interface. Once a student completes a worksheet, teachers are able to view their responses and provide instant feedback.
+Thousands of K-12 schools have recently adopted tablet technology to better accommodate student learning. Teachers who already have set curriculum often rely on paper assignments, and need a way to transfer their documents to a digital platform that is accessible to their students. Klassewerk provides a way for teachers to upload and modify existing worksheets, and immediately share them with their students via a web interface. Once a student completes a worksheet, teachers are able to view their responses and provide instant feedback.
 
 ##Features:
 
@@ -16,7 +16,7 @@ Thousands of K-12 schools have recently adopted tablet technology to better acco
 - Teachers are shown a welcome page which will allow them to upload their paper-bound curriculum and assignments.
 - Teachers are then able to assign their uploaded documents to their students.
 - Teachers are also able to view assignments which students have completed, and provide individual feedback.
-- Students are able to view assigments and curriculum information via a seperate application.
+- Students are able to view assignments and curriculum information via a separate application.
 - Students are able to complete assignments, which they can then submit for review and feedback.
   
 
