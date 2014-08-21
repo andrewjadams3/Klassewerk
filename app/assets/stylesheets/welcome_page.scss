@@ -2,6 +2,12 @@
   width: 100%
 }
 
+#welcome-container {
+  h1, h3 {
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
 #hero {
   min-height: 100%;
 
@@ -35,11 +41,14 @@ footer {
   background-color: #333333;
 }
 
-#welcome-container {
-  h1, h3 {
-    font-family: 'Raleway', sans-serif;
+.gravatar {
+  margin: 20px 0;
+  img {
+    border-radius: 50%;
+    overflow: hidden;
   }
 }
+
 
 @media only screen {
 
