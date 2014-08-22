@@ -24,7 +24,7 @@ class Auth::TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:teacher).permit(:first_name, :title, :last_name, :email, :password, :password_confirmation)
   end
 
   def random_code
