@@ -5,6 +5,14 @@
 <script>
   $(function() {
     $(document).foundation();
+
+    $('#scrolldown').click(function() {
+      $('html, body').animate({ scrollTop:  $('#about-us').offset().top - 40 }, 'fast');
+    })
+
+    $('#scrollup').click(function() {
+      $('html, body').animate({ scrollTop:  0 }, 'fast');
+    })
   })
 </script>
 
@@ -24,9 +32,8 @@
         <section class="top-bar-section">
           <!-- Right Nav Section -->
           <ul class="right">
-            <li><a href="#">Log In</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Team</a></li>
+            <li><a id="scrollup" href="#">Log In</a></li>
+            <li><a id="scrolldown" href="#">About</a></li>
           </ul>
         </section>
       </nav>
@@ -59,7 +66,7 @@
     </div>
 
     <div class="row" id="learn-more">
-      <div class="medium-8 columns small-centered text-center">
+      <div class="medium-8 columns small-centered text-center" id="scrolldown">
         <a href="#"><i class="fa fa-arrow-down"></i></a>
         </a>
       </div>
