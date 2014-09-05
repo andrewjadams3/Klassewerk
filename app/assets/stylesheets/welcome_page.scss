@@ -2,36 +2,61 @@
   width: 100%
 }
 
+#welcome-container {
+  h1, h3 {
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
 #hero {
   min-height: 100%;
 
-  #read-more {
+  #learn-more {
     position: relative;
-    bottom: 0;
+    padding: 30px 0;
     font-size: 3em;
-    a{
+    a {
       color: black;
     }
   }
 }
 
-#team-members {
+#about-us {
   color: white;
   background-color: black;
+  background-image: url(/images/joe-hands.jpg);
+  background-size: cover;
   h1 {
     color: white;
   }
-  background-image: url(/images/joe-hands.jpg);
+  p {
+    font-size: 1.3em;
+  }
 }
 
-h1, h3 {
-  font-family: 'Raleway', sans-serif;
+.info {
+  padding: 20px 0;
 }
+
+footer {
+  color: white;
+  font-size: .7em;
+  background-color: #333333;
+}
+
+.gravatar {
+  margin: 20px 0;
+  img {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+
 
 @media only screen {
 
   #hero {
-    padding-top: 20px;
+    padding-top: 15px;
     h1 {
       font-family: 'Raleway', sans-serif;
       font-size: 3em;
@@ -43,7 +68,7 @@ h1, h3 {
 @media only screen and (min-width: 40.063em) {
 
   #hero {
-    padding-top: 40px;
+    padding-top: 20px;
     h1 {
       font-size: 5em;
       margin-bottom: 0;
@@ -58,9 +83,9 @@ h1, h3 {
 @media only screen and (min-width: 64.063em) { 
 
   #hero {
-    padding-top: 50px;
+    padding-top: 20px;
     h1 {
-      font-size: 7em;
+      font-size: 6em;
     }
     #tagline {
       margin-bottom: 30px;
